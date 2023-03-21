@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+
+
+</head>
+
+<h1>
+    <center>
+    Simulador de Frete Maritmo 
+</center>
+
+</h1>
+
+<body>
+    <Div style="
+    display: flex;">
+
+        <div style="margin-top: 15%; margin-left: 25%;   display: inline-block; ">
+
+            Local de Destino: <br> <input id="input_destino" placeholder="Ex: Brasil"> <br>
+
+            Local de Origem: <br> <input id="input_origem" placeholder="Ex: China"> <br>
+
+            Distancia: <br> <input id="input_distancia" placeholder="Km"> <br>
+
+            Quantidade contêiners: <br> <input id="quantidade_conteiner"><br>
+
+            Modelo do contêiner <br> <strong>(Legenda: <br> 20'Stardart = 1 <br> 40'Standard = 2; <br>Freezer
+                contêiners= 3.)</strong>: <br> <input id="input_modelo" placeholder="Ex: 1"> <br>
+
+            Peso por contêiner: <br> <input id="input_peso" placeholder="Kg"> <br>
+
+            Volume: <br> <input id="input_volume" placeholder="M³"> <br>
+            <button onclick="calcule()">Simular</button>
+
+        </div>
+
+        <div style="margin-top: 15%; margin-left: 20%;  display: inline-block;">
+            <div id="div_resposta"></div>
+            <div id="div_concorrente1"></div> <br>
+            <div id="div_concorrente2"></div> <br>
+            <div id="div_meu"></div> <br>
+        </div>
+
+
+    </Div>
+</body>
+
+</html>
+
+<script>
+    function calcule() {
+        var destino = input_destino.value;
+
+        var origem = input_origem.value;
+
+        var modelo = input_modelo.value;
+
+        var peso = Number(input_peso.value);
+
+        var volume = Number(input_volume.value);
+
+        var num_conteiners = Number(quantidade_conteiner.value)
+
+        var distancia = Number(input_distancia.value)
+
+
+
+        var custo_aluguel = num_conteiners * 15;
+
+        var custo_manuseio = num_conteiners * 200;
+
+        var custo_manutencao = num_conteiners * 15;
+
+        var taxas_origem = 15 * volume + 55 + 75 + 15 + 605;
+
+        var taxa_destino = (6 * volume) + 75 + 769;
+
+        var valor_frete = (custo_aluguel + custo_manuseio + custo_manutencao) * volume;
+
+        var total = valor_frete + taxa_destino + taxas_origem;
+
+
+        if (modelo == 1) {
+            div_resposta.innerHTML =
+                `O Seu Frete Saindo do/a ${origem} para o/a ${destino} em um modelo 20'Standard ficará: <br>`
+        }
+        
+        if (modelo == 2) {
+            div_resposta.innerHTML =
+                `O Seu Frete Saindo do/a ${origem} para o/a ${destino} em um modelo 40'Standard ficará:`
+        }
+        
+        if (modelo == 3) {
+            div_resposta.innerHTML =
+                `O Seu Frete Saindo do/a ${origem} para o/a ${destino} em um modelo Freezer ficará:`
+        }
+
+
+        if (distancia >= 10000) {
+
+            if (modelo == 1) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${total + (total / 100 * 30 )}<br><br>` ;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${total + (total / 100 * 15)}<br><br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${total }<br><br>`;
+
+
+            }
+
+            if (modelo == 2) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${total + (total / 100 * 45 )}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${ total + (total / 100 * 30)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${total + (total / 100 * 15)}<br>`;
+            }
+            if (modelo == 3) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${total + (total / 100 * 60 )}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${total + (total / 100 * 45)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${total + (total / 100 * 30)}<br>`;
+
+            }
+        }
+
+        if (distancia >= 5000 && distancia < 10000) {
+
+            if (modelo == 1) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${(total + (total / 100 * 30 )) / 100 * 90 }<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${(total + (total / 100 * 15)) / 100 * 90}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${total / 100 * 90}<br>`;
+
+
+            }
+
+            if (modelo == 2) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${(total + (total / 100 * 45 )) / 100 * 90}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${(total + (total / 100 * 30)) / 100 * 90}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${(total + (total / 100 * 15)) / 100 * 90}<br>`;
+            }
+            if (modelo == 3) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${(total + (total / 100 * 60 )) / 100 * 90}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${(total + (total / 100 * 45)) / 100 * 90}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${(total + (total / 100 * 30)) / 100 * 90}<br>`;
+
+            }
+        }
+
+        if (distancia < 5000) {
+
+            if (modelo == 1) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${(total + (total / 100 * 30)) / 100 * 80 }<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${(total + (total / 100 * 15)) / 100 * 80}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${total / 100 * 80}<br>`;
+
+
+            }
+
+            if (modelo == 2) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${(total + (total / 100 * 45 )) / 100 * 80}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${(total + (total / 100 * 30)) / 100 * 80}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${(total + (total / 100 * 15)) / 100 * 80}<br>`;
+            }
+            if (modelo == 3) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com a importação do seu contêiner fica US$:${(total + (total / 100 * 60 )) / 100 * 80}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação a importação do seu contêiner fica US$:${(total + (total / 100 * 45)) / 100 * 80}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides a importação do seu contêiner fica US$:${(total + (total / 100 * 30)) / 100 * 80}<br>`;
+
+            }
+        }
+
+    }
+</script>

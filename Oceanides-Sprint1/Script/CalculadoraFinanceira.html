@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+
+
+</head>
+
+<h1>
+    <center>
+    Simulador de Frete Maritmo 
+</center>
+
+</h1>
+
+<body>
+    <Div style="
+    display: flex;">
+
+        <div style="margin-top: 15%; margin-left: 25%;   display: inline-block; ">
+
+            Local de Destino: <br> <input id="input_destino" placeholder="Ex: Brasil"> <br>
+
+            Local de Origem: <br> <input id="input_origem" placeholder="Ex: China"> <br>
+
+            Distância: <br> <input id="input_distancia"> <br>
+
+            Quantidade contêiners: <br> <input id="quantidade_conteiner"><br>
+
+            Valor total da carga: <br> <input id="input_carga" placeholder="R$"> <br>
+
+            Modelo do contêiner: <br>
+
+            <button onclick="calc()">20'Standard</button><br>
+            <button onclick="calc2()">40'Standard</button><br>
+            <button onclick="calc3()">Freezer contêineres</button>
+
+        </div>
+
+        <div style="margin-top: 15%; margin-left: 20%;  display: inline-block;">
+            <div id="div_resposta"></div>
+        </div>
+
+
+    </Div>
+</body>
+
+</html>
+
+<script>
+    
+    function calc() {
+
+        var destino = input_destino.value;
+        var origem = input_origem.value;
+        var distancia = Number(input_distancia.value);
+        var num_conteiners = Number(quantidade_conteiner.value);
+        var valorcarga = Number(input_carga.value);
+        var valormaterial = 10000;
+        var qtdsensor = 2;
+        var preju = 0;
+        var prejus = 0;
+        var valorservico = num_conteiners * valormaterial * qtdsensor;
+
+
+        if (distancia >= 16000){
+            var preju = valorcarga - (valorcarga * 0.56);
+            var prejus = preju / 2.5;
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 9600 && distancia < 16000){
+            var preju = valorcarga - (valorcarga * 0.736);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 7300 && distancia < 9600){
+            var preju = valorcarga - (valorcarga * 0.824);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 3000 && distancia < 7300){
+            var preju = valorcarga - (valorcarga * 0.912);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 1000 && distancia < 3000){
+            var preju = valorcarga - (valorcarga * 0.956);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 1000){
+            var preju1 = valorcarga - (valorcarga * 0.56);
+                var prejus1 = preju1 / 2.5; 
+            var preju2 = valorcarga - (valorcarga * 0.736);
+                var prejus2 = preju2 / 2.5; 
+            var preju3 = valorcarga - (valorcarga * 0.824);
+                var prejus3 = preju3 / 2.5; 
+            var preju4 = valorcarga - (valorcarga * 0.912);
+                var prejus4 = preju4 / 2.5; 
+            var preju5 = valorcarga - (valorcarga * 0.956);
+                var prejus5 = preju5 / 2.5; 
+
+        div_resposta.innerHTML += `Em uma viagem maior que 16000km, o prejuízo seria de <b>R$${preju1}</b>, 
+        com os nossos serviços será de até <b>R$${prejus1}</b>. <br>
+        Em uma viagem entre 9600km e 16000km, o prejuízo seria de <b>R$${preju2}</b>, 
+        com os nossos serviços será de até <b>R$${prejus2}</b>. <br>
+        Em uma viagem entre 7300km e 9600km, o prejuízo seria de <b>R$${preju3}</b>, 
+        com os nossos serviços será de até <b>R$${prejus3}</b>. <br>
+        Em uma viagem entre 3000km e 7300km, o prejuízo seria de <b>R$${preju4}</b>, 
+        com os nossos serviços será de até <b>R$${prejus4}</b>. <br>
+        Em uma viagem entre 1000km e 3000km, o prejuízo seria de <b>R$${preju5}</b>, 
+        com os nossos serviços será de até <b>R$${prejus5}</b>. <br>`
+        }
+        if (distancia < 1000){
+                    div_resposta.innerHTML = `Esse trajeto é muito curto, favor digitar algum valor acima de 1.000km.`
+
+        }
+}
+
+        
+
+
+        function calc2(){
+            var destino = input_destino.value;
+        var origem = input_origem.value;
+        var distancia = Number(input_distancia.value);
+        var num_conteiners = Number(quantidade_conteiner.value);
+        var valorcarga = Number(input_carga.value);
+        var valormaterial = 12500;
+        var qtdsensor = 4;
+        var preju = 0;
+        var prejus = 0;
+        var valorservico = num_conteiners * valormaterial * qtdsensor;
+
+
+        if (distancia >= 16000){
+            var preju = valorcarga - (valorcarga * 0.56);
+            var prejus = preju / 2.5;
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 9600 && distancia < 16000){
+            var preju = valorcarga - (valorcarga * 0.736);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 7300 && distancia < 9600){
+            var preju = valorcarga - (valorcarga * 0.824);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 3000 && distancia < 7300){
+            var preju = valorcarga - (valorcarga * 0.912);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 1000 && distancia < 3000){
+            var preju = valorcarga - (valorcarga * 0.956);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+        
+        if(distancia >= 1000){
+
+            var preju1 = valorcarga - (valorcarga * 0.56);
+                var prejus1 = preju1 / 2.5; 
+            var preju2 = valorcarga - (valorcarga * 0.736);
+                var prejus2 = preju2 / 2.5; 
+            var preju3 = valorcarga - (valorcarga * 0.824);
+                var prejus3 = preju3 / 2.5; 
+            var preju4 = valorcarga - (valorcarga * 0.912);
+                var prejus4 = preju4 / 2.5; 
+            var preju5 = valorcarga - (valorcarga * 0.956);
+                var prejus5 = preju5 / 2.5;
+
+            div_resposta.innerHTML += `Em uma viagem maior que 16000km, o prejuízo seria de <b>R$${preju1}</b>, 
+                com os nossos serviços será de até <b>R$${prejus1}</b>. <br>
+                Em uma viagem entre 9600km e 16000km, o prejuízo seria de <b>R$${preju2}</b>, 
+                com os nossos serviços será de até <b>R$${prejus2}</b>. <br>
+                Em uma viagem entre 7300km e 9600km, o prejuízo seria de <b>R$${preju3}</b>, 
+                com os nossos serviços será de até <b>R$${prejus3}</b>. <br>
+                Em uma viagem entre 3000km e 7300km, o prejuízo seria de <b>R$${preju4}</b>, 
+                com os nossos serviços será de até <b>R$${prejus4}</b>. <br>
+                Em uma viagem entre 1000km e 3000km, o prejuízo seria de <b>R$${preju5}</b>, 
+                com os nossos serviços será de até <b>R$${prejus5}</b>. <br>`
+        }
+
+        if (distancia < 1000){
+                    div_resposta.innerHTML = `Esse trajeto é muito curto, favor digitar algum valor acima de 1.000km.`    
+        }
+    }
+
+        function calc3(){
+            var destino = input_destino.value;
+        var origem = input_origem.value;
+        var distancia = Number(input_distancia.value);
+        var num_conteiners = Number(quantidade_conteiner.value);
+        var valorcarga = Number(input_carga.value);
+        var valormaterial = 15000;
+        var qtdsensor = 8;
+        var preju = 0;
+        var prejus = 0;
+        var valorservico = num_conteiners * valormaterial * qtdsensor;
+
+
+        if (distancia >= 16000){
+            var preju = valorcarga - (valorcarga * 0.56);
+            var prejus = preju / 2.5;
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 9600 && distancia < 16000){
+            var preju = valorcarga - (valorcarga * 0.736);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 7300 && distancia < 9600){
+            var preju = valorcarga - (valorcarga * 0.824);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 3000 && distancia < 7300){
+            var preju = valorcarga - (valorcarga * 0.912);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 1000 && distancia < 3000){
+            var preju = valorcarga - (valorcarga * 0.956);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor do serviço contratado é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, você poderia ter um prejuízo de até <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if(distancia >= 1000){
+
+            var preju1 = valorcarga - (valorcarga * 0.56);
+                var prejus1 = preju1 / 2.5; 
+            var preju2 = valorcarga - (valorcarga * 0.736);
+                var prejus2 = preju2 / 2.5; 
+            var preju3 = valorcarga - (valorcarga * 0.824);
+                var prejus3 = preju3 / 2.5; 
+            var preju4 = valorcarga - (valorcarga * 0.912);
+                var prejus4 = preju4 / 2.5; 
+            var preju5 = valorcarga - (valorcarga * 0.956);
+                var prejus5 = preju5 / 2.5;
+
+            div_resposta.innerHTML += `Em uma viagem maior que 16000km, o prejuízo seria de <b>R$${preju1}</b>, 
+                com os nossos serviços será de até <b>R$${prejus1}</b>. <br>
+                Em uma viagem entre 9600km e 16000km, o prejuízo seria de <b>R$${preju2}</b>, 
+                com os nossos serviços será de até <b>R$${prejus2}</b>. <br>
+                Em uma viagem entre 7300km e 9600km, o prejuízo seria de <b>R$${preju3}</b>, 
+                com os nossos serviços será de até <b>R$${prejus3}</b>. <br>
+                Em uma viagem entre 3000km e 7300km, o prejuízo seria de <b>R$${preju4}</b>, 
+                com os nossos serviços será de até <b>R$${prejus4}</b>. <br>
+                Em uma viagem entre 1000km e 3000km, o prejuízo seria de <b>R$${preju5}</b>, 
+                com os nossos serviços será de até <b>R$${prejus5}</b>. <br>`
+        }
+        if (distancia < 1000){
+                    div_resposta.innerHTML = `Esse trajeto é muito curto, favor digitar algum valor acima de 1.000km.`
+
+        }
+    }
+</script>

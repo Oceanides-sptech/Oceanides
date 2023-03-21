@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body class="corpo" style="background-image:url(./guillaume-bolduc-uBe2mknURG4-unsplash.jpg); 
+background-repeat: no-repeat; 
+background-size: cover;
+background-position: center; 
+">
+
+    <h1 class="h1"
+        style="  background-color: #010024; 
+        margin-top: -1%; 
+        margin-left: -1%; 
+        margin-right: -8px; 
+        height: 120px;color: #ffffff; 
+        padding: 20px; 
+        text-align: center; font-family: 'Times New Roman', Times, serif;">
+        
+            Simulador de Frete Maritmo <br>
+            <u> So a Oceânides garante os melhores preços!</u>
+    
+            <img class="logo" style="width: 150px; 
+            right: 150px; 
+            margin-left: 90%; 
+            margin-top: -90px;" 
+            src="./Imagem do WhatsApp de 2023-03-03 à(s) 09.30.31.jpg" alt="">
+        </h1>
+
+   
+
+    <Div class="divpai" style="
+    display: flex;">
+
+        <div class="divfilho" style="margin-top: 5%;
+        margin-left: 15%;
+        display: inline-block;
+         background-color: #2D8BBA; 
+         height: 480px;
+        width: 350px;
+         border-radius: 30px;  "> 
+
+            <div class="divneto" style="width: 80%;
+            margin: 0 auto;
+             margin-top: 10px; 
+             font-size: 20px;"> 
+
+                Local de Destino: <br> <input class="destino" id="input_destino" placeholder="  Ex: Brasil" style="width: 90%; border-radius: 20px;border: none; "> <br>
+
+                Local de Origem: <br> <input class="origem" id="input_origem" placeholder="  Ex: China" style="width: 90%;border-radius: 20px;border: none;"> <br>
+
+                Distancia: <br> <input class="distancia" id="input_distancia" placeholder="  Km" style="width: 90%;border-radius: 20px;border: none;"> <br>
+
+                Quantidade Containers: <br> <input class="quantidade" id="quantidade_conteiner" style="width: 90%;border-radius: 20px;border: none;"><br>
+
+                Peso por contêiner: <br> <input class="peso" id="input_peso" placeholder="  Kg" style="width: 90%;border-radius: 20px;border: none;"> <br>
+
+                Volume: <br> <input id="input_volume" placeholder="  M³" style="width: 90%;border-radius: 20px;border: none;"> <br>
+
+                Insira o modelo do contêiner <br>
+                <strong>(Legenda: <br> 20'Stardart = 1 <br> 40'Standard = 2;
+                    <br>Freezer
+                    Containers= 3.)</strong>:
+                <br> <input class="modelo" id="input_modelo" placeholder="  Ex: 1" style="width: 90%;border-radius: 20px; border: none;">
+                <br>
+
+                <button onclick="calcule()">Simular</button>
+            </div>
+        </div>
+
+        <div id="div_resposta2" class="resposta" style="margin-top: 5%; margin-left: 100px;">
+            <img src="./Imagem do WhatsApp de 2023-03-03 à(s) 09.30.31.jpg" alt="" style="opacity: 0.8; border-radius: 20px;">
+        </div>
+
+    </Div>
+
+    <div class="rodape" style="background-color: rgb(4, 4, 4); width: 1350px; height: 50px; margin-top: 100px; margin-left: -10px; position: absolute;"></div>
+</body>
+</html>
+
+<script>
+    function calcule() {
+        var destino = input_destino.value;
+
+        var origem = input_origem.value;
+
+        var modelo = input_modelo.value;
+
+        var peso = Number(input_peso.value);
+
+        var volume = Number(input_volume.value);
+
+        var num_conteiners = Number(quantidade_conteiner.value)
+
+        var distancia = Number(input_distancia.value)
+
+
+
+        var custo_aluguel = num_conteiners * 15;
+
+        var custo_manuseio = num_conteiners * 200;
+
+        var custo_manutencao = num_conteiners * 15;
+
+        var taxas_origem = 15 * volume + 55 + 75 + 15 + 605;
+
+        var taxa_destino = (6 * volume) + 75 + 769;
+
+        var valor_frete = (custo_aluguel + custo_manuseio + custo_manutencao) * volume;
+
+        var total = valor_frete + taxa_destino + taxas_origem;
+
+        total_container15 = total + (total / 100 * 15);
+        
+        total_container15 = total + (total / 100 * 15);
+
+        total_container30 = total + (total / 100 * 30);
+
+        total_container45 = total + (total / 100 * 45);
+
+        total_container45 = total + (total / 100 * 45);
+
+        total_container60 = total + (total / 100 * 60);
+
+        total_container60 = total + (total / 100 * 60);
+
+        div_resposta2.innerHTML = ` <div style="margin-top: 5%;
+         margin-left: 15%;
+            display: inline-block;
+             background-color: #2D8BBA;
+              height: 450px;
+        width: 350px; 
+         border-radius: 20px; pedding: 20px;">
+
+
+            <div id="div_resposta" style="width: 80%;
+            margin: 0 auto;
+             margin-top: 20px; 
+             font-size: 20px;
+              color: #ffffff;
+               margin-top: auto ;"></div>
+
+            <div id="div_concorrente1" style="width: 80%;
+            margin: 0 auto;
+             margin-top: 20px;
+              font-size: 20px; 
+              color: #ffffff;"></div> <br>
+
+            <div id="div_concorrente2" style="width: 80%;
+            margin: 0 auto;
+             margin-top: 20px;
+              font-size: 20px; 
+              color: #ffffff;"></div> <br>
+
+            <div id="div_meu" style="width: 80%;
+            margin: 0 auto;
+             margin-top: 20px;
+              font-size: 20px;
+               color: #ffffff;"></div> <br>
+        </div>`
+
+
+        if (modelo == 1) {
+            div_resposta.innerHTML =
+                `O Seu Frete Saindo do/a ${origem} para o/a ${destino} em um modelo 20'Standard terá um custo de: <br>`
+        }
+
+        if (modelo == 2) {
+            div_resposta.innerHTML =
+                `O Seu Frete Saindo do/a ${origem} para o/a ${destino} em um modelo 40'Standard terá um custo de:`
+        }
+
+        if (modelo == 3) {
+            div_resposta.innerHTML =
+                `O Seu Frete Saindo do/a ${origem} para o/a ${destino} em um modelo Freezer terá um custo de:`
+        }
+
+
+        if (distancia >= 10000) {
+
+            if (modelo == 1) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${total_container30.toFixed(2)}<br><br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${total_container15.toFixed(2)}<br><br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${total.toFixed(2) }<br><br>`;
+
+
+            }
+
+            if (modelo == 2) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${total_container45.toFixed(2)}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${ total_container30.toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${total_container15.toFixed(2)}<br>`;
+            }
+            if (modelo == 3) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${total_container60.toFixed(2)}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${total_container45.toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${total_container30.toFixed(2)}<br>`;
+
+            }
+        }
+
+        if (distancia >= 5000 && distancia < 10000) {
+
+            if (modelo == 1) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${(total_container30 * 0.9).toFixed(2) }<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${(total_container15 * 0.9).toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: apenas US$${(total * 0.9).toFixed(2)}<br>`;
+
+
+            }
+
+            if (modelo == 2) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${(total_container45 * 0.9).toFixed(2)}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${(total_container30 * 0.9).toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${(total_container15 * 0.9.toFixed(2))}<br>`;
+            }
+            if (modelo == 3) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${(total_container60 * 0.9).toFixed(2)}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${(total_container45 * 0.9).toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${(total_container30 * 0.9).toFixed(2)}<br>`;
+
+            }
+        }
+
+        if (distancia < 5000) {
+
+            if (modelo == 1) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${(total_container30 * 0.8).toFixed(2) }<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${(total_container15 * 0.8).toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${(total * 0.8).toFixed(2)}<br>`;
+
+
+            }
+
+            if (modelo == 2) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${(total_container45 * 0.8).toFixed(2)}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${(total_container30 * 0.8).toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${(total_container15 * 0.8).toFixed(2)}<br>`;
+            }
+            if (modelo == 3) {
+                div_concorrente1.innerHTML =
+                    `No Continers.com, o custo da importação do seu contêiner será de: US$${(total_container60 * 0.8).toFixed(2)}<br>`;
+
+
+
+                div_concorrente2.innerHTML =
+                    `No BoxImportação, o custo da importação do seu contêiner será de: US$${(total_container45 * 0.8).toFixed(2)}<br>`;
+
+
+
+                div_meu.innerHTML =
+                    `Aqui na Oceanides, o custo da importação do seu contêiner será de apenas: US$${(total_container30 * 80).toFixed(2)}<br>`;
+
+            }
+        }
+
+    }
+</script>

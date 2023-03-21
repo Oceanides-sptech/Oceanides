@@ -1,0 +1,122 @@
+.corpo { 
+    background-image: url(https://images5.alphacoders.com/874/874813.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center;
+} 
+
+.h1 {
+    background-color: #010024; 
+    margin-top: -1%; 
+    margin-left: -1%; 
+    margin-right: -8px; 
+    height: 78px;
+    color: #ffffff; 
+    padding: 20px; 
+    text-align: center; 
+    font-family: 'Times New Roman', Times, serif
+}
+
+.logo{
+    width: 150px; 
+    right: 150px; 
+    margin-left: 90%; 
+    margin-top: -90px; 
+
+}
+
+.divpai {
+    display: flex;
+}
+
+.divfilho {
+    margin-top: 5%;
+    margin-left: 15%;
+    display: inline-block;
+    background-color: #2D8BBA; 
+    height: 350px;
+    width: 350px;
+    border-radius: 30px;
+
+}
+
+.divneto {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px; 
+    font-size: 30px;
+
+}
+
+.destino {
+    width: 90%; 
+    border-radius: 20px;
+    border: none;
+}
+
+.origem{
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.distancia{
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.quantidade {
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+
+}
+
+.valor {
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.modelo {
+    width: 90%;
+    border-radius: 20px; 
+    border: none;
+}
+
+.resposta {
+    
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-left: 100px;  
+    margin-top: 20px; 
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: auto ;
+}
+
+
+.rodape{
+    background-color: black; 
+    width: 100%; 
+    height: 55px;  
+    margin-top: 100px; 
+    margin-left: -10px; 
+    position: absolute;
+
+}
+
+.dentro{
+    margin-top: 5%;
+    margin-left: 15%;
+    display: flex;
+    background-color: #2D8BBA;
+    height: 350px;
+    width: 650px; 
+    border-radius: 20px; 
+    padding: 20px;
+    font-size : 16px;
+}
+

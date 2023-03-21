@@ -1,0 +1,102 @@
+.corpo {
+    background-image:url(./guillaume-bolduc-uBe2mknURG4-unsplash.jpg); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position: center;
+} 
+
+.h1 {
+    background-color: #010024; 
+    margin-top: -1%; 
+    margin-left: -1%; 
+    margin-right: -8px; 
+    height: 120px;
+    color: #ffffff; 
+    padding: 20px; 
+    text-align: center; 
+    font-family: 'Times New Roman', Times, serif
+}
+
+.logo{
+    width: 150px; 
+    right: 150px; 
+    margin-left: 90%; 
+    margin-top: -90px; 
+
+}
+
+.divpai {
+    display: flex;
+}
+
+.divfilho {
+    margin-top: 5%;
+    margin-left: 15%;
+    display: inline-block;
+    background-color: #2D8BBA; 
+    height: 480px;
+    width: 350px;
+    border-radius: 30px;
+
+}
+
+.divneto {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px; 
+    font-size: 20px;
+
+}
+
+.destino {
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.origem{
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.distancia{
+
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.quantidade {
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+
+}   
+
+.valor {
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+}
+
+.modelo {
+    width: 90%;
+    border-radius: 20px; 
+    border: none;
+}
+
+.resposta {
+    margin-top: 5%; 
+    margin-left: 100px;
+}
+
+
+.rodape{
+    background-color: black; 
+    width: 1350px; 
+    height: 50px; 
+    margin-top: 100px; 
+    margin-left: -10px; 
+    position: absolute;
+}

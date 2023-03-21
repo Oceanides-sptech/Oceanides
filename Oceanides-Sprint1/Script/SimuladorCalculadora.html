@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<h1 class="h1">
+    <center>
+        Simulador de Frete Maritmo 
+    </center>
+
+<img class="logo" src="./Imagem do WhatsApp de 2023-03-03 à(s) 09.30.31.jpg" alt="">
+
+</h1>
+
+<body class="corpo">
+    <div class="divpai">
+
+        <div class="divfilho">
+            <br>
+            Local de Destino: <br> <input class="destino" id="input_destino" placeholder="Ex: Brasil"> <br>
+
+            Local de Origem: <br> <input class="origem" id="input_origem" placeholder="Ex: China"> <br>
+
+            Distância: <br> <input class="distancia" id="input_distancia"> <br>
+
+            Quantidade contêiners: <br> <input class="quantidade" id="quantidade_conteiner"><br>
+
+            Valor total da carga: <br> <input class="valor" id="input_carga" placeholder="R$"> <br>
+
+            Modelo do contêiner: <br>
+
+            <button onclick="calc()">20'Standard</button><br>
+            <button onclick="calc2()">40'Standard</button><br>
+            <button onclick="calc3()">Freezer contêineres</button>
+
+        </div>
+
+        <div class="resposta">
+            <div class="dentro">
+                <div id="div_resposta"></div>
+            </div>
+        </div>
+
+       </div>
+       <br><br>
+       <div class="rodape"></div>
+</body>
+
+</html>
+
+<script>
+
+    function calc() {
+
+        var destino = input_destino.value;
+        var origem = input_origem.value;
+        var distancia = Number(input_distancia.value);
+        var num_conteiners = Number(quantidade_conteiner.value);
+        var valorcarga = Number(input_carga.value);
+        var valormaterial = 10000;
+        var qtdsensor = 2;
+        var preju = 0;
+        var prejus = 0;
+        var valorservico = num_conteiners * valormaterial * qtdsensor;
+
+
+        if (distancia >= 16000){
+            var preju = valorcarga - (valorcarga * 0.56);
+            var prejus = preju / 2.5;
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 9600 && distancia < 16000){
+            var preju = valorcarga - (valorcarga * 0.736);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 7300 && distancia < 9600){
+            var preju = valorcarga - (valorcarga * 0.824);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 3000 && distancia < 7300){
+            var preju = valorcarga - (valorcarga * 0.912);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 1000 && distancia < 3000){
+            var preju = valorcarga - (valorcarga * 0.956);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+
+        if (distancia >= 1000){
+            var preju1 = valorcarga - (valorcarga * 0.56);
+                var prejus1 = preju1 / 2.5; 
+            var preju2 = valorcarga - (valorcarga * 0.736);
+                var prejus2 = preju2 / 2.5; 
+            var preju3 = valorcarga - (valorcarga * 0.824);
+                var prejus3 = preju3 / 2.5; 
+            var preju4 = valorcarga - (valorcarga * 0.912);
+                var prejus4 = preju4 / 2.5; 
+            var preju5 = valorcarga - (valorcarga * 0.956);
+                var prejus5 = preju5 / 2.5; 
+
+            var frase = `<b>Considerando diferentes distâncias de viagem, 
+            oferecemos serviços para reduzir o prejuízo financeiro em caso de imprevistos.</b> <br> <br>`;
+
+        div_resposta.innerHTML += ` ${frase} Em uma viagem maior que 16000km, o prejuízo pode alcançar <b>R$${preju1}</b>, 
+        mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus1}</b>. <br>
+        Em uma viagem entre 9600km e 16000km, o prejuízo pode alcançar <b>R$${preju2}</b>, 
+        mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus2}</b>. <br>
+        Em uma viagem entre 7300km e 9600km, o prejuízo pode alcançar <b>R$${preju3}</b>, 
+        mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus3}</b>. <br>
+        Em uma viagem entre 3000km e 7300km, o prejuízo pode alcançar <b>R$${preju4}</b>, 
+        mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus4}</b>. <br>
+        Em uma viagem entre 1000km e 3000km, o prejuízo pode alcançar <b>R$${preju5}</b>, 
+        mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus5}</b>. <br>`
+        }
+        if (distancia < 1000){
+                    div_resposta.innerHTML = `Esse trajeto é muito curto, por favor digite uma distância acima de 1.000km.`
+
+        }
+}
+
+        
+
+
+        function calc2(){
+            var destino = input_destino.value;
+        var origem = input_origem.value;
+        var distancia = Number(input_distancia.value);
+        var num_conteiners = Number(quantidade_conteiner.value);
+        var valorcarga = Number(input_carga.value);
+        var valormaterial = 12500;
+        var qtdsensor = 4;
+        var preju = 0;
+        var prejus = 0;
+        var valorservico = num_conteiners * valormaterial * qtdsensor;
+
+
+        if (distancia >= 16000){
+            var preju = valorcarga - (valorcarga * 0.56);
+            var prejus = preju / 2.5;
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 9600 && distancia < 16000){
+            var preju = valorcarga - (valorcarga * 0.736);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 7300 && distancia < 9600){
+            var preju = valorcarga - (valorcarga * 0.824);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 3000 && distancia < 7300){
+            var preju = valorcarga - (valorcarga * 0.912);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 1000 && distancia < 3000){
+            var preju = valorcarga - (valorcarga * 0.956);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais. <br> <br>`
+        }
+        
+        if(distancia >= 1000){
+
+            var preju1 = valorcarga - (valorcarga * 0.56);
+                var prejus1 = preju1 / 2.5; 
+            var preju2 = valorcarga - (valorcarga * 0.736);
+                var prejus2 = preju2 / 2.5; 
+            var preju3 = valorcarga - (valorcarga * 0.824);
+                var prejus3 = preju3 / 2.5; 
+            var preju4 = valorcarga - (valorcarga * 0.912);
+                var prejus4 = preju4 / 2.5; 
+            var preju5 = valorcarga - (valorcarga * 0.956);
+                var prejus5 = preju5 / 2.5;
+
+            var frase = `<b> Considerando diferentes distâncias de viagem, 
+            oferecemos serviços para reduzir o prejuízo financeiro em caso de imprevistos. </b> <br> <br>`;
+
+            div_resposta.innerHTML += `${frase} Em uma viagem maior que 16000km, o prejuízo pode alcançar <b>R$${preju1}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus1}</b>. <br>
+                Em uma viagem entre 9600km e 16000km, o prejuízo pode alcançar <b>R$${preju2}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus2}</b>. <br>
+                Em uma viagem entre 7300km e 9600km, o prejuízo pode alcançar <b>R$${preju3}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus3}</b>. <br>
+                Em uma viagem entre 3000km e 7300km, o prejuízo pode alcançar <b>R$${preju4}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus4}</b>. <br>
+                Em uma viagem entre 1000km e 3000km, o prejuízo pode alcançar <b>R$${preju5}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus5}</b>. <br>`
+        }
+
+        if (distancia < 1000){
+                    div_resposta.innerHTML = `Esse trajeto é muito curto, por favor digite uma distância acima de 1.000km.`    
+        }
+    }
+
+        function calc3(){
+            var destino = input_destino.value;
+        var origem = input_origem.value;
+        var distancia = Number(input_distancia.value);
+        var num_conteiners = Number(quantidade_conteiner.value);
+        var valorcarga = Number(input_carga.value);
+        var valormaterial = 15000;
+        var qtdsensor = 8;
+        var preju = 0;
+        var prejus = 0;
+        var valorservico = num_conteiners * valormaterial * qtdsensor;
+
+
+        if (distancia >= 16000){
+            var preju = valorcarga - (valorcarga * 0.56);
+            var prejus = preju / 2.5;
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 9600 && distancia < 16000){
+            var preju = valorcarga - (valorcarga * 0.736);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 7300 && distancia < 9600){
+            var preju = valorcarga - (valorcarga * 0.824);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 3000 && distancia < 7300){
+            var preju = valorcarga - (valorcarga * 0.912);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if (distancia >= 1000 && distancia < 3000){
+            var preju = valorcarga - (valorcarga * 0.956);
+            var prejus = preju / 2.5;  
+            var diferenca = preju - prejus;
+            div_resposta.innerHTML = `O valor para a instalação de um sistema de controle de temperatura e umidade é de: <b>R$${valorservico}.</b> <br>
+            Você nos informou que o valor total da carga é de: <b>R$${valorcarga}.</b>
+            Nessa viagem de ${distancia}km, entre ${origem} e ${destino}, o prejuízo pode chegar a <b>R$${preju}.</b> <br>
+            Com o nosso serviço, o prejuízo é reduzido para no máximo <b>R$${prejus}</b>, uma diferença de <b>R$${diferenca}</b> 
+            em indenizações por danos materiais.<br> <br>`
+        }
+
+        if(distancia >= 1000){
+
+            var preju1 = valorcarga - (valorcarga * 0.56);
+                var prejus1 = preju1 / 2.5; 
+            var preju2 = valorcarga - (valorcarga * 0.736);
+                var prejus2 = preju2 / 2.5; 
+            var preju3 = valorcarga - (valorcarga * 0.824);
+                var prejus3 = preju3 / 2.5; 
+            var preju4 = valorcarga - (valorcarga * 0.912);
+                var prejus4 = preju4 / 2.5; 
+            var preju5 = valorcarga - (valorcarga * 0.956);
+                var prejus5 = preju5 / 2.5;
+
+            var frase = `<b>Considerando diferentes distâncias de viagem, 
+            oferecemos serviços para reduzir o prejuízo financeiro em caso de imprevistos. </b> <br> <br>`;
+
+            div_resposta.innerHTML += `${frase} Em uma viagem maior que 16000km, o prejuízo pode alcançar <b>R$${preju1}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus1}</b>. <br>
+                Em uma viagem entre 9600km e 16000km, o prejuízo pode alcançar <b>R$${preju2}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus2}</b>. <br>
+                Em uma viagem entre 7300km e 9600km, o prejuízo pode alcançar <b>R$${preju3}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus3}</b>. <br>
+                Em uma viagem entre 3000km e 7300km, o prejuízo pode alcançar <b>R$${preju4}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus4}</b>. <br>
+                Em uma viagem entre 1000km e 3000km, o prejuízo pode alcançar <b>R$${preju5}</b>, 
+                mas com nossos serviços, ele pode ser reduzido para no máximo <b>R$${prejus5}</b>. <br>`
+        }
+        if (distancia < 1000){
+                    div_resposta.innerHTML = `Esse trajeto é muito curto, por favor digite uma distância acima de 1.000km.`
+
+        }
+    }
+</script>
