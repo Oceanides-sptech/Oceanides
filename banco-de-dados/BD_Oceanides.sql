@@ -1,5 +1,3 @@
-
-
 -- como fizemos esse banco antes da Vivian ensinar 
 -- chave estrangeira todas elas estão como comentários
 -- boa sorte, acho que coloquei muitos comentários, hehe
@@ -7,17 +5,14 @@
 create database oceanides;
 use oceanides;
 
-
 -- tabela que guarda os registros da transportadora, 
 -- também pode ser usada para armazenar informações 
 -- de filiais e talvez até alguns parceiros
 create table tb_transportadora(
     id_transportadora int primary key auto_increment,
     nome_transportadora varchar(50),
-    razao_social varchar (100),
-    CNPJ_tranportadora char(18)
+    CNPJ_tranportadora char(14)
 );
-
 
 -- tabela que guarda os dados dos portos ao redor do mundo
 -- usada para fazer chave estrangeira com a tabela que 
@@ -29,7 +24,6 @@ create table tb_porto(
     pais_porto varchar(50)
 );
 
-
 -- usuário para acessar o site institucional
 -- os usuários têm que ter uma empresa no registro
 -- para acessar o monitoramento dos sensores
@@ -37,9 +31,16 @@ create table tb_usuario(
     id_usuario int primary key auto_increment,
     nome_usuario varchar(100),
     email_usuario varchar(100),
-    senha_usuario varchar(25)
+    senha_usuario varchar(25),
+    empresa_usuario varchar (45),
+    passaporte_usuario varchar (45)
     -- chave estrangeira com transportadora
 );
+
+-- fk transportadora na tabela usuario
+alter table tb_usuario add column fktransportadora int;
+alter table tb_usuario add foreign key (fktransportadora) references tb_transportadora (id_transportadora);
+desc tb_usuario;
 
 
 -- guarda informações do cargueiro, 
@@ -51,53 +52,69 @@ create table tb_cargueiro(
     id_cargueiro int primary key auto_increment,
     nome_cargueiro varchar(50),
     IMO_cargueiro char(7),
-    -- chave estrangeira com transportadora
-    
-    -- esses 4 campos encaixam melhor em uma tabela "viagem"
-    datahora_saida datetime,
-    dt_entrada datetime,
-    local_origem char(7), -- chaves estrangeiras com porto
-    local_destino char(7) -- chaves estrangeiras com porto
-    -- sim! duas chaves estrangeiras com origem da mesma tabela
+    dt_saida datetime
+-- FKPorto_destino
+-- Fkporto_saida
 );
 
+-- fk transportadora na tabela usuario
+alter table tb_cargueiro add column fkporto_destino int;
+alter table tb_cargueiro add foreign key (fkporto_destino) references tb_porto (id_porto);
+
+alter table tb_cargueiro add column fkporto_saida int;
+alter table tb_cargueiro add foreign key (fkporto_saida) references tb_porto (id_porto);
+desc tb_cargueiro;
 
 -- dados dos containeres, talvez seja necessário implementar
 -- alguns campos a mais no futuro, se precisar
 create table tb_container(
     id_container int primary key auto_increment,
     modelo_container varchar(50),
-    codigo_container char(12)
+    codigo_container char(12),
+    tamanho_container float
 
     -- chave estrangeira com cargueiro
 );
 
+-- fk transportadora na tabela usuario
+alter table tb_container add column fkcargueiro int;
+alter table tb_container add foreign key (fkcargueiro) references tb_cargueiro (id_cargueiro);
+desc tb_container;
 
 -- informações dos sensores, não confunda com a próxima tabela
 -- essa guarda apenas os dados dos sensores e não seus registros
 create table tb_sensor(
     id_sensor int primary key auto_increment,
-    modelo_sensor varchar(50),
-    validade date,
-    instalacao date
-    -- chave estrangeira com container
+    DtSensor datetime,
+    status_sensor tinyint
 );
-
 
 -- e aqui fica o núcleo do banco, todos os registros de temperatura
 -- e umidade ficam aqui, então na hora de fazer o insert dos 
 -- registros dos sensores vai ser aqui, ok!?
-create table tb_monitoramento(
-	id_monitoramento int primary key auto_increment,
-    temperatura_sensor decimal(4,2),
-    umidade_sensor decimal(4,2),
-    datahora_sensor datetime default current_timestamp
-	-- chave estrangeira com usuário 
-	-- chave estrangeira com sensor
+create table tb_Registro(
+	idRegistro int primary key auto_increment,
+    dt_registro datetime,
+    temperatura varchar (45),
+    umidade varchar (45)
+	-- chave estrangeira sensor 
+	-- chave estrangeira container
+    -- fk usuario
 );
 
+-- adicionamos a chave estrangeira na tabela registro.
+desc tb_registro;
+select * from tb_registro;
+alter table tb_registro add column fkuser int;
+alter table tb_Registro add foreign key (fkuser) references tb_usuario (id_usuario);
 
+alter table tb_registro add column fksensor int;
+alter table tb_Registro add foreign key (fksensor) references tb_sensor (id_sensor);
+ 
+alter table tb_registro add column fkcontainer int;
+alter table tb_registro add foreign key (fkcontainer) references tb_container (id_container);
 
+ 
 -- daqui para baixo são apenas alguns exemplos de insert nas tabelas
 -- se tiver alguma dúvida no tipo de dado que é pra dar insert
 -- só olhar aqui ;)
@@ -113,7 +130,7 @@ insert into tb_usuario(nome_usuario, email_usuario, senha_usuario) values
     ('Jhon Nemon', 'nemo.captain@gmail.com', '12345678'),
     ('Fernão de Magalhães', 'magalhaes.fernao@gmail.com', '12345678');
 
-insert into tb_transportadora(nome_transportadora, razao_social, CNPJ_tranportadora) values
+insert into tb_transportadora(nome_transportadora,CNPJ_tranportadora) values
 	('Blitz', 'Blitz Fretes Ltda', '32.675.333/0001-9'),
 	('Cap-GP', 'GP Transportes Ltda', '01.678.345/0001-9'),
 	('Nocturne', 'Nocturne Transportadoras Ltda', '13.354.231/0001-9'),
@@ -122,7 +139,6 @@ insert into tb_transportadora(nome_transportadora, razao_social, CNPJ_tranportad
 	('Arhi', 'Arhi Charm Transportes', '30.576.101/0001-9'),
 	('Neeko', 'Neeko`s Cheese Bread', '70.976.151/0001-9');
     
-
 insert into tb_porto(nome_porto, sigla_porto, pais_porto) values
 	('Porto de Santos', 'BRSSZ', 'Brasil'),
     ('Porto de Nova York', 'USNYC', 'Estados Unidos'),
@@ -239,4 +255,4 @@ insert into tb_monitoramento(temperatura_sensor, umidade_sensor, datahora_sensor
 	('34.9', '11.5', '2033-07-08 16:34:23'),
 	('34.9', '11.5', '2033-07-08 16:34:23');
 
--- boa sorte e cuidem bem do nosso projeto :)
+-- boa sorte e cuidem bem do nosso projeto :) 
