@@ -1,0 +1,94 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: rgba(102,193,255,0.5);
+}
+
+
+.banner{
+    float: left;
+}
+
+
+
+ .campo{
+    
+    height: 500px;
+    width: 320px;
+
+    margin-top: 6%;
+    margin-left: 4%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    float: left;
+
+    background: rgba(102, 193, 255, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(102, 193, 255, 0.3);
+     
+
+}
+
+.campo a{
+
+    color: black;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.campo div{
+
+    
+    margin-top: 40%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.campo .logo{
+    
+    height: 0px;
+}
+
+.campo input{
+
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    margin-bottom: 5%;
+
+}
+
+
+.campo button{
+
+    padding: 5px 10px;
+    font-weight: 600;
+    text-transform:  uppercase;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    border-radius: 30px;
+    border: 0;
+    outline: 0;
+    margin-top: 80px;
+    transition:  0.5s;
+    background: blue;
+    box-shadow: 2px 2px 3px 5px  black;
+   
+}
+
+button:hover{ 
+    cursor: pointer;
+    margin-top: 85px;
+    background: black;
+}
+
+ 
