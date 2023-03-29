@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora financeira oceanides</title>
 </head>
+
 <body>
-   Dias de viagem: <input id="input_dias" value="20"><br>
-   Número de contêiner: <input id="input_numero_container" value="50"><br>
-   Validade média do container: <input id="input_validade" value="15"><br>
-    Valor médio do container: <input id="input_valor" value="50000"> <br>
-   <button onclick="calcular()">
-        Freezer contêineres
-   </button>
-</span>
-   <div id="div_resultado"></div>
+    <center>
+        <h1>Calculardora de ganhos com furtas e alimentos</h1>
+        Dias de viagem: <input id="input_dias" value="20" placeholder="Dias cheios em 24hrs"><br>
+        Número de contêiner: <input id="input_numero_container" value="50" placeholder="Containers cheios"><br>
+        Validade média do container: <input id="input_validade" value="15" placeholder="Validade media das frutas"><br>
+        Valor médio do container: <input id="input_valor" value="50000"> <br>
+        <button onclick="calcular()"> Calcular ganhos </button>
+        <div id="div_resultado"></div>
+    </center>
 </body>
+
 </html>
 
 <script>
@@ -26,24 +29,24 @@
         var valorPorContainer = Number(input_valor.value);
         valorPorContainer *= num_conteiners;
         var validade = Number(input_validade.value);
-        
+
         var valormaterial = 4000;
         var qtdsensor = 8 * valormaterial;
         var totalValor = qtdsensor * num_conteiners;
 
         var prejuizo_atual = 0;
         var ganhos_oceanides = 0;
-        
+
         if (validade - dias <= 15) {
-            prejuizo_atual =  valorPorContainer - (valorPorContainer * 0.70)
-        } else if ((validade - dias) > 15 && (validade - dias) <= 25 ) {
-             prejuizo_atual = valorPorContainer - (valorPorContainer * 0.55)
+            prejuizo_atual = valorPorContainer - (valorPorContainer * 0.70)
+        } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+            prejuizo_atual = valorPorContainer - (valorPorContainer * 0.55)
         } else {
-             prejuizo_atual = valorPorContainer - (valorPorContainer * 0.45)
+            prejuizo_atual = valorPorContainer - (valorPorContainer * 0.45)
         }
 
         if (validade - dias <= 15) {
-            ganhos_oceanides =  valorPorContainer - (valorPorContainer * 0.5)
+            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.5)
         } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
             ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.108)
         } else {
