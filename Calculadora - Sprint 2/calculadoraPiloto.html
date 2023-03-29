@@ -46,11 +46,11 @@
         }
 
         if (validade - dias <= 15) {
-            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.5)
+            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.55)
         } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
-            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.108)
+            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.115)
         } else {
-            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.102)
+            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.120)
         }
 
         console.log(prejuizo_atual)
@@ -58,9 +58,9 @@
         console.log(((qtdsensor + (qtdsensor * .10)) + prejuizo_atual) - ganhos_oceanides)
 
         div_resultado.innerHTML = `
-        <p/>O seu lucro atual seria proximo de <span style="color: red;">R$${prejuizo_atual}</span><br>
-            Agora com os serviços oferecidos pela <span style="color: blue;">OCEÂNIDES</span> será de <span style="color: green;">R$${ganhos_oceanides}</span>  <br>
-            Isso com uma unica instalação de <span style="color: green;">R$${qtdsensor + (qtdsensor * .10)}</span>
+        <p/>O seu lucro atual seria proximo de <span style="color: red;">R$${(prejuizo_atual).toFixed(2)}</span><br>
+            Agora com os serviços oferecidos pela <span style="color: blue;">OCEÂNIDES</span> será de <span style="color: green;">R$${(ganhos_oceanides).toFixed(2)}</span>  <br>
+            Isso com uma unica instalação de <span style="color: green;">R$${(qtdsensor + (qtdsensor * .6)).toFixed(2)}</span>
         `;
 
 
