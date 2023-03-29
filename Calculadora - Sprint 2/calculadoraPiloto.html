@@ -7,14 +7,14 @@
     <title>Calculadora financeira oceanides</title>
 </head>
 <body>
-   Dias de viagem: <input id="input_dias">
-   Número de contêiner: <input id="input_numero_container">
-   Validade média do container: <input id="input_validade">
-    Valor médio do container: <input id="input_valor"> 
+   Dias de viagem: <input id="input_dias" value="20"><br>
+   Número de contêiner: <input id="input_numero_container" value="50"><br>
+   Validade média do container: <input id="input_validade" value="15"><br>
+    Valor médio do container: <input id="input_valor" value="50000"> <br>
    <button onclick="calcular()">
         Freezer contêineres
    </button>
-
+</span>
    <div id="div_resultado"></div>
 </body>
 </html>
@@ -23,25 +23,42 @@
     function calcular() {
         var num_conteiners = Number(input_numero_container.value);
         var dias = Number(input_dias.value);
-        var valorMedio = Number(input_valor.value);
-        valorMedio *= num_conteiners;
+        var valorPorContainer = Number(input_valor.value);
+        valorPorContainer *= num_conteiners;
         var validade = Number(input_validade.value);
         
         var valormaterial = 4000;
-        var qtdsensor = 8;
-        var valorservico = num_conteiners * valormaterial * qtdsensor;
-        var totalValor = valorservico * num_conteiners;
+        var qtdsensor = 8 * valormaterial;
+        var totalValor = qtdsensor * num_conteiners;
 
         var prejuizo_atual = 0;
-        var prejuizo_oceanides = 0;
+        var ganhos_oceanides = 0;
         
         if (validade - dias <= 15) {
-            prejuizo_atual =  valorMedio - (valorMedio * 0.3)
+            prejuizo_atual =  valorPorContainer - (valorPorContainer * 0.70)
         } else if ((validade - dias) > 15 && (validade - dias) <= 25 ) {
-             prejuizo_atual = valorMedio - (valorMedio * 0.45)
+             prejuizo_atual = valorPorContainer - (valorPorContainer * 0.55)
         } else {
-             prejuizo_atual = valorMedio - (valorMedio * 0.55)
+             prejuizo_atual = valorPorContainer - (valorPorContainer * 0.45)
         }
+
+        if (validade - dias <= 15) {
+            ganhos_oceanides =  valorPorContainer - (valorPorContainer * 0.5)
+        } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.108)
+        } else {
+            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.102)
+        }
+
+        console.log(prejuizo_atual)
+        console.log(ganhos_oceanides)
+        console.log(((qtdsensor + (qtdsensor * .10)) + prejuizo_atual) - ganhos_oceanides)
+
+        div_resultado.innerHTML = `
+        <p/>O seu lucro atual seria proximo de <span style="color: red;">R$${prejuizo_atual}</span><br>
+            Agora com os serviços oferecidos pela <span style="color: blue;">OCEÂNIDES</span> será de <span style="color: green;">R$${ganhos_oceanides}</span>  <br>
+            Isso com uma unica instalação de <span style="color: green;">R$${qtdsensor + (qtdsensor * .10)}</span>
+        `;
 
 
     }
