@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora financeira oceanides</title>
+</head>
+<body>
+   Dias de viagem: <input id="input_dias">
+   Número de contêiner: <input id="input_numero_container">
+   Validade média do container: <input id="input_validade">
+    Valor médio do container: <input id="input_valor"> 
+   <button onclick="calcular()">
+        Freezer contêineres
+   </button>
+
+   <div id="div_resultado"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var num_conteiners = Number(input_numero_container.value);
+        var dias = Number(input_dias.value);
+        var valorMedio = Number(input_valor.value);
+        valorMedio *= num_conteiners;
+        var validade = Number(input_validade.value);
+        
+        var valormaterial = 4000;
+        var qtdsensor = 8;
+        var valorservico = num_conteiners * valormaterial * qtdsensor;
+        var totalValor = valorservico * num_conteiners;
+
+        var prejuizo_atual = 0;
+        var prejuizo_oceanides = 0;
+        
+        if (validade - dias <= 15) {
+            prejuizo_atual =  valorMedio - (valorMedio * 0.3)
+        } else if ((validade - dias) > 15 && (validade - dias) <= 25 ) {
+             prejuizo_atual = valorMedio - (valorMedio * 0.45)
+        } else {
+             prejuizo_atual = valorMedio - (valorMedio * 0.55)
+        }
+
+
+    }
+</script>
