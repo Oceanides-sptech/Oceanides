@@ -6,24 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora financeira oceanides</title>
+    <link rel="stylesheet" href="calculadora.css">
 </head>
 
 <body>
     <center>
-        <h1>Calculardora de ganhos com furtas e alimentos</h1>
+        <h1>Calculadora de ganhos com furtas e alimentos</h1>
         Dias de viagem: <input id="input_dias" value="20" placeholder="Dias cheios em 24hrs"><br>
         Número de contêiner: <input id="input_numero_container" value="50" placeholder="Containers cheios"><br>
         Validade média do container: <input id="input_validade" value="15" placeholder="Validade media das frutas"><br>
         Valor médio do container: <input id="input_valor" value="50000"> <br>
         <button onclick="calcular()"> Calcular ganhos </button>
         <div id="div_resultado"></div>
+
     </center>
+    
+    <div class="space">
+
+    </div>
+
+    <div class="container" >
+        <div id="div_grafico1"> </div>
+        <div id="div_grafico2"> </div>
+        <div id="div_grafico3"> </div>
+    </div>
+
+    
+
 </body>
 
 </html>
 
 <script>
+    
+  
+    
+        div_grafico1.style.display = 'none'      
+        div_grafico2.style.display = 'none'      
+        div_grafico3.style.display = 'none'  
+    
     function calcular() {
+        
+         
+
+        
         var num_conteiners = Number(input_numero_container.value);
         var dias = Number(input_dias.value);
         var valorPorContainer = Number(input_valor.value);
@@ -36,6 +62,7 @@
 
         var prejuizo_atual = 0;
         var ganhos_oceanides = 0;
+        
 
         if (validade - dias <= 15) {
             prejuizo_atual = valorPorContainer - (valorPorContainer * 0.70)
@@ -61,8 +88,23 @@
         <p/>O seu lucro atual seria proximo de <span style="color: red;">R$${(prejuizo_atual).toFixed(2)}</span><br>
             Agora com os serviços oferecidos pela <span style="color: blue;">OCEÂNIDES</span> será de <span style="color: green;">R$${(ganhos_oceanides).toFixed(2)}</span>  <br>
             Isso com uma unica instalação de <span style="color: green;">R$${(qtdsensor + (qtdsensor * .6)).toFixed(2)}</span>
-        `;
+            `;
+            
+            
+        div_grafico1.style.display = 'block'      
+        div_grafico2.style.display = 'block'      
+        div_grafico3.style.display = 'block'  
 
 
-    }
-</script>
+            div_grafico1.innerHTML = `<div style="background-color: red;  height: 20px; width:
+            ${prejuizo_atual /10000}px;"></div>`
+
+            div_grafico2.innerHTML = `<div style="background-color: blue;  height: 20px; width:
+            ${ganhos_oceanides/10000}px;"></div>`
+            
+            div_grafico3.innerHTML = `<div style="background-color: green;  height: 20px; width:
+            ${qtdsensor / 1000}px;"></div> `
+            
+            
+        }
+    </script>
