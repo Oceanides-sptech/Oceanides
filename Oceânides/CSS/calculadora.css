@@ -1,0 +1,13 @@
+.banner .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+
+#calc{
+    display: flex;
+    align-items: center;
+    padding: 100px;
+}
