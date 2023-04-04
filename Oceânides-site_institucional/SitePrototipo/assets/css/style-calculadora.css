@@ -13,7 +13,8 @@
     align-items: center ;
 }
 .formulario{
-    width: 40%;
+    width: 40%; 
+    
 }
 .graficos{
     background-color: white;
@@ -24,6 +25,8 @@
     align-items: center;
     overflow-y: auto;
     justify-content: center;
+    gap: 30px;
+    padding: 15px;
 }
 .titulo-grafico{
     font-family: var(--fonteSubTitulos);
