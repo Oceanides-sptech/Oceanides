@@ -1,0 +1,65 @@
+.conteudo{
+    display: flex;
+}
+
+.formulario {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 273px;
+    width: 202px;
+}
+
+#saldacao{
+    font-family: var(--fonteSubTitulos);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    color: #0098ce;
+}
+
+input{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 10px;
+gap: 10px;
+border: 0.7px solid #000000;
+border-radius: 9px;
+}
+
+#botão{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 50px;
+    background: #0098CE;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 60px;
+    border: 0;
+    width: 150px;
+    font-family: var(--fonteTitulos);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
