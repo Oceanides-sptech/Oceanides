@@ -8,21 +8,12 @@ body{
     justify-content: space-around;
     height: 700px;
 }
-
-.texto {
-
-    display: flex;
-    justify-content: left;
-    flex-direction: column;
-}
-
 .texto h1{
     
     height: 200px;
     justify-content: center;
     font-family: var(--fonteSubTitulos);
     color:#00AFEF;
-
 
     font-style: normal;
     font-weight: 700;
@@ -36,7 +27,6 @@ body{
 .texto h4{
     
     display: flex;
-    flex-direction: column;
     justify-content: left;
     font-family:  var(--fonteTextos2);
     color: #505050;        
@@ -56,111 +46,54 @@ body{
 .banner{
 
     display: flex;
-    justify-content: right;
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.container1 div{
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.container1 h1 {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: var(--fonteSubTitulos);
-
-
-
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 56px;
-    align-items: center;
-    letter-spacing: -0.02em;
-    color: #00AFEF;
-
-
 }
 
 .container2{
 
+    margin-top: 3%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+
+    
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 56px;
+    align-items: center;
+    letter-spacing: -0.02em;
+    font-family:  var(--fonteTextos2);
+
 }
 
+.fotos {
 
-
-.div1 {
-
-    background-image: url(https://tse4.mm.bing.net/th?id=OIP.kk19_BPEumwlUR8UFmH07wHaEK&pid=Api&P=0);
     background-repeat: no-repeat;
-    height: 200px;
-    width: 200px;
+    background-image: url(../img/fundo-integrantes.png);
+    height: 400px;
+    width: 250px;
     float: left;
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 50px;
 }
 
+.icones{
 
-.div2 {
-
-    background-image: url(https://tse1.mm.bing.net/th?id=OIP.C1qWSN1AqoIc8dcARjikywHaEo&pid=Api&P=0);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 200px;
-    width: 200px;
-    float: left;
-
-
-}
-
-
-.div3 {
-
-    background-image: url(https://tse4.mm.bing.net/th?id=OIP.Dn5FQ_A6RHO221isXOehXwHaE8&pid=Api&P=0);
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 200px;
-    float: left;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
 
 }
 
-
-.div4 {
-
-    background-image: url(https://tse4.mm.bing.net/th?id=OIP.Dn5FQ_A6RHO221isXOehXwHaE8&pid=Api&P=0);
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 200px;
-
-
-}
-
-
-.div5 {
-
-    background-image: url(https://tse4.mm.bing.net/th?id=OIP.Dn5FQ_A6RHO221isXOehXwHaE8&pid=Api&P=0);
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 200px;
-
-
-}
-
-
-.div6 {
-
-    background-image: url(https://tse4.mm.bing.net/th?id=OIP.Dn5FQ_A6RHO221isXOehXwHaE8&pid=Api&P=0);
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 200px;
-
-
+.icone{
+    width: 25px;
+    
 }
 
