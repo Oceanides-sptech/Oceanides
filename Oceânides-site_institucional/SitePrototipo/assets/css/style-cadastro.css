@@ -37,6 +37,7 @@
     font-size: 23px;
     font-family: var(--fonteSubTitulos);
     color: #0098CE;
+    font-weight: bold;
 }
 
 
@@ -58,6 +59,14 @@
     color: white
 }
 
-.ul li{
+.irlogin li {
     text-decoration: none;
+    font-size: 9px;
+    font-family: var(--fonteTextos2);
+}
+
+.irlogin li a{
+    text-decoration: none;
+    font-size: 9px;
+    font-family: var(--fonteTextos2);
 }
