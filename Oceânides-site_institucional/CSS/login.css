@@ -1,97 +1,69 @@
-body{
-    padding: 0;
-    margin: 0;
-    background-color: rgba(102,193,255,0.5);
-}
-
-
-.banner{
-    float: left;
-}
-
-
-
- .campo{
-    
-    height: 500px;
-    width: 320px;
-
-    margin-top: 6%;
-    margin-left: 4%;
+.conteudo{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    float: left;
-
-    background: rgba(102, 193, 255, 1);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(102, 193, 255, 0.3);
-     
-
 }
 
-.campo a{
-
-    color: black;
-    font-size: 18px;
-    margin-top: 40px;
-}
-
-.campo div{
-
-    
-    margin-top: 40%;
-    border-radius: 30px;
+.formulario {
     display: flex;
-    align-items: center;
+    width: 100%;
     justify-content: center;
-    flex-direction: column;
-    
+    align-items: center;
 }
 
-.campo .logo{
-    
-    height: 0px;
-}
-
-.campo input{
-
+.box {
     display: flex;
-    justify-content: space-between;
-    margin: 5px;
-    margin-bottom: 5%;
-    padding: 3px;
-    border: 1px solid black;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 273px;
+    width: 202px;
+}
+
+#saldacao{
+    font-family: var(--fonteSubTitulos);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    color: #0098ce;
+}
+
+input{
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 10px;
+gap: 10px;
+border: 0.7px solid #000000;
+border-radius: 9px;
+}
+
+#botão{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 10px;
+    width: 180px;
+    height: 33px;
+    background: #0098CE;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    box-shadow: 0px 3px 0px 0px;
-
-}
-
-
-.campo button{
-
-    padding: 5px 10px;
-    font-weight: 800;
-    text-transform:  uppercase;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    border-radius: 30px;
     border: 0;
-    outline: 0;
-    margin-top: 65px;
-    transition:  0.5s;
-    background: rgba(102,153,205,0.5);
-    box-shadow: 0px 5px 0px 0px  black;
-   
+    font-family: var(--fonteTitulos);
+    color: white
 }
 
-button:hover{ 
-    cursor: pointer;
-    margin-top: 70px;
-    background: rgba(100,150,200,1);
-
+.ircadastro li{
+    text-decoration: none;
+    font-size: 9px;
+    font-family: var(--fonteTextos2);
 }
-
+.ircadastro li a{
+    text-decoration: none;
+    font-size: 9px;
+    font-family: var(--fonteTextos2);
+}
