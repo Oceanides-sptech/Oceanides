@@ -12,10 +12,6 @@
     justify-content: center;
     align-items: center ;
 }
-.formulario{
-    width: 40%; 
-    
-}
 .graficos{
     background-color: white;
     height: 400px;
@@ -34,3 +30,47 @@
     font-size: 20px;
     color: #0098CE;
 }
+/* formulario */
+
+.conteudo .formulario{
+    width: 40%;
+}
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 380px;
+}
+.calc{
+    color: #0098CE;
+    font-size: 20px;
+    font-family: var(--fonteSubTitulos);
+}
+.box input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    border: 0.7px solid #000000;
+    border-radius: 9px;
+    font-family: var(--fonteTextos2);
+    width: 180px;
+    
+}
+.buton{
+    color: white;
+    font-size: 17px;
+    background-color: #0098CE;
+    border-radius: 20px;
+    height: 30px;
+    width: 200px;
+    border: none;
+}
+/* */

@@ -1,130 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/style-calculadora.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Oceânides - Calculadora</title>
-  </head>
-  <body>
-    <div class="header">
-      <div class="container">
-        <div class="logo-titulo-header">
-          <img class="logo-header" src="assets/img/oceanides-logo.png" alt="" />
-          <p class="titulo-header">Oceânides</p>
-        </div>
 
-        <ul class="navbar">
-          <li class="nav-item">Início</li>
-          <li class="nav-item">Simulador</li>
-          <li class="nav-item">Cadastro</li>
-          <a href=""><span class="botao-login">Login</span></a>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style-calculadora.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Oceânides - Calculadora</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="logo-titulo-header">
+        <img class="logo-header" src="assets/img/oceanides-logo.png" alt="" />
+        <p class="titulo-header">Oceânides</p>
+      </div>
+
+      <ul class="navbar">
+        <li class="nav-item"><a href="index.html">Início</a></li>
+        <li class="nav-item">Simulador</li>
+        <li class="nav-item"><a href="Cadastro.html">Cadastro</a></li>
+        <a href="login.html"><span class="botao-login">Login</span></a>
+      </ul>
+    </div>
+  </div>
+
+  <!--INPUTS-->
+  <div class="conteudo">
+    <div class="formulario">
+      <div class="box">
+        <p class="calc">Calculadora Financeira</p><br>
+        <input class="inputs" id="input_dias" placeholder="Dias de viagem"><br>
+        <input class="inputs" id="input_numero_container" placeholder="Número de contêiner"><br>
+        <input class="inputs" id="input_validade" placeholder="Validade média do container"><br>
+        <input class="inputs" id="Valor médio do container" placeholder="Valor médio do container"> <br>
+        <button onclick="calcular()" class="buton">Calcular</button>
       </div>
     </div>
-
-    <!--INPUTS-->
-    <div class="conteudo">
-      <div class="formulario">
-        Dias de viagem: <input id="input_dias" value="20" placeholder="Dias cheios em 24hrs"><br>
-        Número de contêiner: <input id="input_numero_container" value="50" placeholder="Containers cheios"><br>
-        Validade média do container: <input id="input_validade" value="15"
-            placeholder="Validade media das frutas"><br>
-        Valor médio do container: <input id="input_valor" value="50000"> <br>
-        <button onclick="calcular()"> Calcular ganhos </button>
-      </div>
 
     <!--GRAFICOS-->
-      <div class="img-fundo">
-        <div class="graficos">
-          <p class="titulo-grafico">Lucros estimados de acordo com os dados fornecidos (R$)</p>
-          <canvas id="graficoLucro" style="width:65%;max-width:700px"></canvas>
-          </div>
-        </div>
+    <div class="img-fundo">
+      <div class="graficos">
+        <p class="titulo-grafico">Lucros estimados de acordo com os dados fornecidos (R$)</p>
+        <canvas id="graficoLucro" style="width:65%;max-width:700px"></canvas>
       </div>
     </div>
+  </div>
 
-    <div class="footer">
-        <div class="container">
-            <p>© Ocêanides 2023</p>
-        </div>
+
+  <div class="footer">
+    <div class="container">
+      <p>© Ocêanides 2023</p>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 
 <script>
-var areaGrafico = document.getElementById('graficoLucro');
+  var areaGrafico = document.getElementById('graficoLucro');
 
-var grafico;
+  var grafico;
 
-grafico = new Chart(areaGrafico,{
-  type: 'bar',
-  data: {
-    datasets:[{
-      backgroundColor:[],
-      data:[]
-    }]
-  },
-  options: {
-    plugins: {
-            legend:{
-                display: false
-            }
-        },
-    scales: {
-      y: {
-        beginAtZero: true
+  grafico = new Chart(areaGrafico, {
+    type: 'bar',
+    data: {
+      datasets: [{
+        backgroundColor: [],
+        data: []
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
       }
     }
+  });
+
+  function calcular() {
+    var num_conteiners = Number(input_numero_container.value);
+    var dias = Number(input_dias.value);
+    var valorPorContainer = Number(input_valor.value);
+    valorPorContainer *= num_conteiners;
+    var validade = Number(input_validade.value);
+
+    var valormaterial = 4000;
+    var qtdsensor = 8 * valormaterial;
+    var totalValor = qtdsensor * num_conteiners;
+
+    var ganho_atual = 0;
+    var ganhos_oceanides = 0;
+
+
+    if (validade - dias <= 15) {
+      ganho_atual = valorPorContainer - (valorPorContainer * 0.70)
+    } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+      ganho_atual = valorPorContainer - (valorPorContainer * 0.55)
+    } else {
+      ganho_atual = valorPorContainer - (valorPorContainer * 0.45)
+    }
+
+    if (validade - dias <= 15) {
+      ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.55)
+    } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+      ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.115)
+    } else {
+      ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.120)
+    }
+
+
+
+    grafico.data.labels[0] = "Lucro atual";
+    grafico.data.labels[1] = "Lucro com Oceânides";
+    grafico.data.datasets[0].backgroundColor[0] = '#ce3600';
+    grafico.data.datasets[0].backgroundColor[1] = '#0098ce';
+    grafico.data.datasets[0].data[0] = ganho_atual;
+    grafico.data.datasets[0].data[1] = ganhos_oceanides;
+    grafico.update();
+
+
   }
-});
-
-function calcular() {
-        var num_conteiners = Number(input_numero_container.value);
-        var dias = Number(input_dias.value);
-        var valorPorContainer = Number(input_valor.value);
-        valorPorContainer *= num_conteiners;
-        var validade = Number(input_validade.value);
-
-        var valormaterial = 4000;
-        var qtdsensor = 8 * valormaterial;
-        var totalValor = qtdsensor * num_conteiners;
-
-        var ganho_atual = 0;
-        var ganhos_oceanides = 0;
-
-
-        if (validade - dias <= 15) {
-            ganho_atual = valorPorContainer - (valorPorContainer * 0.70)
-        } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
-            ganho_atual = valorPorContainer - (valorPorContainer * 0.55)
-        } else {
-            ganho_atual = valorPorContainer - (valorPorContainer * 0.45)
-        }
-
-        if (validade - dias <= 15) {
-            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.55)
-        } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
-            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.115)
-        } else {
-            ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.120)
-        }
-
-       
-  
-        grafico.data.labels[0] = "Lucro atual";
-        grafico.data.labels[1] = "Lucro com Oceânides";
-        grafico.data.datasets[0].backgroundColor[0] =  '#ce3600';
-        grafico.data.datasets[0].backgroundColor[1] =  '#0098ce';
-        grafico.data.datasets[0].data[0] = ganho_atual;
-        grafico.data.datasets[0].data[1] = ganhos_oceanides;
-        grafico.update();
-
-
-}
 
 </script>

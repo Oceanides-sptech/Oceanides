@@ -62,4 +62,10 @@ border-radius: 9px;
     order: 0;
     flex-grow: 0;
 }
-
+.ircadastro {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    flex-direction: inherit;
+    
+}
