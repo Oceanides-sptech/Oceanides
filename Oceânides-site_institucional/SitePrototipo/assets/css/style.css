@@ -109,4 +109,10 @@ a, .botao-login{
 margin-top: 5%;
 }
 /*  */
+.divisao{
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+}
+
 
