@@ -1,0 +1,92 @@
+
+#dashboard {
+  height: 100vh;
+  display: flex;
+}
+/* MENU */
+.menu {
+  display: flex;
+  align-items: center;
+  width: 15%;
+  background: linear-gradient(
+    180deg,
+    #00afef 25.29%,
+    rgba(2, 1, 39, 0.823326) 100%
+  );
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+#menu-botao-foto {
+  width: 100%;
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.icone-botao {
+  fill: white;
+  width: 25px;
+  height: 25px;
+}
+#menu-botao-foto,
+div.icone-botao {
+  align-self: flex-end;
+}
+
+#foto {
+  width: 130px;
+  height: 130px;
+  background-color: white;
+  border-radius: 100%;
+}
+#tabs {
+  display: flex;
+  height: 60%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#itens {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  padding: 10px;
+}
+.texto-item {
+    font-family: var(--fonteSubTitulos);
+    font-weight: bolder;
+    color: white;
+    font-size: 20px;
+}
+.ativo{
+    background-color: white;
+    border-radius: 30px;
+}
+#itens > a > div.item.ativo > div{
+    fill: #00afef;
+}
+
+#itens > a > div.item.ativo > p{
+    color: #00afef;
+}
+#botao-sair {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+/* CONTEUDO */
+.conteudo{
+    
+}
