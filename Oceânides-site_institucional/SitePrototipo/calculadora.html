@@ -33,12 +33,26 @@
   <div class="conteudo">
     <div class="formulario">
       <div class="box">
-        <p class="calc">Calculadora Financeira</p><br>
-        <input class="inputs" id="input_dias" placeholder="Dias de viagem"><br>
-        <input class="inputs" id="input_numero_container" placeholder="Número de contêiner"><br>
-        <input class="inputs" id="input_validade" placeholder="Validade média do container"><br>
-        <input class="inputs" id="input_valor_medio_container" placeholder="Valor médio do container"> <br>
-        <button onclick="calcular()" class="buton">Calcular</button>
+        <p class="calc">Calculadora Financeira</p>
+        <div class="inputs">
+          <div class="input">
+            <img src="assets/icons/dias.svg" alt="">
+            <input class="inputs" id="input_dias" placeholder="Dias de viagem">
+          </div>
+          <div class="input">
+            <img src="assets/icons/containers.svg" alt="">
+            <input class="inputs" id="input_numero_container" placeholder="Número de containers">
+          </div>
+          <div class="input">
+            <img src="assets/icons/validade.svg" alt="">
+            <input class="inputs" id="input_validade" placeholder="Validade média em dias">
+          </div>
+          <div class="input">
+            <img src="assets/icons/valor.svg" alt="">
+            <input class="inputs" id="input_valor" placeholder="Valor médio por container (R$)">   
+          </div>
+        </div>
+        <button id="botao-calculadora" onclick="calcular()" >Calcular</button>
       </div>
     </div>
 
@@ -91,7 +105,7 @@
   function calcular() {
     var num_conteiners = Number(input_numero_container.value);
     var dias = Number(input_dias.value);
-    var valorPorContainer = Number(input_valor_medio_container.value);
+    var valorPorContainer = Number(input_valor.value);
     valorPorContainer *= num_conteiners;
     var validade = Number(input_validade.value);
 
