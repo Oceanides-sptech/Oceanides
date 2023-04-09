@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/style-cadastro.css">
+    <link rel="stylesheet" href="assets/css/style-cadastro.css" />
     <title>Oceânides - Página de Cadastro</title>
   </head>
   <body>
@@ -18,40 +18,59 @@
         </div>
 
         <ul class="navbar">
-          <li class="nav-item"><a href="index.html">Início</li>
-          <li class="nav-item"><a href="calculadora.html">Simulador</li>
+          <li class="nav-item"><a href="index.html">Início</a></li>
+          <li class="nav-item"><a href="calculadora.html">Simulador</a></li>
           <li class="nav-item">Cadastro</li>
           <a href="login.html"><span class="botao-login">Login</span></a>
         </ul>
       </div>
     </div>
-<div class="conteudo">
-  <div class="imagem">
-    <img src="assets/img/fundo-login-cadastro-calculadora.png" alt="">
-  </div>
-  <div class="cadastro">
-    <div class="box">
-      <div id="texto_conta">Criar conta</div>
-    <input type="" id="input_nome" placeholder="Nome">
-    <input type="email" id="input_e-mail" placeholder="E-mail">
-    <input type="password" id="input_senha" placeholder="Senha">
-    <input type="password" id="input_confirmar_senha" placeholder="Confirmar senha">
-    
-    <button id="botao-cadastro" onclick="cadastrar()">
-      Cadastrar
-    </button>
-      
-    <ul class="irlogin">
-        <li>Já tem Conta? <a href="login.html"> Login</a></li>
-      </ul>
-    </div>
-  </div>
+    <div class="conteudo">
+      <div class="imagem">
+        <img
+          class="fundo-img"
+          src="assets/img/fundo-login-cadastro-calculadora.png"
+        />
+      </div>
+      <div class="formulario">
+        <div class="box">
+          <div id="texto_conta">Criar conta</div>
+          <div class="inputs">
+            <div class="input">
+              <img src="assets/icons/login-usuario.svg" alt="">
+              <input type="" id="input_nome" placeholder="Nome" />
+            </div>
+            <div class="input">
+              
+              <img src="assets/icons/email.svg" alt="">
+              <input type="email" id="input_e-mail" placeholder="E-mail" />
+            </div>
+            <div class="input">
+              <img src="assets/icons/login-senha.svg" alt="">
+              <input type="password" id="input_senha" placeholder="Senha" />
+            </div>
+            <div class="input">
+              <img src="assets/icons/login-senha.svg" alt="">
+              <input
+              type="password"
+              id="input_confirmar_senha"
+              placeholder="Confirmar senha"
+              />
+            </div>
+          </div>
 
-</div>
-    <div class="footer">
-        <div class="container">
-            <p>© Ocêanides 2023</p>
+          <button id="botao-cadastro" onclick="cadastrar()">Cadastrar</button>
+
+          <ul class="opcoes">
+            <li class="opcao">Já tem Conta? <a class="login" href="login.html"> Login</a></li>
+          </ul>
         </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <p>© Ocêanides 2023</p>
+      </div>
     </div>
   </body>
 </html>

@@ -13,6 +13,7 @@
   flex-direction: column;
   gap: 30px;
 }
+
 .box {
   display: flex;
   flex-direction: column;
@@ -23,12 +24,20 @@
   gap: 35px;
 }
 
+#saldacao {
+  font-family: var(--fonteSubTitulos);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  color: #0098ce;
+  font-weight: bolder;
+}
 .inputs {
   width: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 .input {
   display: flex;
@@ -45,16 +54,8 @@ input {
   font-family: var(--fonteTextos2);
   font-size: 15px;
 }
-#texto_conta {
-  font-family: var(--fonteSubTitulos);
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  color: #0098ce;
-  font-weight: bolder;
-}
 
-#botao-cadastro {
+#botão {
   padding: 10px 16px;
   background: #0098ce;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
@@ -68,7 +69,6 @@ input {
   color: #ffffff;
   cursor: pointer;
 }
-
 .opcoes {
   display: flex;
   font-size: 15px;
@@ -85,6 +85,6 @@ input {
   font-size: 13px;
   color: rgba(0, 0, 0, 0.5);
 }
-.login {
+.recuperar {
   color: #0098ce;
 }

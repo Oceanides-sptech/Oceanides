@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="assets/css/reset.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/login.css">
+  <link rel="stylesheet" href="assets/css/style-login.css">
   <title>Oceânides - Página Inicial</title>
 </head>
 
@@ -29,23 +29,36 @@
   </div>
 
   <div class="conteudo">
-    <div class="imagem"><img src="assets/img/fundo-login-cadastro-calculadora.png" alt=""></div>
+    <div class="imagem"><img class="fundo-img" src="assets/img/fundo-login-cadastro-calculadora.png" alt=""></div>
     <div class="formulario">
-      <div class="box">
-        
-        <h4 id="saldacao">
-          Bem vindo de volta! 
-        </h4>
-        <h4></h4>
-        <input type="email" placeholder="Login">
 
-        <h4></h4>
-        <input type="password" placeholder="Senha">
+      <div class="box">
+        <p id="saldacao">
+          Bem vindo de volta! 
+        </p>
+
+        <div class="inputs">
+
+          <div class="input">
+            <img src="assets/icons/login-usuario.svg" alt="">
+            <input type="email" placeholder="Login">
+          </div>
+          
+          <div class="input">
+            <img src="assets/icons/login-senha.svg" alt="">
+            <input type="password" placeholder="Senha">
+          </div>
+          
+        </div>
+        
 
         <button id="botão">Entrar</button>
-        <ul class="ircadastro">
-          <li> Recuperar senha </li> <li> <a href="Cadastro.html"> Não tem conta? Cadastre-se</a></li>
+
+        <ul class="opcoes">
+          <li><a class="opcao" href=""> Recuperar senha </a></li> 
+          <li><a class="opcao recuperar" href="Cadastro.html"> Não tem conta? Cadastre-se</a></li>
         </ul>
+
       </div>
     </div>
   </div>
