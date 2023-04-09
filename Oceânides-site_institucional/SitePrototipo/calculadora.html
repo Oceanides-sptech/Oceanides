@@ -37,7 +37,7 @@
         <input class="inputs" id="input_dias" placeholder="Dias de viagem"><br>
         <input class="inputs" id="input_numero_container" placeholder="Número de contêiner"><br>
         <input class="inputs" id="input_validade" placeholder="Validade média do container"><br>
-        <input class="inputs" id="Valor médio do container" placeholder="Valor médio do container"> <br>
+        <input class="inputs" id="input_valor_medio_container" placeholder="Valor médio do container"> <br>
         <button onclick="calcular()" class="buton">Calcular</button>
       </div>
     </div>
@@ -91,7 +91,7 @@
   function calcular() {
     var num_conteiners = Number(input_numero_container.value);
     var dias = Number(input_dias.value);
-    var valorPorContainer = Number(input_valor.value);
+    var valorPorContainer = Number(input_valor_medio_container.value);
     valorPorContainer *= num_conteiners;
     var validade = Number(input_validade.value);
 
