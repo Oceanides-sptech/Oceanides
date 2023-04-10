@@ -17,6 +17,13 @@
   padding: 20px;
   justify-content: space-between;
 }
+#menu-aberto{
+  display: flex;
+}
+#menu-fechado{
+  display: none;
+  width: 5%;
+}
 
 #menu-botao-foto {
   width: 100%;
@@ -31,10 +38,17 @@
   fill: white;
   width: 25px;
   height: 25px;
+  cursor: pointer;
 }
+
 #menu-botao-foto,
 div.icone-botao {
   align-self: flex-end;
+}
+
+#menu-botao-foto,
+div.icone-botao.fechado{
+  align-self: auto;
 }
 
 #foto {
@@ -84,6 +98,7 @@ div.icone-botao {
   display: flex;
   flex-direction: row;
   gap: 30px;
+  justify-content: center;
 }
 
 /* CONTEUDO */
