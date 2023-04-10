@@ -6,8 +6,7 @@ function abrirFecharMenu() {
         menuAberto.style.display = "flex";
        
     }else{
-        menuFechado.style.display = "flex";
         menuAberto.style.display = "none";
+        menuFechado.style.display = "flex";
     }
 }
-animate__slideOutLeft
