@@ -1,0 +1,9 @@
+@keyframes mostrarBox {
+    to {
+     color: white;
+    } 
+    from {
+      color: black;
+  
+    }
+  }
