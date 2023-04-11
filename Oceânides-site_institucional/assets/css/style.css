@@ -108,11 +108,14 @@ a, .botao-login{
 .footer p{
 margin-top: 5%;
 }
-/*  */
+/* Divisão */
 .divisao{
-  position: absolute;
-  z-index: -1;
-  width: 100vw;
+  width: 100%;
 }
 
+.div_divisoria {
+  background-image: url(../img/ONDAS.svg) ;
+  height: 464px;
+  background-size: cover;
+}
 
