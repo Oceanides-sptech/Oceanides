@@ -1,105 +1,105 @@
-/*Slider v2*/   
-.slider{
-	margin: 0 auto;
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
+/*Slider v2*/
+.slider {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.slides{
-    width: 400%;
-    height: 400px;
-    display: flex;   
+.slides {
+  width: 400%;
+  height: 400px;
+  display: flex;
 }
 
 .slides input {
-    display: none;
+  display: none;
 }
 
-.slide{
-    width: 25%;
-    position: relative;
+.slide {
+  width: 25%;
+  position: relative;
 }
 
-.slide img{
-    width: 100vw;
+.slide img {
+  width: 100vw;
+  height: 100vh;
 }
 
-.manual-navigation{
-    position: absolute;
-    width: 800px;
-    margin-top: -80px;
-    display: flex;
-    justify-content: center;
+.manual-navigation {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.manual-btn{
-    border: 2px solid #fff;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
+.manual-btn {
+  border: 2px solid #fff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
 }
 
-.manual-btn:not(:last-child){
-    margin-right: 40px;
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
 }
 
-.manual-btn:hover{
-    background-color: #fff;
+.manual-btn:hover {
+  background-color: #fff;
 }
 
-#radio1:checked ~ .first{
-    margin-left: 0;
+#radio1:checked ~ .first {
+  margin-left: 0;
 }
 
-#radio2:checked ~ .first{
-    margin-left: -25%;
+#radio2:checked ~ .first {
+  margin-left: -25%;
 }
 
-#radio3:checked ~ .first{
-    margin-left: -50%;
+#radio3:checked ~ .first {
+  margin-left: -50%;
 }
 
-#radio4:checked ~ .first{
-    margin-left: -75%;
+#radio4:checked ~ .first {
+  margin-left: -75%;
 }
 
-.navigation-auto div{
-    border: 2px solid #20acff;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
+.navigation-auto div {
+  border: 2px solid #20acff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
 }
 
-.navigation-auto{
-    position: absolute;
-    width: 800px;
-    margin-top: 360px;
-    display: flex;
-    justify-content: center;
-    margin-top: 320px;
+.navigation-auto {
+  position: fixed;
+  width: inherit;
+  display: flex;
+  justify-content: center;
 }
 
-.navigation-auto div:not(:last-child){
-    margin-right: 40px;
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
 }
 
-#radio1:checked ~ .navigation-auto .auto-btn1{
-    background-color: #fff;
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background-color: #fff;
 }
 
-#radio2:checked ~ .navigation-auto .auto-btn2{
-    background-color: #fff;
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background-color: #fff;
 }
 
-#radio3:checked ~ .navigation-auto .auto-btn3{
-    background-color: #fff;
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background-color: #fff;
 }
 
-#radio4:checked ~ .navigation-auto .auto-btn4{
-    background-color: #fff;
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background-color: #fff;
 }
 
 /*Qualidade Inovação e Sutentabiliade*/
@@ -108,21 +108,20 @@
 }
 
 .boxes {
-    display: flex;
+  display: flex;
 }
 
 .box img {
-    width: 200px;
+  width: 200px;
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .box h4 {
-    color: #000000;
-    font-weight: bold;
-
+  color: #000000;
+  font-weight: bold;
 }
