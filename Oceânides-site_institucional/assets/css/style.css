@@ -136,6 +136,7 @@ margin-top: 5%;
 }
 /* Divisão */
 .divisao{
+  position: absolute;
   width: 100%;
 }
 
