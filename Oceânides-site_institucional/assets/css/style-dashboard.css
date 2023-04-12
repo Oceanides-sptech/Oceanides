@@ -1,7 +1,10 @@
 
 #dashboard {
-  height: 100vh;
+
   display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
 }
 /* MENU */
 .menu {
@@ -16,6 +19,7 @@
   flex-direction: column;
   padding: 20px;
   justify-content: space-between;
+ 
 }
 #menu-aberto{
   display: flex;
@@ -103,5 +107,11 @@ div.icone-botao.fechado{
 
 /* CONTEUDO */
 .conteudo{
-    
+  width: 75%;
+  display: flex;
+  padding: 50px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  overflow-y: auto;
+  flex-direction: column;
 }

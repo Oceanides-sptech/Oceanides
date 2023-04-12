@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/style-dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/style-menu-dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard - Home</title>
   </head>
   <body>
@@ -28,7 +30,7 @@
           <div id="itens">
             <a href="home.html">
               <div class="item ativo">
-                <div class="icone-botao ">
+                <div class="icone-botao">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                     <path
@@ -41,7 +43,7 @@
             </a>
 
             <a href="cargueiros.html">
-              <div class="item ">
+              <div class="item">
                 <div class="icone-botao">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -92,7 +94,6 @@
 
       <div id="menu-fechado" class="menu animate__animated">
         <div id="menu-botao-foto">
-          
           <div onclick="abrirFecharMenu()" class="icone-botao fechado">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -115,12 +116,11 @@
                     />
                   </svg>
                 </div>
-                
               </div>
             </a>
 
             <a href="cargueiros.html">
-              <div class="item ">
+              <div class="item">
                 <div class="icone-botao">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -129,7 +129,6 @@
                     />
                   </svg>
                 </div>
-               
               </div>
             </a>
 
@@ -150,7 +149,6 @@
                     />
                   </svg>
                 </div>
-               
               </div>
             </a>
           </div>
@@ -164,13 +162,52 @@
                 />
               </svg>
             </div>
-           
           </div>
         </div>
       </div>
 
-      <div class="conteudo"></div>
+      <div id="conteudo" class="conteudo">
+        <div class="kpis">
+          <div class="kpi">
+            <div class="kpi-containers-cargueiros cima">
+              <span>Cargueiros:</span> <span class="info">70</span>
+            </div>
+            <div class="kpi-containers-cargueiros">
+              <span>Containers:</span> <span class="info">9300</span>
+            </div>
+          </div>
+          <div class="kpi alerta">
+            <div class="texto-kpi">
+              <p>Containers em alerta:</p>
+            </div>
+
+            <div class="info-kpi">
+              <span> 3 </span>
+            </div>
+          </div>
+          <div class="kpi risco">
+            <div class="texto-kpi">
+              <p>Containers em risco:</p>
+            </div>
+
+            <div class="info-kpi">
+              <span> 1 </span>
+            </div>
+          </div>
+        </div>
+        <div class="graficos">
+          <div class="grafico">
+            <canvas id="graficoBarras"></canvas>
+          </div>
+          <div class="grafico" >
+            <div style="position: relative; height:40vh; width:60vw" class="graficoPizza">
+              <canvas id="graficoPizza"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
 <script src="../assets/js/dashboard-menu.js"></script>
+<script src="../assets/js/dashboard-home.js"></script>
