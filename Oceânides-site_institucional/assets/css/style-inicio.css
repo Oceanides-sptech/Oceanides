@@ -182,6 +182,11 @@
   margin-top: 100px;
 }
 
+.botao-slider a{
+  color: white;
+  text-decoration: none;
+}
+
 .texto-slider{
   position: absolute;
   margin-left: 7%;
@@ -192,9 +197,4 @@
 
   font-family: var(--fonteTitulos);
   font-size: 40px;
-}
-
-.divisao{
-  width: 100%;
-  position: absolute;
 }
