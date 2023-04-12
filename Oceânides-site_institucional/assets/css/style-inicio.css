@@ -193,3 +193,8 @@
   font-family: var(--fonteTitulos);
   font-size: 40px;
 }
+
+.divisao{
+  width: 100%;
+  position: absolute;
+}
