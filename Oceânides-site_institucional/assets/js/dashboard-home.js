@@ -3,11 +3,26 @@ const graficoBarras = document.getElementById("graficoBarras");
 new Chart(graficoBarras, {
   type: "bar",
   data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: [
+     "Janeiro",
+     "Fevereiro", 
+     "Março",
+     "Abril",
+     "Maio",
+     "Junho"],
     datasets: [
       {
-        label: "# of Votes",
+        label: "Temperatura",
         data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: '#FFD90F',
+        borderColor: '#FFD90F',
+        borderWidth: 1,
+      },
+      {
+        label : "Umidade",
+        data: [80, 75, 50, 90, 100, 60],
+        backgroundColor: '#00AFEF',
+        borderColor: '#00AFEF',
         borderWidth: 1,
       },
     ],
@@ -25,14 +40,14 @@ const graficoPizza = document.getElementById("graficoPizza");
 new Chart(graficoPizza, {
   type: "pie",
   data: {
-    labels: ["Red", "Blue"],
+    labels: ["Containers protegidos", "Containers avariados"],
     datasets: [
       {
         label: "My First Dataset",
         data: [300, 5],
         backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
+          "#00AFEF",
+          "#DC3545",
         ],
         hoverOffset: 4,
       },
