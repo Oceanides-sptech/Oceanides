@@ -1,3 +1,6 @@
+html{
+  scroll-behavior: smooth;
+}
 /*Slider v2*/
 .slider {
   margin: 0 auto;
@@ -182,10 +185,12 @@
   margin-top: 100px;
 }
 
-.botao-slider a{
+.botao-slider{
   color: white;
   text-decoration: none;
+  transition: 2s;
 }
+
 
 .texto-slider{
   position: absolute;
