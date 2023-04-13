@@ -202,3 +202,8 @@ html{
   font-family: var(--fonteTitulos);
   font-size: 40px;
 }
+
+.img-propaganda{
+  margin: 35px;
+  height: 250px;
+}
