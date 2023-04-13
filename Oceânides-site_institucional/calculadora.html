@@ -116,8 +116,10 @@
     var ganho_atual = 0;
     var ganhos_oceanides = 0;
 
-
-    if (validade - dias <= 15) {
+    if (dias < validade ) {
+      
+      
+      if (validade - dias <= 15) {
       ganho_atual = valorPorContainer - (valorPorContainer * 0.70)
     } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
       ganho_atual = valorPorContainer - (valorPorContainer * 0.55)
@@ -143,6 +145,9 @@
     grafico.data.datasets[0].data[1] = ganhos_oceanides;
     grafico.update();
 
+  } else {
+    alert (`Validade dos produtos inferior aos dias de viagens`)
+  }
 
   }
 

@@ -38,16 +38,16 @@
           <div class="inputs">
             <div class="input">
               <img src="assets/icons/login-usuario.svg" alt="">
-              <input type="" id="input_nome" placeholder="Nome" />
+              <input type="" id="input_nome" placeholder="Nome"  />
             </div>
             <div class="input">
               
               <img src="assets/icons/email.svg" alt="">
-              <input type="email" id="input_email" placeholder="E-mail.com" />
+              <input type="email" id="input_email" placeholder="E-mail.com" value="Oceanides@email.com" />
             </div>
             <div id="div_input_senha" class="input">
               <img src="assets/icons/login-senha.svg" alt="">
-              <input type="password" id="input_senha" placeholder="Senha" />
+              <input type="password" id="input_senha" placeholder="Senha" value="Oceanides123" />
             </div>
             <div class="input">
               <img src="assets/icons/login-senha.svg" alt="">
@@ -55,11 +55,11 @@
               type="password"
               id="input_confirmar_senha"
               placeholder="Confirmar senha"
-              />
+              value="Oceanides123"/>
             </div>
           </div>
 
-          <button id="botao-cadastro" onclick="cadastrar()">Cadastrar</button>
+          <button id="botao-cadastro" class="nav-item" onclick="cadastrar()"><a href="login.html">Cadastrar</a></button>
 
           <ul class="opcoes">
             <li class="opcao">Já tem Conta? <a class="login" href="login.html"> Login</a></li>
@@ -86,11 +86,11 @@
     
 
       if ((senha == confirmar_senha)) {
-        window.location.href = "dashboard/home.html";
+        window.location.href = "login.html";
         div_input_senha.style.borderColor = "black";
         div_input_senha.style.backgroundColor = "white";        
       } else  {
-        li_senha_errada.innerHTML =`<p>Senha ou confirmação de senha do usuário diferentes. Por favor tente outra vez.</p>`
+        li_senha_errada.innerHTML =`<p>Senha e confirmação de senha diferentes. Por favor tente outra vez.</p>`
         div_input_senha.style.borderColor = "red"
         div_input_senha.style.backgroundColor = "#d9a3a3"
       }
