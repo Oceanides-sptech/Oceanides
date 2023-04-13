@@ -38,7 +38,7 @@
           <div class="inputs">
             <div class="input">
               <img src="assets/icons/login-usuario.svg" alt="">
-              <input type="" id="input_nome" placeholder="Nome"  />
+              <input type="" id="input_nome" placeholder="Nome" value="Oceanides" />
             </div>
             <div class="input">
               
@@ -47,7 +47,7 @@
             </div>
             <div id="div_input_senha" class="input">
               <img src="assets/icons/login-senha.svg" alt="">
-              <input type="password" id="input_senha" placeholder="Senha" value="Oceanides123" />
+              <input type="password" id="input_senha" placeholder="Senha" value="oceanides123" />
             </div>
             <div class="input">
               <img src="assets/icons/login-senha.svg" alt="">
@@ -55,11 +55,11 @@
               type="password"
               id="input_confirmar_senha"
               placeholder="Confirmar senha"
-              value="Oceanides123"/>
+              value="oceanides123"/>
             </div>
           </div>
 
-          <button id="botao-cadastro" class="nav-item" onclick="cadastrar()"><a href="login.html">Cadastrar</a></button>
+          <button id="botao-cadastro" class="nav-item" onclick="cadastrar()">Cadastrar</button>
 
           <ul class="opcoes">
             <li class="opcao">Já tem Conta? <a class="login" href="login.html"> Login</a></li>
@@ -81,11 +81,11 @@
     
     var nome = input_nome.value;
     var email = input_email.value;
-    var senha = Number (input_senha.value);
-    var confirmar_senha = Number (input_confirmar_senha.value);
+    var senha =  input_senha.value;
+    var confirmar_senha = input_confirmar_senha.value;
     
 
-      if ((senha == confirmar_senha)) {
+      if (senha == confirmar_senha) {
         window.location.href = "login.html";
         div_input_senha.style.borderColor = "black";
         div_input_senha.style.backgroundColor = "white";        

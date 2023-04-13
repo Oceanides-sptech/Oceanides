@@ -41,22 +41,23 @@
 
           <div class="input">
             <img src="assets/icons/login-usuario.svg" alt="">
-            <input type="email" placeholder="Login">
+            <input id="input_email" type="email" placeholder="Login" value="Oceanides@email.com">
           </div>
           
           <div class="input">
             <img src="assets/icons/login-senha.svg" alt="">
-            <input type="password" placeholder="Senha">
+            <input id="input_senha" type="password" placeholder="Senha" value="oceanides123">
           </div>
           
         </div>
         
 
-        <button class="nav-item" id="botao" onclick="entrar()"> <a href="dashboard/home.html">Entrar</a></button>
+        <button class="nav-item" id="botao" onclick="entrar()">Entrar</a></button>
 
         <ul class="opcoes">
           <li><a class="opcao" href=""> Recuperar senha </a></li> 
           <li><a class="opcao recuperar" href="Cadastro.html"> Não tem conta? Cadastre-se</a></li>
+          <li id="senha_invalida"></li>
         </ul>
 
       </div>
@@ -71,3 +72,22 @@
   </div>
 </body>
 </html>
+<script>
+
+  function entrar() {
+    
+
+    var senha = input_senha.value;
+    var email = input_email.value;
+
+    if (senha == 'oceanides123') {
+      window.location.href = "dashboard/home.html";
+    } else {
+        senha_invalida.innerHTML =`<p>Senha inválida, Por favor tente outra vez.</p>`
+        div_input_senha.style.borderColor = "red"
+        div_input_senha.style.backgroundColor = "#d9a3a3"
+    }
+
+  }
+
+</script>
