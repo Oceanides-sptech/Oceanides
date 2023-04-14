@@ -27,6 +27,7 @@
 #menu-fechado{
   display: none;
   width: 5%;
+  transition: 1s;
 }
 
 #menu-botao-foto {

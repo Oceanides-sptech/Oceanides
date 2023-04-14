@@ -99,6 +99,7 @@
   color: white;
   text-decoration: none;
   border-radius: 10px;
+  transition: .6s;
 }
 
 .nav-item > a:hover{
@@ -115,6 +116,7 @@
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
+  transition: .6s;
 }
 
 .botao-login{
@@ -127,6 +129,13 @@
     font-weight: 700;
     font-size: 20px;
     cursor: pointer;text-decoration: none;
+    transition: .6s;
+}
+
+.botao-login:hover{
+  background-color: #0100241f;
+  color: white;
+  transition: .6s;
 }
 a, .botao-login{
   text-decoration: none;
