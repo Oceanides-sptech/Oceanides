@@ -190,7 +190,6 @@ html{
   text-decoration: none;
 }
 
-
 .texto-slider{
   position: absolute;
   margin-left: 7%;
@@ -205,5 +204,14 @@ html{
 
 .img-propaganda{
   margin: 35px;
+  margin-bottom: 25px;
   height: 250px;
+  transition: 1s;
+}
+
+.propaganda .img-propaganda:hover{
+  height: 295px;
+  transition: 1s;
+  display: flex;
+  justify-content: flex-start
 }
