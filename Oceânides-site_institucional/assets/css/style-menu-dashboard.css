@@ -35,11 +35,13 @@
 }
 
 .kpi.alerta{
-    background-color: #FFD90F;
+    background-color: #fd7e14;
+    color: white;
     display: flex;
 }
 .kpi.risco{
     background-color: #DC3545;
+    color: white;
     display: flex;
 }
 .texto-kpi{

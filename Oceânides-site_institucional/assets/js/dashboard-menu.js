@@ -11,3 +11,7 @@ function abrirFecharMenu() {
         conteudo.style.width = "95%"
     }
 }
+
+function sair() {
+    window.location.href = "../index.html";
+}

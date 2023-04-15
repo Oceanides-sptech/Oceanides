@@ -98,11 +98,12 @@ div.icone-botao.fechado{
 #itens > a > div.item.ativo > p{
     color: #00afef;
 }
-#botao-sair {
+.botao-sair {
   width: 80%;
   display: flex;
   flex-direction: row;
   gap: 30px;
+  cursor: pointer;
   justify-content: center;
 }
 
