@@ -213,7 +213,7 @@ html{
 }
 
 .propaganda .img-propaganda:hover{
-  height: 295px;
+  height: 295px;  
   transition: 1s;
   display: flex;
   justify-content: flex-start
@@ -222,3 +222,7 @@ html{
 .saiba-mais {
   color: #0098ce;
 } 
+
+.sobre_oceanides_style{
+  color: #0098ce;
+}
