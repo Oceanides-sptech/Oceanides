@@ -44,7 +44,7 @@
             <input id="input_email" type="email" placeholder="Login" value="Oceanides@email.com">
           </div>
           
-          <div class="input">
+          <div id="div_input_senha" class="input">
             <img src="assets/icons/login-senha.svg" alt="">
             <input id="input_senha" type="password" placeholder="Senha" value="oceanides123">
           </div>
@@ -57,7 +57,7 @@
         <ul class="opcoes">
           <li><a class="opcao" href=""> Recuperar senha </a></li> 
           <li><a class="opcao recuperar" href="Cadastro.html"> Não tem conta? Cadastre-se</a></li>
-          <li id="senha_invalida"></li>
+          <li class="opcao" id="senha_invalida"></li>
         </ul>
 
       </div>
@@ -84,8 +84,8 @@
       window.location.href = "dashboard/home.html";
     } else {
         senha_invalida.innerHTML =`<p>Senha inválida, Por favor tente outra vez.</p>`
-        div_input_senha.style.borderColor = "red"
-        div_input_senha.style.backgroundColor = "#d9a3a3"
+        div_input_senha.style.borderColor = "#DC3545"
+  
     }
 
   }

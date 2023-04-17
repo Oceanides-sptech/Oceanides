@@ -63,7 +63,7 @@
 
           <ul class="opcoes">
             <li class="opcao">Já tem Conta? <a class="login" href="login.html"> Login</a></li>
-            <li id="li_senha_errada"> </li>
+            <li class="opcao" id="li_senha_errada"> </li>
           </ul>
         </div>
       </div>
@@ -91,8 +91,8 @@
         div_input_senha.style.backgroundColor = "white";        
       } else  {
         li_senha_errada.innerHTML =`<p>Senha e confirmação de senha diferentes. Por favor tente outra vez.</p>`
-        div_input_senha.style.borderColor = "red"
-        div_input_senha.style.backgroundColor = "#d9a3a3"
+        div_input_senha.style.borderColor = "#DC3545"
+        
       }
     }
 

@@ -88,3 +88,7 @@ input {
 .login {
   color: #0098ce;
 }
+#li_senha_errada{
+  color: #DC3545;
+  text-align: center;
+}
