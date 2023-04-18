@@ -85,8 +85,8 @@ input {
   font-size: 13px;
   color: rgba(0, 0, 0, 0.5);
 }
-#senha_invalida{
-  color: #DC3545;
+#senha_invalida {
+  color: #dc3545;
 }
 
 .recuperar {

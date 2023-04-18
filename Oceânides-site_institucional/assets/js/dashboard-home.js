@@ -1,28 +1,21 @@
 const graficoBarras = document.getElementById("graficoBarras");
-
 new Chart(graficoBarras, {
   type: "bar",
   data: {
-    labels: [
-     "Janeiro",
-     "Fevereiro", 
-     "Março",
-     "Abril",
-     "Maio",
-     "Junho"],
+    labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
     datasets: [
       {
         label: "Temperatura",
         data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: '#FFD90F',
-        borderColor: '#FFD90F',
+        backgroundColor: "#FFD90F",
+        borderColor: "#FFD90F",
         borderWidth: 1,
       },
       {
-        label : "Umidade",
+        label: "Umidade",
         data: [80, 75, 50, 90, 100, 60],
-        backgroundColor: '#00AFEF',
-        borderColor: '#00AFEF',
+        backgroundColor: "#00AFEF",
+        borderColor: "#00AFEF",
         borderWidth: 1,
       },
     ],
@@ -31,6 +24,12 @@ new Chart(graficoBarras, {
     scales: {
       y: {
         beginAtZero: true,
+      },
+    },
+    plugins: {
+      title: {
+        display: true,
+        text: "Média temperatura ao mês",
       },
     },
   },
@@ -45,12 +44,17 @@ new Chart(graficoPizza, {
       {
         label: "My First Dataset",
         data: [300, 5],
-        backgroundColor: [
-          "#00AFEF",
-          "#DC3545",
-        ],
+        backgroundColor: ["#00AFEF", "#DC3545"],
         hoverOffset: 4,
       },
     ],
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: "Média de Containers",
+      },
+    },
   },
 });

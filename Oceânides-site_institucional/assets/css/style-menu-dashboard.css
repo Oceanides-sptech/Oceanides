@@ -1,86 +1,85 @@
 /* KPIS */
-.kpis{
-    display: flex;
-    height: 40%;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+.kpis {
+  display: flex;
+  height: 40%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
-.kpi{
-    width: 306px;
-    height: 156px;
-    background-color: #00AFEF;
-    border-radius: 30px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.kpi-containers-cargueiros{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    font-size: 20px;
-    justify-content: space-evenly;
-    align-items: center;
-    color: white;
-    font-family: var(--fonteTitulos);
-    font-weight: 600;
-   
-}
-.kpi-containers-cargueiros.cima{
-    border-bottom: 0.96px solid white
-}
-.kpi-containers-cargueiros > span.info{
-    font-size: 36px;
-    font-family: var(--fonteTextos2);
+.kpi {
+  width: 306px;
+  height: 156px;
+  background-color: #00afef;
+  border-radius: 30px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.kpi.alerta{
-    background-color: #fd7e14;
-    color: white;
-    display: flex;
+.kpi-containers-cargueiros {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  font-size: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  font-family: var(--fonteTitulos);
+  font-weight: 600;
 }
-.kpi.risco{
-    background-color: #DC3545;
-    color: white;
-    display: flex;
+.kpi-containers-cargueiros.cima {
+  border-bottom: 0.96px solid white;
 }
-.texto-kpi{
-    width: 60%;
-    height: 100%;
-    font-size: 20px;
-    font-weight: 600;
-    font-family: var(--fonteTitulos);
-    display: flex;
-    align-items: center;
-    text-align: center;
+.kpi-containers-cargueiros > span.info {
+  font-size: 36px;
+  font-family: var(--fonteTextos2);
 }
-.info-kpi{
-    width: 40%;
-    height: 100%;
-    font-weight: 600;
-    font-family: var(--fonteTextos2);
-    font-size: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.kpi.alerta {
+  background-color: #fd7e14;
+  color: white;
+  display: flex;
+}
+.kpi.risco {
+  background-color: #dc3545;
+  color: white;
+  display: flex;
+}
+.texto-kpi {
+  width: 60%;
+  height: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: var(--fonteTitulos);
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.info-kpi {
+  width: 40%;
+  height: 100%;
+  font-weight: 600;
+  font-family: var(--fonteTextos2);
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* GRAFICOS */
-.graficos{
-    display: flex;
-    height: 60%;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
+.graficos {
+  display: flex;
+  height: 60%;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
-.grafico{
-    display: flex;
-    align-items: center;
-    width: 49%;
-    height: 80%;
-    justify-content: center;
-    border-radius: 30px;
+.grafico {
+  display: flex;
+  align-items: center;
+  width: 49%;
+  height: 80%;
+  justify-content: center;
+  border-radius: 30px;
 }
-.graficoPizza{
-    display: flex;
-    justify-content: center;
+.graficoPizza {
+  display: flex;
+  justify-content: center;
 }

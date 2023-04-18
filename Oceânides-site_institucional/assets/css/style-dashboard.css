@@ -1,6 +1,4 @@
-
 #dashboard {
-
   display: flex;
   width: 100%;
   height: 100vh;
@@ -19,12 +17,11 @@
   flex-direction: column;
   padding: 20px;
   justify-content: space-between;
- 
 }
-#menu-aberto{
+#menu-aberto {
   display: flex;
 }
-#menu-fechado{
+#menu-fechado {
   display: none;
   width: 5%;
   transition: 1s;
@@ -32,7 +29,7 @@
 
 #menu-botao-foto {
   width: 100%;
- 
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +49,7 @@ div.icone-botao {
 }
 
 #menu-botao-foto,
-div.icone-botao.fechado{
+div.icone-botao.fechado {
   align-self: auto;
 }
 
@@ -82,21 +79,21 @@ div.icone-botao.fechado{
   padding: 10px;
 }
 .texto-item {
-    font-family: var(--fonteSubTitulos);
-    font-weight: bolder;
-    color: white;
-    font-size: 20px;
+  font-family: var(--fonteSubTitulos);
+  font-weight: bolder;
+  color: white;
+  font-size: 20px;
 }
-.ativo{
-    background-color: white;
-    border-radius: 30px;
+.ativo {
+  background-color: white;
+  border-radius: 30px;
 }
-#itens > a > div.item.ativo > div{
-    fill: #00afef;
+#itens > a > div.item.ativo > div {
+  fill: #00afef;
 }
 
-#itens > a > div.item.ativo > p{
-    color: #00afef;
+#itens > a > div.item.ativo > p {
+  color: #00afef;
 }
 .botao-sair {
   width: 80%;
@@ -108,7 +105,7 @@ div.icone-botao.fechado{
 }
 
 /* CONTEUDO */
-.conteudo{
+.conteudo {
   width: 75%;
   display: flex;
   padding: 50px;

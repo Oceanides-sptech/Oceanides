@@ -49,12 +49,12 @@
   gap: 35px;
 }
 .calc {
-    font-family: var(--fonteSubTitulos);
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    color: #0098ce;
-    font-weight: bolder;
+  font-family: var(--fonteSubTitulos);
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  color: #0098ce;
+  font-weight: bolder;
 }
 .inputs {
   width: 80%;
