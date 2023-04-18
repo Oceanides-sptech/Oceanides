@@ -98,3 +98,29 @@ body{
     
 }
 
+.icon-integrante{
+    height: 200px;
+    width: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+.icon-integrante.bruno{
+    background-image: url('../img/Icon\ Bruno.png');
+}
+.icon-integrante.kevin{
+    background-image: url('../img/Icon\ Kevin.png');
+}
+.icon-integrante.leandro{
+    background-image: url(../img/Icon\ Leandro.png);
+}
+.icon-integrante.murilo{
+    background-image: url(../img/Icon\ Murilo.png);
+}
+.icon-integrante.roberto{
+    background-image: url(../img/Icon\ Roberto.png);
+}
+.icon-integrante.theo{
+    background-image: url(../img/Icon\ Theo.png);
+}
