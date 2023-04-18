@@ -8,22 +8,11 @@
     <link rel="stylesheet" href="../../assets/css/reset.css" />
     <link rel="stylesheet" href="../../assets/css/style.css" />
     <link rel="stylesheet" href="../../assets/css/style-dashboard.css" />
+    <link rel="stylesheet" href="../../assets/css/containerIndividual.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        .grafico{
-            width: 50%;
-            height: 50%;
-            font-family: var(--fonteSubTitulos);
-            color: #0098CE;
-            font-weight: bold;
-        }
+      
     </style>
     <title>Dashboard - Containers</title>
   </head>
@@ -183,20 +172,28 @@
       </div>
 
       <div class="conteudo">
-       
+        <div class="alertas-graficos">
+          <div class="alertas">
+            <div class="alerta-modelo alerta1">Alerta critico frio °C <= 10°C</div>
+            <div class="alerta-modelo alerta2">Alerta frio 10.01°C - 11.64°C</div>
+            <div class="alerta-modelo alerta3">Ideal 11.65°C - 13.04°C</div>
+            <div class="alerta-modelo alerta4">Alerta quente 13.05°C - 13.99°C</div>
+            <div class="alerta-modelo alerta5">Alerta critico calor °C >= 14.00°C</div>
+          </div>
+        
 
-            <div style="display: flex;flex-direction: column;height: 100%;">
-                <div class="grafico">
+            <div class="graficos">
+                <div class="grafico-individual">
         
                     <h1>Sensor DHT 11 - Umidade</h1>
-                    <section style="width:100%">
+                    <section style="width:100%; height: 100%;">
                         <canvas id="dht11Umidade"></canvas>
                     </section>
                 </div>
 
-                <div class="grafico">
+                <div class="grafico-individual">
                     <h1>Sensor DHT 11 - Temperatura</h1>
-                    <section style="width: 100%;">
+                    <section style="width:100%; height: 100%;">
                         <canvas id="dht11Temperatura"></canvas>
                     </section>
                 </div>
