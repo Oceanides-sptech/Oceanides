@@ -117,7 +117,7 @@ INSERT INTO Container VALUES
 (8,'OPQR2345678', 15, -12, -18, -25, 4);
 select * from Container;
 
-INSERT INTO Porto (Sigla_P, Pais_P) VALUES
+INSERT INTO Porto  VALUES
 ('RJ', 'Brasil'),
 ('LA', 'Estados Unidos'),
 ('PA', 'França'),
@@ -127,3 +127,12 @@ INSERT INTO Porto (Sigla_P, Pais_P) VALUES
 ('UK', 'Reino Unido'),
 ('BCN', 'Espanha');
 
+INSERT INTO Rota VALUES
+(1, 1, 2, '2023-04-18 10:00:00', 1),
+(2, 3, 4, '2023-04-18 12:30:00', 2),
+(3, 2, 5, '2023-04-18 15:45:00', 3),
+(4, 4, 1, '2023-04-18 18:20:00', 4),
+(5, 5, 3, '2023-04-18 20:10:00', 5),
+(6, 3, 1, '2023-04-18 22:30:00', 6),
+(7, 4, 5, '2023-04-18 23:45:00', 7),
+(8, 2, 4, '2023-04-19 01:15:00', 8);
