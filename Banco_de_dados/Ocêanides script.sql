@@ -117,7 +117,7 @@ INSERT INTO Container VALUES
 (8,'OPQR2345678', 15, -12, -18, -25, 4);
 select * from Container;
 
-INSERT INTO Porto  VALUES
+INSERT INTO Porto (Sigla_P, Pais_P) VALUES
 ('RJ', 'Brasil'),
 ('LA', 'Estados Unidos'),
 ('PA', 'França'),
@@ -127,7 +127,7 @@ INSERT INTO Porto  VALUES
 ('UK', 'Reino Unido'),
 ('BCN', 'Espanha');
 
-INSERT INTO Rota VALUES
+INSERT INTO Rota (IdRota, FkPorto_Saida_R, FkPorto_Destino_R, Data_Rota, FKCargueiro_R) VALUES
 (1, 1, 2, '2023-04-18 10:00:00', 1),
 (2, 3, 4, '2023-04-18 12:30:00', 2),
 (3, 2, 5, '2023-04-18 15:45:00', 3),
@@ -136,3 +136,13 @@ INSERT INTO Rota VALUES
 (6, 3, 1, '2023-04-18 22:30:00', 6),
 (7, 4, 5, '2023-04-18 23:45:00', 7),
 (8, 2, 4, '2023-04-19 01:15:00', 8);
+
+INSERT INTO Sensor (Dt_Sensor_Instalação, Status_S, FkContainer_S) VALUES
+('2023-04-18 10:00:00', 1, 1),
+('2023-04-18 11:30:00', 0, 2),
+('2023-04-18 12:45:00', 1, 3),
+('2023-04-18 14:15:00', 0, 4),
+('2023-04-18 15:30:00', 1, 5),
+('2023-04-18 16:45:00', 0, 6),
+('2023-04-18 18:00:00', 1, 7),
+('2023-04-18 19:15:00', 0, 8);
