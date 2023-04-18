@@ -55,16 +55,15 @@ CONSTRAINT FkPorto_Destino_R  FOREIGN KEY (FkPorto_Destino_R) REFERENCES Porto(i
 Data_Rota DATETIME,
 FKCargueiro_R INT,
 CONSTRAINT FKCargueiro_R FOREIGN KEY (FKCargueiro_R) REFERENCES Cargueiro(idCargueiro),
-CONSTRAINT PKCompCarg PRIMARY KEY (idRota, FkPorto_Saida_R, FkPorto_Destino_R)
+CONSTRAINT PKCompCarg PRIMARY KEY (idRota, FkPorto_Saida_R, FkPorto_Destino_R, FKCargueiro_R)
 );
 
 CREATE TABLE Sensor (
-IdSensor INT,
+IdSensor INT PRIMARY KEY AUTO_INCREMENT,
 Dt_Sensor_Instalação DATETIME,
 Status_S INT, CONSTRAINT CHKSta CHECK(Status_S in('1','0')),
 FkContainer_S INT,
-CONSTRAINT FkContainer_S FOREIGN KEY (FkContainer_S) REFERENCES Container(IdContainer),
-CONSTRAINT PkCompConta_s PRIMARY KEY (IdSensor,FkContainer_S)
+CONSTRAINT FkContainer_S FOREIGN KEY (FkContainer_S) REFERENCES Container(IdContainer)
 );
 
 CREATE TABLE Registro (
@@ -76,3 +75,13 @@ FkSensor_R INT,
 CONSTRAINT FkSensor_R FOREIGN KEY (FkSensor_R) REFERENCES Sensor(idSensor),
 CONSTRAINT PkCompSen_R PRIMARY KEY (IdRegistro,FkSensor_R)
 );
+
+INSERT INTO Transportadora VALUES
+(null, 'FastExpress', '12345678901234'),
+(null,'CargoMasters', '98765432109876'),
+(null,'SwiftLogistics', '56789012345678'),
+(null,'SpeedyShippers', '43210987654321'),
+(null,'StarHaulers', '98765432101234'),
+(null,'ThunderTransit', '12345678909876'),
+(null,'EagleFreight', '56789012354321'),
+(null,'AeroLogistics', '43210987609876');
