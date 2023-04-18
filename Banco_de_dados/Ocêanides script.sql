@@ -42,7 +42,7 @@ CONSTRAINT PkCompCarg PRIMARY KEY (IdContainer,FkCargueiro_C)
 
 CREATE TABLE Porto (
 IDPorto INT PRIMARY KEY AUTO_INCREMENT,
-Sigla_P CHAR (5),
+Sigla_P VARCHAR (3),
 Pais_P VARCHAR (20)
 );
 
@@ -116,3 +116,14 @@ INSERT INTO Container VALUES
 (7,'JKLM3210987', 18, -8, -15, -20, 4),
 (8,'OPQR2345678', 15, -12, -18, -25, 4);
 select * from Container;
+
+INSERT INTO Porto (Sigla_P, Pais_P) VALUES
+('RJ', 'Brasil'),
+('LA', 'Estados Unidos'),
+('PA', 'França'),
+('TK', 'Japão'),
+('SH', 'China'),
+('SYD', 'Austrália'),
+('UK', 'Reino Unido'),
+('BCN', 'Espanha');
+
