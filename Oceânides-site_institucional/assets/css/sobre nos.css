@@ -88,7 +88,7 @@ body {
 .icon-integrante {
   height: 200px;
   width: 200px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   border-radius: 50%;
 }
