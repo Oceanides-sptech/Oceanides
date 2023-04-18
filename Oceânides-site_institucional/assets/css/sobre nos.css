@@ -27,6 +27,7 @@ body{
 .texto h4{
     
     display: flex;
+    flex-direction: column;
     justify-content: left;
     font-family:  var(--fonteTextos2);
     color: #505050;        
