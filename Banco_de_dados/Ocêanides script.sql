@@ -86,7 +86,7 @@ INSERT INTO Transportadora VALUES
 (null,'EagleFreight', '56789012354321'),
 (null,'AeroLogistics', '43210987609876');
 
-INSERT INTO Usuario (idUsuario, Nome_U, Email_U, Senha, FKtransportadora_U) VALUES
+INSERT INTO Usuario VALUES
 (1, 'João Silva', 'joao.silva@example.com', 'abc12345', 1),
 (2, 'Maria Santos', 'maria.santos@example.com', 'def67890', 2),
 (3, 'Carlos Pereira', 'carlos.pereira@example.com', 'ghi54321', 1),
@@ -95,3 +95,13 @@ INSERT INTO Usuario (idUsuario, Nome_U, Email_U, Senha, FKtransportadora_U) VALU
 (6, 'Luiza Santos', 'luiza.santos@example.com', 'pqr12345', 4),
 (7, 'Fernando Lima', 'fernando.lima@example.com', 'stu67890', 3),
 (8, 'Mariana Sousa', 'mariana.sousa@example.com', 'vwx54321', 4);
+
+INSERT INTO Cargueiro VALUES
+(1, 'Maré Brava', 'ABC1234', 1),
+(2, 'Vento Forte', 'DEF5678', 2),
+(3, 'Onda Selvagem', 'GHI9012', 1),
+(4, 'Navegador Audaz', 'JKL3456', 3),
+(5, 'Estrela dos Mares', 'MNO7890', 2),
+(6, 'Maré Serena', 'PQR2345', 4),
+(7, 'Bravo Marujo', 'STU6789', 3),
+(8, 'Céu Estrelado', 'VWX0123', 4);
