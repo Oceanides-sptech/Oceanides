@@ -85,3 +85,13 @@ INSERT INTO Transportadora VALUES
 (null,'ThunderTransit', '12345678909876'),
 (null,'EagleFreight', '56789012354321'),
 (null,'AeroLogistics', '43210987609876');
+
+INSERT INTO Usuario (idUsuario, Nome_U, Email_U, Senha, FKtransportadora_U) VALUES
+(1, 'João Silva', 'joao.silva@example.com', 'abc12345', 1),
+(2, 'Maria Santos', 'maria.santos@example.com', 'def67890', 2),
+(3, 'Carlos Pereira', 'carlos.pereira@example.com', 'ghi54321', 1),
+(4, 'Ana Costa', 'ana.costa@example.com', 'jkl98765', 3),
+(5, 'Pedro Fernandes', 'pedro.fernandes@example.com', 'mno45678', 2),
+(6, 'Luiza Santos', 'luiza.santos@example.com', 'pqr12345', 4),
+(7, 'Fernando Lima', 'fernando.lima@example.com', 'stu67890', 3),
+(8, 'Mariana Sousa', 'mariana.sousa@example.com', 'vwx54321', 4);
