@@ -105,3 +105,14 @@ INSERT INTO Cargueiro VALUES
 (6, 'Maré Serena', 'PQR2345', 4),
 (7, 'Bravo Marujo', 'STU6789', 3),
 (8, 'Céu Estrelado', 'VWX0123', 4);
+
+INSERT INTO Container VALUES
+(1,'ABCD1234567', 28, -20, 0, -5, 1),
+(2,'EFGH7654321', 30, -18, -3, -8, 1),
+(3,'WXYZ0987654', 32, -15, -2, -10, 2),
+(4,'KLMN2468013', 25, -10, -5, -12, 2),
+(5,'QRST5432109', 20, -5, -10, -15, 3),
+(6,'UVWX9876543', 22, -3, -12, -18, 3),
+(7,'JKLM3210987', 18, -8, -15, -20, 4),
+(8,'OPQR2345678', 15, -12, -18, -25, 4);
+select * from Container;
