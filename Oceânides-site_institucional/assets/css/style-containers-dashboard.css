@@ -73,6 +73,16 @@
   background-color: #dc3545;
 }
 
+.container-ideal:hover{
+  background: linear-gradient(288.3deg, #00A91B -10.29%, rgba(0, 175, 239, 0) 62.1%), #00AFEF !important;
+}
+.container-critico-frio:hover{
+  background: linear-gradient(288.3deg, #6f42c1 -10.29%, rgba(0, 175, 239, 0) 62.1%), #00AFEF !important;
+}
+.container-critico-quente:hover{
+  background: linear-gradient(288.3deg, #dc3545 -10.29%, rgba(0, 175, 239, 0) 62.1%), #00AFEF !important;
+}
+
 .legendas {
   display: flex;
   font-family: var(--fonteSubTitulos);

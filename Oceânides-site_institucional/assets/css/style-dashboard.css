@@ -54,9 +54,13 @@ div.icone-botao.fechado {
 }
 
 #foto {
-  width: 130px;
-  height: 130px;
-  background-color: white;
+  width: 200px;
+  height: 200px;
+  background-image: url('../../assets/icons/login-usuario.svg');
+  border: 1px solid white;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   border-radius: 100%;
 }
 #tabs {
