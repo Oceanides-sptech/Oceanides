@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../assets/css/reset.css" />
     <link rel="stylesheet" href="../../assets/css/style.css" />
     <link rel="stylesheet" href="../../assets/css/style-dashboard.css" />
-    <link rel="stylesheet" href="../../assets/css/containerIndividual.css">
+    <link rel="stylesheet" href="../../assets/css/style-container-Individual.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -220,9 +220,10 @@
     </div>
   </body>
 </html>
-<script src="../assets/js/dashboard-menu.js"></script>
+<script src="../../assets/js/dashboard-menu.js"></script>
 
 <script>
+
     /* -- dht11Umidade -- */
     var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
     contextoDht11Umidade.canvas.width = 1000;
@@ -331,7 +332,11 @@
             grafico.data.labels.push(tempo());
             grafico.data.datasets[0].data.push(parseFloat(valor));
             grafico.update();
+
+
+
         })
+
     }
     
 
