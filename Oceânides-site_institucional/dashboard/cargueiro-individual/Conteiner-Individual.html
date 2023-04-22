@@ -198,14 +198,15 @@
         
 
             <div class="graficos">
+
+           
+
                 <div class="grafico-individual">
-        
                     <h1>Sensor DHT 11 - Umidade</h1>
                     <section style="width:100%; height: 100%;">
                         <canvas id="dht11Umidade"></canvas>
                     </section>
                 </div>
-
                 <div class="grafico-individual">
                     <h1>Sensor DHT 11 - Temperatura</h1>
                     <section style="width:100%; height: 100%;">
@@ -277,7 +278,8 @@
                     label: "Temperatura",
                     type: 'line',
                     borderColor: ['#ff3232'],
-                    backgroundColor: ['#ff7f7f']
+                    backgroundColor: ['#ff7f7f'],
+                   
                 }]
             },
             options: {
@@ -305,8 +307,10 @@
         }
     );
 
+
     var paginacao = {};
     var tempo = {};
+    
     function obterDados(grafico, endpoint) {
         var http = new XMLHttpRequest();
         http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
@@ -338,6 +342,8 @@
         })
 
     }
+
+    
     
 
     setInterval(() => {

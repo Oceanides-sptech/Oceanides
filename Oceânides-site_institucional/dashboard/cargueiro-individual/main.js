@@ -122,7 +122,6 @@ const serial = async (
 const servidor = (
     valoresDht11Umidade,
     valoresDht11Temperatura,
-
     valoresChave
 ) => {
     const app = express();
@@ -154,13 +153,11 @@ const servidor = (
     await serial(
         valoresDht11Umidade,
         valoresDht11Temperatura,
-      
         valoresChave
     );
     servidor(
         valoresDht11Umidade,
         valoresDht11Temperatura,
-
         valoresChave
     );
 })();
