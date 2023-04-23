@@ -194,39 +194,39 @@
             <h1>Cadastrar Rota</h1>
 
             <select class="select" name="" id="select_cargueiros">
-                <option value="">Cargueiro</option>
+                <option id="option" value="0">Cargueiro</option>
 
-                <option value="9837453">Cargueiro A</option>
-                <option value="9345617">Cargueiro B</option>
-                <option value="9345032">Cargueiro C</option>
-                <option value="4212095">Cargueiro D</option>
-                <option value="5342091">Cargueiro E</option>
-                <option value="0374236">Cargueiro F</option>
-                <option value="8934259">Cargueiro G</option>
-                <option value="6354923">Cargueiro H</option>
-                <option value="8235419">Cargueiro I</option>
+                <option id="option" value="9837453">Cargueiro A</option>
+                <option id="option" value="9345617">Cargueiro B</option>
+                <option id="option" value="9345032">Cargueiro C</option>
+                <option id="option" value="4212095">Cargueiro D</option>
+                <option id="option" value="5342091">Cargueiro E</option>
+                <option id="option" value="0374236">Cargueiro F</option>
+                <option id="option" value="8934259">Cargueiro G</option>
+                <option id="option" value="6354923">Cargueiro H</option>
+                <option id="option" value="8235419">Cargueiro I</option>
             </select>
             
             <select class="select" name="" id="select_saida">
-                <option value="">Porto saída</option>
+                <option id="option" value="0">Porto saída</option>
 
-                <option value="">Brasil</option>
-                <option value="">Argentina</option>
-                <option value="">México</option>
+                <option id="option" value="1">Brasil</option>
+                <option id="option" value="1">Argentina</option>
+                <option id="option" value="1">México</option>
             </select>
             
             <select class="select" name="" id="select_destino">
-                <option value="">Porto destino</option>
+                <option id="option" value="0">Porto destino</option>
 
-                <option value="">Noruega</option>
-                <option value="">Africa</option>
-                <option value="">Portugal</option>
-                <option value="">Nigéria</option>
-                <option value="">Argentina</option>
-                <option value="">Austrália</option>
-                <option value="">França</option>
-                <option value="">Estados Unidos</option>
-                <option value="">China</option>
+                <option id="option" value="1">Noruega</option>
+                <option id="option" value="1">Africa</option>
+                <option id="option" value="1">Portugal</option>
+                <option id="option" value="1">Nigéria</option>
+                <option id="option" value="1">Argentina</option>
+                <option id="option" value="1">Austrália</option>
+                <option id="option" value="1">França</option>
+                <option id="option" value="1">Estados Unidos</option>
+                <option id="option" value="1">China</option>
             </select>
 
             <button onclick="cadastrarRota()">
@@ -251,7 +251,12 @@
         }
 
         function cadastrarRota() {
+          if(option >= 1) {
             window.location.href = 'cargueiros.html';
-        }
+          } else{
+            alert('Preencha os campos para cadastrar!')
+          }
 
+          // não deu certo mas subi msm assim pq não lembro de onde parei
+        }
       </script>
