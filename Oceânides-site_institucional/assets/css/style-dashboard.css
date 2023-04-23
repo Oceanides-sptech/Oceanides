@@ -118,3 +118,21 @@ div.icone-botao.fechado {
   overflow-y: auto;
   flex-direction: column;
 }
+.botao-add{
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 10px
+}
+.botao-add img{
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+}
+.botao-add img:hover{
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+}
