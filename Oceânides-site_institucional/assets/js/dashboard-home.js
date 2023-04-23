@@ -42,7 +42,7 @@ new Chart(graficoPizza, {
     labels: ["Containers protegidos", "Containers avariados"],
     datasets: [
       {
-        label: "My First Dataset",
+        label: "Containers",
         data: [300, 5],
         backgroundColor: ["#00AFEF", "#DC3545"],
         hoverOffset: 4,
@@ -53,7 +53,7 @@ new Chart(graficoPizza, {
     plugins: {
       title: {
         display: true,
-        text: "Média de Containers",
+        text: "Comparação containers",
       },
     },
   },

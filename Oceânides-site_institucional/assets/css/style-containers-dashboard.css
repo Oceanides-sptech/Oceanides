@@ -6,6 +6,7 @@
   justify-content: space-between;
   align-items: flex-end;
 }
+
 .container {
   display: flex;
   align-items: center;
@@ -18,6 +19,7 @@
   padding-right: 20px;
   border-radius: 25px;
   background-color: #00afef;
+  cursor: pointer;
 }
 .info-container {
   display: flex;
@@ -88,9 +90,9 @@
   font-family: var(--fonteSubTitulos);
   font-weight: 600;
   width: 100%;
-  height: 15%;
+  height: 10%;
   font-size: 13px;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
