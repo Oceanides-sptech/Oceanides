@@ -187,16 +187,44 @@
     </div>
       <div class="usuario">
 
-          <p>Cadastrar Usuario</p>
+          <p>Cadastrar Usuário</p>
           <input id="input_nome" placeholder="Nome">
           <input type="email" id="input_email" placeholder="E-mail">
           <input type="password" id="input_senha" placeholder="Senha">
           <input type="password" id="input_confirmar_senha" placeholder="Confirmar Senha">
 
         <button onclick="cadastrar()">Cadastrar Usuário</button>
+
+        <h4 id="mensagem"></h4>
       </div>
 
     </div>
 </body>
-</html>
+
 <script src="../assets/js/dashboard-menu.js"></script>
+
+</html>
+
+<script>
+
+function cadastrar() {
+
+    var nome = input_nome.value;
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var confirmacao_senha = input_confirmar_senha.value;
+
+    var validacao = senha == confirmacao_senha;
+
+    if (validacao) {
+        mensagem.innerHTML = 'Usuario cadastrado com sucesso'
+    } else {
+       mensagem.innerHTML =  `Senha e confirmarção de senha diferentes`
+    }
+    
+
+
+}
+
+
+</script>
