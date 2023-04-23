@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     
-    width: 70%;
+    width: 500px;
     height: 100%;
     gap: 20px;
     
@@ -14,37 +14,65 @@
 
 }
 
-.usuario input{
-    
-    height: 30px;
-    width: 150px;
-    border-radius: 10px;
+.inputs {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .input {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border: 0.7px solid #000000;
+    border-radius: 9px;
+    width: 190px;
+    height: 25px;
+  }
+  input {
+    all: unset;
     font-family: var(--fonteTextos2);
+    font-size: 15px;
+    font-weight: 500;
+  }
 
-}
+  .botao-cadastro{
+    padding: 10px 16px;
+    background: #0098ce;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 60px;
+    border: 0;
+    width: 45%;
+    font-family: var(--fonteTitulos);
+    font-weight: bolder;
+    font-size: 15px;
+    line-height: 15px;
+    color: #ffffff;
+    cursor: pointer;
+  }
 
-.usuario button{
-
-    height: 35px;
-    width: 160px;
-    border-radius: 20px;
-    color: white;
-    background-color: #00AFEF;
-}
-
-.usuario p{
-
+.titulo{
+    font-weight: bold;
     font-size: 30px;
     color: #00AFEF;
     font-family: var(--fonteTitulos);
 }
 
-.agora{
-    
-    
-
-    font-size: 20px;
-    font-family: var(--fonteSubTitulos);
-    color: #00AFEF;
-
+.texto-usuario{
+    font-size: 15px;
+}
+#mensagem{
+  font-size: 18px;
+  font-weight: bold;
+  font-weight: bold;
+  font-family: var(--fonteTextos);
+}
+.erro{
+  color: #dc3545;
+}
+.ok{
+ color: rgba(0, 169, 27)
 }

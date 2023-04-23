@@ -88,6 +88,9 @@ div.icone-botao.fechado {
   color: white;
   font-size: 20px;
 }
+.texto-usuario{
+  font-size: 15px;
+}
 .ativo {
   background-color: white;
   border-radius: 30px;
