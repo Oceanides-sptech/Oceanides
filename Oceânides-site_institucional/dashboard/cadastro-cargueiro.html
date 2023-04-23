@@ -177,11 +177,11 @@
             <div class="inputs">
                 <div class="input">
                     <img src="../assets/icons/icon_navio.svg" alt="">
-            <input type="text" placeholder="Nome">
+            <input type="text" id="input_nome" placeholder="Nome">
             </div>
                 <div class= "input">
                     <img src="../assets/icons/icon_imo.svg" alt="">
-            <input type="text" placeholder="IMO">
+            <input type="text" id="input_IMO" placeholder="IMO">
             </div>
             <button onclick="cadastrarCargueiro()">
                 Cadastrar
@@ -193,7 +193,7 @@
             
             <h1>Cadastrar Rota</h1>
 
-            <select class="select" name="" id="">
+            <select class="select" name="" id="select_cargueiros">
                 <option value="">Cargueiro</option>
 
                 <option value="9837453">Cargueiro A</option>
@@ -207,7 +207,7 @@
                 <option value="8235419">Cargueiro I</option>
             </select>
             
-            <select class="select" name="" id="">
+            <select class="select" name="" id="select_saida">
                 <option value="">Porto saída</option>
 
                 <option value="">Brasil</option>
@@ -215,7 +215,7 @@
                 <option value="">México</option>
             </select>
             
-            <select class="select" name="" id="">
+            <select class="select" name="" id="select_destino">
                 <option value="">Porto destino</option>
 
                 <option value="">Noruega</option>
@@ -238,3 +238,20 @@
       </html>
       <script src="../assets/js/dashboard-menu.js"></script>
       
+      <script>
+        function cadastrarCargueiro() {
+          var nome = input_nome.value
+          var IMO = input_IMO.value
+          if(nome && IMO) {
+            window.location.href = 'cargueiros.html';
+          } else{
+            alert('Preencha os campos para cadastrar!')
+          }
+
+        }
+
+        function cadastrarRota() {
+            window.location.href = 'cargueiros.html';
+        }
+
+      </script>
