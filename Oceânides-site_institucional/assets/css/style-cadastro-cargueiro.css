@@ -1,0 +1,70 @@
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cadastrar-cargueiro{
+    display: flex;
+    flex-direction: column;
+    height: 241px;
+    width: 354px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cadastrar-rota{
+    display: flex;
+    flex-direction: column;
+    height: 291px;
+    width: 257px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cadastrar-cargueiro h1{
+    font-family: var(--fonteSubTitulos);
+    color: #00AFEF;
+}
+
+.cadastrar-rota h1{
+    font-family: var(--fonteSubTitulos);
+    color: #00AFEF;
+}
+
+.inputs {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .input {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border: 0.7px solid #000000;
+    border-radius: 9px;
+    width: 100%;
+  }
+  input {
+    all: unset;
+    font-family: var(--fonteTextos2);
+    font-size: 15px;
+  }
+
+  .select{
+    padding: 10px;
+    width: 212px;
+    height: 47px;
+    border: 0.7px solid #000000;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 9px;
+    font-family: var(--fonteSubTitulos);
+}
