@@ -1,0 +1,50 @@
+.usuario{
+
+    display: flex;
+    justify-content: center;
+    
+    width: 70%;
+    height: 100%;
+    gap: 20px;
+    
+    display: flex;
+    align-self: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.usuario input{
+    
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+    font-family: var(--fonteTextos2);
+
+}
+
+.usuario button{
+
+    height: 35px;
+    width: 160px;
+    border-radius: 20px;
+    color: white;
+    background-color: #00AFEF;
+}
+
+.usuario p{
+
+    font-size: 30px;
+    color: #00AFEF;
+    font-family: var(--fonteTitulos);
+}
+
+.agora{
+    
+    
+
+    font-size: 20px;
+    font-family: var(--fonteSubTitulos);
+    color: #00AFEF;
+
+}
