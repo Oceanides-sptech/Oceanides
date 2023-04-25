@@ -20,7 +20,15 @@
   border-radius: 25px;
   background-color: #00afef;
   cursor: pointer;
+  filter: drop-shadow(0px 6px 4px rgba(0, 0, 0, 0.50));
+  transition: linear 0.1s;
+  
 }
+.container:hover{
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.50));
+  transition: linear 0.1s;
+}
+
 .info-container {
   display: flex;
   padding: 10px;

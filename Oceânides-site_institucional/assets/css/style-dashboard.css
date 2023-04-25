@@ -8,7 +8,7 @@
 .menu {
   display: flex;
   align-items: center;
-  width: 15%;
+  
   background: linear-gradient(
     180deg,
     #00afef 25.29%,
@@ -19,8 +19,10 @@
   justify-content: space-between;
 }
 #menu-aberto {
+  width: 15%;
   display: flex;
-}
+
+} 
 #menu-fechado {
   display: none;
   width: 5%;
@@ -118,6 +120,7 @@ div.icone-botao.fechado {
   padding: 50px;
   padding-bottom: 0px;
   padding-top: 0px;
+  justify-content: center;
   overflow-y: auto;
   flex-direction: column;
 }
