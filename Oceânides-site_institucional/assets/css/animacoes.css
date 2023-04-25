@@ -6,3 +6,30 @@
     color: black;
   }
 }
+
+@keyframes aumentarMenu {
+  from{
+    width: 5%;
+  }to{
+    width: 15%;
+  }
+}
+@keyframes mostrarFoto {
+  0%{
+    width: 0px;
+    height: 0px;
+  }
+  100%{
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@keyframes diminuirMenu {
+  from{
+    width: 15%;
+  }to{
+    width: 5%;
+  }
+}
+

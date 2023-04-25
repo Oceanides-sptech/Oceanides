@@ -1,3 +1,4 @@
+@import url("animacoes.css");
 #dashboard {
   display: flex;
   width: 100%;
@@ -24,9 +25,9 @@
 
 } 
 #menu-fechado {
-  display: none;
   width: 5%;
-  transition: 1s;
+  display: none;
+  
 }
 
 #menu-botao-foto {
@@ -115,7 +116,7 @@ div.icone-botao.fechado {
 
 /* CONTEUDO */
 .conteudo {
-  width: 75%;
+  width: 85%;
   display: flex;
   padding: 50px;
   padding-bottom: 0px;
