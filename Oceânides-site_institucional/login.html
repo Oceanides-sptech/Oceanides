@@ -40,7 +40,7 @@
 
         <div class="inputs">
 
-          <div class="input">
+          <div id="div_input_email" class="input">
             <img src="assets/icons/login-usuario.svg" alt="">
             <input id="input_email" type="email" placeholder="Login" value="Oceanides@email.com">
           </div>
@@ -81,14 +81,26 @@
     var senha = input_senha.value;
     var email = input_email.value;
 
-    if (senha == 'oceanides123') {
-      window.location.href = "dashboard/home.html";
-    } else {
-        senha_invalida.innerHTML =`<p>Senha inválida, Por favor tente outra vez.</p>`
-        div_input_senha.style.borderColor = "#DC3545"
-  
-    }
+    if(senha != "" && email != "") {
 
+      if(email.indexOf("@") >= 0 && email.indexOf(".") >= 0 )  {
+        if (senha == 'oceanides123') {
+          window.location.href = "dashboard/home.html";
+        } else {
+          senha_invalida.innerHTML =`<p>Senha inválida, Por favor tente outra vez.</p>`
+          div_input_senha.style.borderColor = "#DC3545"
+          
+        }
+        
+      } else{
+        senha_invalida.innerHTML = `Insira um e-mail válido`
+        div_input_email.style.borderColor = "#DC3545"
+      }
+    } else {
+      senha_invalida.innerHTML = `Preencha todos os campos para seguir!`
+      div_input_senha.style.borderColor = "#DC3545"
+      div_input_email.style.borderColor = "#DC3545"
+    }
   }
 
 </script>

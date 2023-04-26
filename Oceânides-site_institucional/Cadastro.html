@@ -37,26 +37,25 @@
         <div id="box" class="box">
           <div id="texto_conta">Criar conta</div>
           <div class="inputs">
+            
             <div class="input">
               <img src="assets/icons/login-usuario.svg" alt="">
               <input type="" id="input_nome" placeholder="Nome" value="Oceanides" />
             </div>
-            <div class="input">
-              
+
+            <div id="div_input_email" class="input">  
               <img src="assets/icons/email.svg" alt="">
               <input type="email" id="input_email" placeholder="E-mail.com" value="Oceanides@email.com" />
             </div>
+            
             <div id="div_input_senha" class="input">
               <img src="assets/icons/login-senha.svg" alt="">
               <input type="password" id="input_senha" placeholder="Senha" value="oceanides123" />
             </div>
-            <div class="input">
+            
+            <div id="div_input_confirmar_senha" class="input">
               <img src="assets/icons/login-senha.svg" alt="">
-              <input
-              type="password"
-              id="input_confirmar_senha"
-              placeholder="Confirmar senha"
-              value="oceanides123"/>
+              <input type="password" id="input_confirmar_senha" placeholder="Confirmar senha" value="oceanides123"/>
             </div>
           </div>
 
@@ -64,7 +63,7 @@
 
           <ul class="opcoes">
             <li class="opcao">Já tem Conta? <a class="login" href="login.html"> Login</a></li>
-            <li class="opcao" id="li_senha_errada"> </li>
+            <li class="opcao" id="mensagem_de_confirmacao"> </li>
           </ul>
         </div>
       </div>
@@ -86,16 +85,30 @@
     var confirmar_senha = input_confirmar_senha.value;
     
 
+    if(nome != '' && email != '' && senha != '' && confirmar_senha != '') {
+      
+      if(email.indexOf("@") >= 0 && email.indexOf(".") >= 0 )  {
+        
       if (senha == confirmar_senha) {
         window.location.href = "login.html";
         div_input_senha.style.borderColor = "black";
         div_input_senha.style.backgroundColor = "white"; 
         alert('Usuário cadastrado com sucesso!')
       } else  {
-        li_senha_errada.innerHTML =`<p>Senha e confirmação de senha diferentes. Por favor tente outra vez.</p>`
+        mensagem_de_confirmacao.innerHTML =`<p>Senha e confirmação de senha diferentes. Por favor tente outra vez.</p>`
         div_input_senha.style.borderColor = "#DC3545"
         
       }
+      } else {
+        mensagem_de_confirmacao.innerHTML = 'Insirsa um e-mail válido'
+        div_input_email.style.borderColor = "#DC3545"
+      }
+    } else {
+      mensagem_de_confirmacao.innerHTML = 'Preencha todos os campos para realizar o cadastro!'
+      div_input_email.style.borderColor = "#DC3545"
+      div_input_senha.style.borderColor = "#DC3545"
+      div_input_confirmar_senha.borderColor = "#DC3545"
+    }
     }
 
 
