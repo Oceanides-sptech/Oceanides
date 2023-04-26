@@ -89,7 +89,8 @@
       if (senha == confirmar_senha) {
         window.location.href = "login.html";
         div_input_senha.style.borderColor = "black";
-        div_input_senha.style.backgroundColor = "white";        
+        div_input_senha.style.backgroundColor = "white"; 
+        alert('Usuário cadastrado com sucesso!')
       } else  {
         li_senha_errada.innerHTML =`<p>Senha e confirmação de senha diferentes. Por favor tente outra vez.</p>`
         div_input_senha.style.borderColor = "#DC3545"
