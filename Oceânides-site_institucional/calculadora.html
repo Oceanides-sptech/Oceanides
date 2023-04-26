@@ -104,36 +104,49 @@
   });
 
   function calcular() {
-    var num_conteiners = Number(input_numero_container.value);
+   // Primeiro é capitado todos os dados dos Imputs.
+   var num_conteiners = Number(input_numero_container.value);
     var dias = Number(input_dias.value);
     var valorPorContainer = Number(input_valor.value);
-    valorPorContainer *= num_conteiners;
     var validade = Number(input_validade.value);
+    // A quantidade dos container é multiplicado pelo valor de cada container.
+    valorPorContainer *= num_conteiners;
 
+    // O preço medio dos materiais de acordo com o preço de cada sensor.
+    // O valor material pode ser alterado pelos desenvolvedores.
     var valormaterial = 4000;
+    // Para um container de carga maritima são nescessarios em 8 sensores.
     var qtdsensor = 8 * valormaterial;
+    // o totalValor representa o todo dos sensores * a quantidade de contaniers.
     var totalValor = qtdsensor * num_conteiners;
 
+    // É criado uma variavel para salvar o ganho atual do cliente com a viagem entregue nos imputs.
     var ganho_atual = 0;
+    // E uma segunda variavel para salvar qual seria o valor com o serviço Oceanides.
     var ganhos_oceanides = 0;
 
-    if (dias < validade ) {
-      
-      
+    // Em sequencia é iniciado uma validação e a execução dos calculos.
+    if (dias < validade ) {   
+      // Em media são 15 dias para uma carga em transporte maritimo ser entregue.
+      // os ganhos almentam quanto mais rapido for a entrega,
       if (validade - dias <= 15) {
+        // caso chegue dentro dos 15 dias, o ganho por container cai em 30%
       ganho_atual = valorPorContainer - (valorPorContainer * 0.70)
     } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+      // caso ultrapasse de 15 dias, o ganho por container cai para 45%
       ganho_atual = valorPorContainer - (valorPorContainer * 0.55)
-    } else {
-      ganho_atual = valorPorContainer - (valorPorContainer * 0.45)
-    }
+    } 
 
+     // Para os serviços Oceanides, as regras aplicadas são as mesmas.
+     // Em media são 15 dias para uma carga em transporte maritimo ser entregue,
+     // os ganhos almentam quanto mais rapido for a entrega.
     if (validade - dias <= 15) {
+      // Os ganho com o serviço Oceanides, dentro dos 15 dias, sera 15% maior que um serviço convencional.
       ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.55)
     } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+      // caso se passe mais de 15 dias, nossos serviços conseguem manter um bom controle,
+      // tendo cerca de 43,5% de eficiencia a mais que um serviço convencional.
       ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.115)
-    } else {
-      ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.120)
     }
 
 
@@ -151,5 +164,7 @@
   }
 
   }
+
+  
 
 </script>
