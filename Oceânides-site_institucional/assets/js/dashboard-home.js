@@ -2,18 +2,18 @@ const graficoBarras = document.getElementById("graficoBarras");
 new Chart(graficoBarras, {
   type: "bar",
   data: {
-    labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+    labels: ["BRA/CHI", "BRA/POR", "BRA/FRA", "BRA/EUA", "BRA/AUS", "BRA/AFR"],
     datasets: [
       {
         label: "Temperatura",
-        data: [12, 19, 3, 5, 2, 3],
+        data: [10, 8, 4, 9, 13, 14],
         backgroundColor: "#FFD90F",
         borderColor: "#FFD90F",
         borderWidth: 1,
       },
       {
         label: "Umidade",
-        data: [80, 75, 50, 90, 100, 60],
+        data: [92, 91, 95, 94, 93, 90],
         backgroundColor: "#00AFEF",
         borderColor: "#00AFEF",
         borderWidth: 1,
@@ -29,7 +29,7 @@ new Chart(graficoBarras, {
     plugins: {
       title: {
         display: true,
-        text: "Média temperatura ao mês",
+        text: "Média temperatura por rota",
       },
     },
   },
@@ -39,12 +39,24 @@ const graficoPizza = document.getElementById("graficoPizza");
 new Chart(graficoPizza, {
   type: "pie",
   data: {
-    labels: ["Containers protegidos", "Containers avariados"],
+    labels: [
+      "Crítico Frio", 
+      "Emergência Frio",
+      "Ideal",
+      "Emergência Quente",
+      "Crítico Quente"
+    ],
     datasets: [
       {
         label: "Containers",
-        data: [300, 5],
-        backgroundColor: ["#00AFEF", "#DC3545"],
+        data: [1, 0, 7, 0, 1],
+        backgroundColor: [
+          "#6f42c1", 
+          "#00afef",
+          "#00a91b",
+          "#fd7e14",
+          "#dc3545"
+        ],
         hoverOffset: 4,
       },
     ],
@@ -53,8 +65,8 @@ new Chart(graficoPizza, {
     plugins: {
       title: {
         display: true,
-        text: "Comparação containers",
-      },
+        text: "Quantidade de containers por alerta",
+      },  
     },
   },
 });

@@ -206,18 +206,27 @@
                 <h1 class="titulo">Cadastrar container</h1>
                 <div class="inputs">
                   
-                    <select class="select">
-                        <option value="">Container</option>
+                    <select id="slContainer" class="select">
+                        <option value="0">Container</option>
+                        <option id="option" value="9837453">Cargueiro A</option>
+                        <option id="option" value="9345617">Cargueiro B</option>
+                        <option id="option" value="9345032">Cargueiro C</option>
+                        <option id="option" value="4212095">Cargueiro D</option>
+                        <option id="option" value="5342091">Cargueiro E</option>
+                        <option id="option" value="0374236">Cargueiro F</option>
+                        <option id="option" value="8934259">Cargueiro G</option>
+                        <option id="option" value="6354923">Cargueiro H</option>
+                        <option id="option" value="8235419">Cargueiro I</option>
                     </select>
-                    <select class="select">
-                        <option value="">Faixa de temperatura</option>
-                        <option value="">Baixa</option>
-                        <option value="">Intermediária</option>
-                        <option value="">Alta</option>
+                    <select id="slFaixaTemperatura" class="select">
+                        <option value="0">Faixa de temperatura</option>
+                        <option value="1">Baixa</option>
+                        <option value="2">Intermediária</option>
+                        <option value="3">Alta</option>
                     </select>
                     <div class="input">
                         <img src="../assets/icons/icon_imo.svg" alt="">
-                        <input placeholder="Código" type="text">
+                        <input id="input_codigo" placeholder="Código" type="text">
                     </div>
                 
                 </div>
@@ -231,6 +240,16 @@
 <script src="../assets/js/dashboard-menu.js"></script>
 <script>
     function simularCadastro(){
-        window.location.href = 'containers.html';
+        var container = Number(slContainer.value);
+        var faixa = Number(slFaixaTemperatura.value);
+        var codigo = input_codigo.value;
+
+        var camposVazio = (container == 0) || (faixa == 0) || codigo == "";
+        if(camposVazio){
+          alert("Há campos vazios, preencha-os!");
+        }else{
+          window.location.href = 'containers.html';
+        }
+       
     }
 </script>
