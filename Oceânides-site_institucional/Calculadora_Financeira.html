@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style-calculadora.css">
+  <link rel="shortcut icon" href="./assets/img/oceanides-logo.png" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Oceânides - Calculadora</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="logo-titulo-header">
+        <img class="logo-header" src="assets/img/oceanides-logo.png" alt="" />
+        <p class="titulo-header">Oceânides</p>
+      </div>
+
+      <ul class="navbar">
+        <li class="nav-item"><a href="index.html">Início</a></li>
+        <li id="a-selecionado" class="nav-item">Simulador</li>
+        <li class="nav-item"><a href="Cadastro.html">Cadastro</a></li>
+        <a href="login.html"><span class="botao-login">Login</span></a>
+      </ul>
+    </div>
+  </div>
+
+  <!--INPUTS-->
+  <div id="conteudo" class="conteudo">
+    <div class="formulario">
+      <div class="box">
+        <p class="calc">Calculadora Financeira</p>
+        <div class="inputs">
+          <div class="input">
+            <img src="assets/icons/dias.svg" alt="">
+            <input class="inputs" id="input_dias" placeholder="Dias de viagem">
+          </div>
+          <div class="input">
+            <img src="assets/icons/containers.svg" alt="">
+            <input class="inputs" id="input_numero_container" placeholder="Número de containers">
+          </div>
+          <div class="input">
+            <img src="assets/icons/validade.svg" alt="">
+            <input class="inputs" id="input_validade" placeholder="Validade média em dias">
+          </div>
+          <div class="input">
+            <img src="assets/icons/valor.svg" alt="">
+            <input class="inputs" id="input_valor" placeholder="Valor médio por container (R$)">   
+          </div>
+        </div>
+        <button id="botao-calculadora" onclick="calcular()" >Calcular</button>
+      </div>
+    </div>
+
+    <!--GRAFICOS-->
+    <div class="img-fundo">
+      <div class="graficos">
+        <p class="titulo-grafico">Lucros estimados de acordo com os dados fornecidos (R$)</p>
+        <canvas id="graficoLucro" style="width:65%;max-width:700px"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="container">
+      <p>© Ocêanides 2023</p>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  var areaGrafico = document.getElementById('graficoLucro');
+
+  var grafico;
+
+  grafico = new Chart(areaGrafico, {
+    type: 'bar',
+    data: {
+      datasets: [{
+        backgroundColor: [],
+        data: []
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  function calcular() {
+   // Primeiro é capitado todos os dados dos Imputs.
+   var num_conteiners = Number(input_numero_container.value);
+    var dias = Number(input_dias.value);
+    var valorPorContainer = Number(input_valor.value);
+    var validade = Number(input_validade.value);
+    // A quantidade dos container é multiplicado pelo valor de cada container.
+    valorPorContainer *= num_conteiners;
+
+    // O preço medio dos materiais de acordo com o preço de cada sensor.
+    // O valor material pode ser alterado pelos desenvolvedores.
+    var valormaterial = 4000;
+    // Para um container de carga maritima são nescessarios em 8 sensores.
+    var qtdsensor = 8 * valormaterial;
+    // o totalValor representa o todo dos sensores * a quantidade de contaniers.
+    var totalValor = qtdsensor * num_conteiners;
+
+    // É criado uma variavel para salvar o ganho atual do cliente com a viagem entregue nos imputs.
+    var ganho_atual = 0;
+    // E uma segunda variavel para salvar qual seria o valor com o serviço Oceanides.
+    var ganhos_oceanides = 0;
+
+    // Em sequencia é iniciado uma validação e a execução dos calculos.
+    if (dias < validade ) {   
+      // Em media são 15 dias para uma carga em transporte maritimo ser entregue.
+      // os ganhos almentam quanto mais rapido for a entrega,
+      if (validade - dias <= 15) {
+        // caso chegue dentro dos 15 dias, o ganho por container cai em 30%
+      ganho_atual = valorPorContainer - (valorPorContainer * 0.70)
+    } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+      // caso ultrapasse de 15 dias, o ganho por container cai para 45%
+      ganho_atual = valorPorContainer - (valorPorContainer * 0.55)
+    } 
+
+     // Para os serviços Oceanides, as regras aplicadas são as mesmas.
+     // Em media são 15 dias para uma carga em transporte maritimo ser entregue,
+     // os ganhos almentam quanto mais rapido for a entrega.
+    if (validade - dias <= 15) {
+      // Os ganho com o serviço Oceanides, dentro dos 15 dias, sera 15% maior que um serviço convencional.
+      ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.55)
+    } else if ((validade - dias) > 15 && (validade - dias) <= 25) {
+      // caso se passe mais de 15 dias, nossos serviços conseguem manter um bom controle,
+      // tendo cerca de 43,5% de eficiencia a mais que um serviço convencional.
+      ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.115)
+    }
+
+
+
+    grafico.data.labels[0] = "Lucro atual";
+    grafico.data.labels[1] = "Lucro com Oceânides";
+    grafico.data.datasets[0].backgroundColor[0] = '#ce3600';
+    grafico.data.datasets[0].backgroundColor[1] = '#0098ce';
+    grafico.data.datasets[0].data[0] = ganho_atual;
+    grafico.data.datasets[0].data[1] = ganhos_oceanides;
+    grafico.update();
+
+  } else {
+    alert (`Validade dos produtos inferior aos dias de viagens`)
+  }
+
+  }
+
+  
+
+</script>
