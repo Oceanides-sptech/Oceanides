@@ -36,5 +36,5 @@ function abrirFecharMenu() {
 }
 
 function sair() {
-  window.location.href = "../index.html";
+  window.location.assign("../Inicio.html");
 }
