@@ -127,9 +127,10 @@
     var ganho_atual = 0;
     // E uma segunda variavel para salvar qual seria o valor com o serviço Oceanides.
     var ganhos_oceanides = 0;
+if(num_conteiners != "" && dias != "" && valorPorContainer != "" && validade != "") {
 
-    // Em sequencia é iniciado uma validação e a execução dos calculos.
-    if (dias < validade ) {   
+  // Em sequencia é iniciado uma validação e a execução dos calculos.
+  if (dias < validade ) {   
       // Em media são 15 dias para uma carga em transporte maritimo ser entregue.
       // os ganhos almentam quanto mais rapido for a entrega,
       if (validade - dias <= 15) {
@@ -140,7 +141,7 @@
       ganho_atual = valorPorContainer - (valorPorContainer * 0.55)
     } 
 
-     // Para os serviços Oceanides, as regras aplicadas são as mesmas.
+    // Para os serviços Oceanides, as regras aplicadas são as mesmas.
      // Em media são 15 dias para uma carga em transporte maritimo ser entregue,
      // os ganhos almentam quanto mais rapido for a entrega.
     if (validade - dias <= 15) {
@@ -151,9 +152,9 @@
       // tendo cerca de 43,5% de eficiencia a mais que um serviço convencional.
       ganhos_oceanides = valorPorContainer - (valorPorContainer * 0.115)
     }
-
-
-
+    
+    
+    
     grafico.data.labels[0] = "Lucro atual";
     grafico.data.labels[1] = "Lucro com Oceânides";
     grafico.data.datasets[0].backgroundColor[0] = '#ce3600';
@@ -161,11 +162,14 @@
     grafico.data.datasets[0].data[0] = ganho_atual;
     grafico.data.datasets[0].data[1] = ganhos_oceanides;
     grafico.update();
-
+    
   } else {
     div_Validade_Inferior.innerHTML = `
     <p>Validade dos produtos inferior aos dias de viagens!</p>
     `
+    }
+  } else {
+    div_Validade_Inferior.innerHTML = `<p>Preencha todos os campos para calcular</p>`
   }
 
   }
