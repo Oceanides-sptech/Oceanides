@@ -19,8 +19,8 @@
         </div>
 
         <ul class="navbar">
-          <li class="nav-item"><a href="index.html">Início</a></li>
-          <li class="nav-item"><a href="calculadora.html">Simulador</a></li>
+          <li class="nav-item"><a href="Inicio.html">Início</a></li>
+          <li class="nav-item"><a href="Calculadora_Financeira.html">Simulador</a></li>
           <li id="a-selecionado" class="nav-item">Cadastro</li>
           <a href="login.html"><span class="botao-login">Login</span></a>
         </ul>
@@ -91,20 +91,20 @@
         
       if (senha == confirmar_senha) {
         window.location.href = "login.html";
-        div_input_senha.style.borderColor = "black";
-        div_input_senha.style.backgroundColor = "white"; 
         alert('Usuário cadastrado com sucesso!')
+
+
       } else  {
-        mensagem_de_confirmacao.innerHTML =`<p>Senha e confirmação de senha diferentes. Por favor tente outra vez.</p>`
+        mensagem_de_confirmacao.innerHTML =`<p style= "color: #DC3545">Senha e confirmação de senha diferentes! <br>Por favor tente outra vez.</p>`
         div_input_senha.style.borderColor = "#DC3545"
         
       }
       } else {
-        mensagem_de_confirmacao.innerHTML = 'Insirsa um e-mail válido'
+        mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545">Insirsa um e-mail válido!</p>'
         div_input_email.style.borderColor = "#DC3545"
       }
     } else {
-      mensagem_de_confirmacao.innerHTML = 'Preencha todos os campos para realizar o cadastro!'
+      mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545">Preencha todos os campos para realizar o cadastro!</p>'
       div_input_email.style.borderColor = "#DC3545"
       div_input_senha.style.borderColor = "#DC3545"
       div_input_confirmar_senha.borderColor = "#DC3545"

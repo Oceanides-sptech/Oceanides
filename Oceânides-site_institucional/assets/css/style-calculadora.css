@@ -95,4 +95,9 @@ input {
   color: #ffffff;
   cursor: pointer;
 }
+
+#div_Validade_Inferior{
+  font-family: var(--fonteTextos);
+  color: #DC3545;
+}
 /* */

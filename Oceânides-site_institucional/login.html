@@ -21,8 +21,8 @@
       </div>
 
       <ul class="navbar">
-        <li class="nav-item"><a href="index.html">Início</a></li>
-        <li class="nav-item"><a href="calculadora.html">Simulador</a></li>
+        <li class="nav-item"><a href="Inicio.html">Início</a></li>
+        <li class="nav-item"><a href="Calculadora_Financeira.html">Simulador</a></li>
         <li class="nav-item"><a href="Cadastro.html">Cadastro</a></li>
         <a href="login.html"><span class="botao-login">Login</span></a>
       </ul>
@@ -87,13 +87,13 @@
         if (senha == 'oceanides123') {
           window.location.href = "dashboard/home.html";
         } else {
-          senha_invalida.innerHTML =`<p>Senha inválida, Por favor tente outra vez.</p>`
+          senha_invalida.innerHTML =`<p>Senha inválida! Por favor tente outra vez.</p>`
           div_input_senha.style.borderColor = "#DC3545"
           
         }
         
       } else{
-        senha_invalida.innerHTML = `Insira um e-mail válido`
+        senha_invalida.innerHTML = `Insira um e-mail válido!`
         div_input_email.style.borderColor = "#DC3545"
       }
     } else {
