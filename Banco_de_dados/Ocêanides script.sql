@@ -9,6 +9,8 @@ Nome_T VARCHAR (50),
 CNPJ_T CHAR (14)
 );
 
+select * from sptech;
+
 Create table Usuario (
 idUsuario INT,
 Nome_U VARCHAR (50),
