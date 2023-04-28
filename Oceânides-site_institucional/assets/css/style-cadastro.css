@@ -47,7 +47,7 @@ input {
 }
 #texto_conta {
   font-family: var(--fonteSubTitulos);
-  font-size: 30px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   color: #0098ce;
