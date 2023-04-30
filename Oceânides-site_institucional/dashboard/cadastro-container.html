@@ -67,7 +67,7 @@
                 <p class="texto-item">containers</p>
               </div>
             </a>
-            <a href="cadastro-Usuario.html">
+            <a href="cadastro-Funcionario.html">
               <div class="item">
                 <div class="icone-botao">
                   <svg
@@ -80,13 +80,13 @@
                     />
                   </svg>
                 </div>
-                <p class="texto-item texto-usuario">Cadastrar Usuário</p>
+                <p class="texto-item texto-usuario">Cadastrar Funcionário</p>
               </div>
             </a>
           </div>
 
-          <div class="botao-sair">
-            <div class="icone-botao">
+          <div onclick="sair()" class="botao-sair">
+            <div  class="icone-botao">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <path
@@ -165,7 +165,7 @@
           </div>
 
           <div class="botao-sair">
-            <div onclick="sair()" class="icone-botao">
+          <div onclick="sair()" class="icone-botao">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <path
@@ -185,15 +185,15 @@
                   
                     <select id="slContainer" class="select">
                         <option value="0">Container</option>
-                        <option id="option" value="9837453">Cargueiro A</option>
-                        <option id="option" value="9345617">Cargueiro B</option>
-                        <option id="option" value="9345032">Cargueiro C</option>
-                        <option id="option" value="4212095">Cargueiro D</option>
-                        <option id="option" value="5342091">Cargueiro E</option>
-                        <option id="option" value="0374236">Cargueiro F</option>
-                        <option id="option" value="8934259">Cargueiro G</option>
-                        <option id="option" value="6354923">Cargueiro H</option>
-                        <option id="option" value="8235419">Cargueiro I</option>
+                        <option id="option" value="9837453">Container A</option>
+                        <option id="option" value="9345617">Container B</option>
+                        <option id="option" value="9345032">Container C</option>
+                        <option id="option" value="4212095">Container D</option>
+                        <option id="option" value="5342091">Container E</option>
+                        <option id="option" value="0374236">Container F</option>
+                        <option id="option" value="8934259">Container G</option>
+                        <option id="option" value="6354923">Container H</option>
+                        <option id="option" value="8235419">Container I</option>
                     </select>
                     <select id="slFaixaTemperatura" class="select">
                         <option value="0">Faixa de temperatura</option>
@@ -208,6 +208,7 @@
                 
                 </div>
                 <button onclick="simularCadastro()" class="botao-cadastro">Cadastrar</button>
+                <div id="div_mensagem_confirmacao"></div>
             </div>
         </div>
       </div>
@@ -223,7 +224,7 @@
 
         var camposVazio = (container == 0) || (faixa == 0) || codigo == "";
         if(camposVazio){
-          alert("Há campos vazios, preencha-os!");
+          div_mensagem_confirmacao.innerHTML = `<span style= "color: #DC3545">Preencha todos os campos para realizar o cadastro!</span>`;
         }else{
           window.location.href = 'containers.html';
         }

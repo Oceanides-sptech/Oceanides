@@ -13,7 +13,6 @@
     width: 20%;
     height: 80%;
     gap: 37px;
-    
 }
 
 .graficos{
@@ -74,4 +73,5 @@ canvas {
 
 .alerta5 {
     background-color: rgba(220, 53, 69, 0.7);
+    font-size: 14.8px;
 }

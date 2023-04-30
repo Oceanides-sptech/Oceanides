@@ -74,3 +74,9 @@ input {
   color: #ffffff;
   cursor: pointer;
 }
+
+#div_mensagem_confirmacao{
+  font-family: var(--fonteTextos);
+  font-size: 15px;
+  font-weight: bold;
+}

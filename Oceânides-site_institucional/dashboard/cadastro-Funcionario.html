@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastrar Usuário</title>
+    <title>Cadastrar Funcionário</title>
 
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/style-dashboard.css" />
     <link rel="shortcut icon" href="../assets/img/oceanides-logo.png" />
-    <link rel="stylesheet" href="../assets/css/cadastro-Usuario.css" />
+    <link rel="stylesheet" href="../assets/css/style-cadastrar-funcionario.css" />
   </head>
   <body>
     <div id="dashboard">
@@ -80,7 +80,7 @@
                     />
                   </svg>
                 </div>
-                <p class="texto-item texto-usuario">Cadastrar Usuário</p>
+                <p class="texto-item texto-usuario">Cadastrar Funcionário</p>
               </div>
             </a>
           </div>
@@ -185,7 +185,7 @@
 
       <div id="conteudo" class="conteudo">
         <div class="usuario">
-          <p class="titulo">Cadastrar Usuário</p>
+          <p class="titulo">Cadastrar Funcionário</p>
           <div class="inputs">
             <div class="input">
               <img src="../assets/icons/login-usuario.svg" alt="" />
@@ -210,7 +210,7 @@
           </div>
 
           <button class="botao-cadastro" onclick="cadastrar()">
-            Cadastrar Usuário
+            Cadastrar Funcionário
           </button>
 
           <div id="mensagem"></div>
@@ -232,17 +232,27 @@
 
     var campoVazio = (nome == "") || (email=="") || (senha=="") || (confirmacao_senha=="");
 
-   
     var validacao = senha == confirmacao_senha;
 
-    if (validacao && !campoVazio) {
+    var email_valido = email.indexOf("@") >= 0 && email.indexOf(".") >= 0 
+
+
+    if (!campoVazio) {
+      if(email_valido)  {
       
-      mensagem.innerHTML = "<p class='ok'>Usuario cadastrado com sucesso</p>";
+        mensagem.innerHTML = "<p class='ok'>Funcionário cadastrado com sucesso!</p>";
       
-    } else if(!validacao){
-      mensagem.innerHTML = `<p class='erro'>Senha e confirmação de senha diferentes</p>`;
-    }else{
-      alert("Preencha todos os campos!");
+      } else{
+        mensagem.innerHTML = `<p class='erro '>Insirsa um e-mail válido!</p>`
+      }
+    
+      if(!validacao){
+      
+        mensagem.innerHTML = `<p class='erro'>Senha e confirmação de senha diferentes</p>`;
+      
+      }
+    } else{
+      mensagem.innerHTML = `<p class='erro'>Preencha todos os campos!</p>`;
     }
   }
 </script>
