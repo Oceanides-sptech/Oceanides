@@ -18,7 +18,7 @@
    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
 }
 
-.kpi-containers-cargueiros {
+/* .kpi-containers-cargueiros {
   display: flex;
   cursor: pointer;
   width: 100%;
@@ -37,8 +37,11 @@
 .kpi-containers-cargueiros > span.info {
   font-size: 36px;
   font-family: var(--fonteTextos2);
+} */
+.kpi.containers{
+  color: white;
+  display: flex;
 }
-
 .kpi.alerta {
 
   background-color: #fd7e14;
