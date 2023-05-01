@@ -20,7 +20,7 @@ Email_U VARCHAR (50),
 Senha_U CHAR (8),
 FKtransportadora_U int,
 CONSTRAINT FKtransportadora_u FOREIGN KEY (FKtransportadora_u) REFERENCES Transportadora (idtransportadora),
-Fk_ADM TINYINT (1),
+Fk_ADM INT,
 CONSTRAINT FK_ADM FOREIGN KEY (FK_ADM) REFERENCES Usuario (idUsuario),
 CONSTRAINT PKUsuario PRIMARY KEY (IdUsuario, FKtransportadora_U, FK_ADM)
 );
@@ -28,10 +28,20 @@ CONSTRAINT PKUsuario PRIMARY KEY (IdUsuario, FKtransportadora_U, FK_ADM)
 CREATE TABLE Container(
 IdContainer INT PRIMARY KEY auto_increment,
 Codigo_C CHAR (11),
-AltaTemp_Risco DECIMAL,
-Temp_Ideal DECIMAL,
-BaixaTemp_Alerta DECIMAL,
-BaixaTemp_Risco DECIMAL,
+Nome_Container VARCHAR(50),
+
+AltaTemp_Risco DECIMAL(5, 2),
+AltaTemp_Alerta DECIMAL(5, 2),
+Temp_Ideal DECIMAL(5, 2),
+BaixaTemp_Alerta DECIMAL(5, 2),
+BaixaTemp_Risco DECIMAL(5, 2),
+
+AltaUmd_Risco DECIMAL(5, 2),
+AltaUmd_Alerta DECIMAL(5, 2),
+Umd_Ideal DECIMAL(5, 2),
+BaixaUmd_Alerta DECIMAL(5, 2),
+BaixaUmd_Risco DECIMAL(5, 2),
+
 FkTransportadora_C INT,
 CONSTRAINT FkTransportadora_C FOREIGN KEY (FkTransportadora_C) REFERENCES Transportadora(idTransportadora)
 );
@@ -62,8 +72,8 @@ CONSTRAINT FkContainer_S FOREIGN KEY (FkContainer_S) REFERENCES Container(IdCont
 CREATE TABLE Registro (
 idRegistro INT auto_increment,
 Dt_Registro DATETIME default current_timestamp,
-Temperatura DOUBLE,
-Umidade DOUBLE,
+Temperatura DECIMAL(5, 2),
+Umidade DECIMAL(5, 2),
 FkSensor_R INT,
 CONSTRAINT FkSensor_R FOREIGN KEY (FkSensor_R) REFERENCES Sensor(idSensor),
 CONSTRAINT PkCompSen_R PRIMARY KEY (IdRegistro,FkSensor_R)
@@ -77,11 +87,11 @@ INSERT INTO Transportadora (Nome_T, CNPJ_T, Email_T, Senha) VALUES
 ('Uva Express', '12345678901234', 'contato@uvaexpress.com.br', 'senha1234568');
 
 INSERT INTO Container VALUES
-(1,'ABCD1234567', 28, -20, 0, -5, 1),
-(2,'EFGH7654321', 30, -18, -3, -8, 1),
-(3,'WXYZ0987654', 32, -15, -2, -10, 2),
-(4,'KLMN2468013', 25, -10, -5, -12, 2),
-(5,'QRST5432109', 20, -5, -10, -15, 3);
+(1,'ABCD1234567', 'Container Uvas', 1, 0.76, 0.42, 0.41, 0, 95, 91.34, 90.46, 90.45, 90, 1),
+(2,'EFGH7654321', 'Container Laranjas', 8, 6.82, 5.1, 5.09, 3, 95, 91.34, 90.46, 90.45, 90, 1),
+(3,'WXYZ0987654', 'Container Mangas', 14, 13.05, 11.65, 11.64, 10, 95, 91.34, 90.46, 90.45, 90,2),
+(4,'KLMN2468013', 'Container Mangas', 14, 13.05, 11.65, 11.64, 10, 95, 91.34, 90.46, 90.45, 90,2),
+(5,'QRST5432109', 'Container Bananas', 14, 13.05, 11.65, 11.64, 10, 95, 91.34, 90.46, 90.45, 90,3);
 
 INSERT INTO Porto (Sigla_P, Pais_P) VALUES
 ('BR', 'Brasil'),
@@ -99,14 +109,16 @@ INSERT INTO Rota (IdRota, FkContainer, Fkporto) VALUES
 
 INSERT INTO Sensor (Dt_Sensor_Instalação, Status_S, FkContainer_S) VALUES
 ('2023-04-18 10:00:00', 1, 1),
-('2023-04-18 11:30:00', 0, 2),
+('2023-04-18 11:30:00', 1, 2),
 ('2023-04-18 12:45:00', 1, 3),
-('2023-04-18 14:15:00', 0, 4),
+('2023-04-18 14:15:00', 1, 4),
 ('2023-04-18 15:30:00', 1, 5);
 
 INSERT INTO Registro (idRegistro, Dt_Registro, Temperatura, Umidade, FkSensor_R) VALUES
-(1, '2023-04-18 10:00:00', 25.5, 65.2, 1),
-(2, '2023-04-18 11:30:00', 23.8, 70.1, 2),
-(3, '2023-04-18 12:45:00', 27.3, 55.6, 3),
-(4, '2023-04-18 14:15:00', 20.1, 45.3, 4),
-(5, '2023-04-18 15:30:00', 22.7, 60.8, 5);
+(1, '2023-04-18 10:00:00', 0.50, 91, 1),
+(2, '2023-04-18 11:30:00', 6.00, 90.80, 2),
+(3, '2023-04-18 12:45:00', 12, 90, 3),
+(4, '2023-04-18 14:15:00',  13, 90.9, 4),
+(5, '2023-04-18 15:30:00', 11, 90.4, 5);
+
+
