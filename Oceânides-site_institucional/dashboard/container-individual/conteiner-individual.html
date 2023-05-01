@@ -86,7 +86,7 @@
             </a>
           </div>
 
-          <div onclick="sair()" class="botao-sair">
+          <div onclick="window.location.href = '../../index.html'" class="botao-sair">
             <div class="icone-botao">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -177,7 +177,7 @@
           </div>
 
           <div class="botao-sair">
-            <div onclick="sair()" class="icone-botao">
+            <div onclick="window.location.href = '../../index.html'" class="icone-botao">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <path
@@ -190,43 +190,51 @@
       </div>
 
       <div id="conteudo" class="conteudo">
+        <div class="informacoes-container">
+          <h1 class="titulo-container">Container Banana | CON-9837453</h1>
+          <div class="status-container">
+            <p id="p_umidade"> Umidade:  </p>
+            <p id="p_temperatura">  Temperatura:  </p>
+            <p>Destino: França</p>
+          </div>
+        </div>
+        
         <div class="alertas-graficos">
           <div class="alertas">
-            <div class="alerta-modelo alerta1">
-              <p>Alerta critico frio</p>
-              <p>°C <= 10°C</p>
+            <h1 class="titulo-alertas">Alertas</h1>
+            <div id="div_alerta1" class="alerta-modelo alerta1">
+              <p>Critico</p>
+              <p> 10.00°C |  90,00%</p>
             </div>
-            <div class="alerta-modelo alerta2">
-              <p>Alerta frio</p>
-              <p>10.01°C - 11.64°C</p>
-            </div>
-            <div class="alerta-modelo alerta3">
+            <div id="div_alerta2" class="alerta-modelo alerta2">
+              <p>Alerta</p>
+              <p>11.64°C | 90,45%</p>
+            </div>  
+            <div id="div_alerta3" class="alerta-modelo alerta3">
               <p>Ideal</p>
-              <p>11.65°C - 13.04°C</p>
+              <p>11.65°C | 90,46%</p>
             </div>
-            <div class="alerta-modelo alerta4">
-              <p>Alerta quente</p>
-              <p>13.05°C - 13.99°C</p>
+            <div id="div_alerta4" class="alerta-modelo alerta4">
+              <p>Alerta</p>
+              <p>13.05°C | 91,34%</p>
             </div>
-            <div class="alerta-modelo alerta5">
-              <p>Alerta critico quente</p>
-              <p>°C >= 14.00°C</p>
+            <div id="div_alerta5" class="alerta-modelo alerta5">
+              <p> Critico</p>
+              <p>14.00°C | 95,00%</p>
             </div>
           </div>
         
 
             <div class="graficos">
 
-           
-
                 <div class="grafico-individual">
-                    <h1>Sensor DHT 11 - Umidade</h1>
+                   
                     <section style="width:100%; height: 100%;">
                         <canvas id="dht11Umidade"></canvas>
                     </section>
                 </div>
                 <div class="grafico-individual">
-                    <h1>Sensor DHT 11 - Temperatura</h1>
+                   
                     <section style="width:100%; height: 100%;">
                         <canvas id="dht11Temperatura"></canvas>
                     </section>
@@ -242,7 +250,8 @@
 <script src="../../assets/js/dashboard-menu.js"></script>
 
 <script>
-
+  var tempAtual;
+  var umidadeAtual;
     /* -- dht11Umidade -- */
     var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
     contextoDht11Umidade.canvas.width = 1000;
@@ -350,24 +359,27 @@
                 grafico.data.labels.shift();
                 grafico.data.datasets[0].data.shift();
             }
-
+            if(grafico == dht11Umidade){
+              umidadeAtual = valor;
+            }else{
+              tempAtual = valor;
+            }
             grafico.data.labels.push(tempo());
             grafico.data.datasets[0].data.push(parseFloat(valor));
+            
             grafico.update();
-
-
-
+            
         })
-
+        
     }
 
     
     
 
     setInterval(() => {
-        obterDados(dht11Umidade, 'dht11/umidade');
-        obterDados(dht11Temperatura, 'dht11/temperatura');
-       
+       obterDados(dht11Umidade, 'dht11/umidade');
+       obterDados(dht11Temperatura, 'dht11/temperatura');
+       atualizarStatus();
     }, 1000);
 
 </script>
@@ -392,4 +404,42 @@ function adicionarZero(valor) {
   }
   return valor;
 }
+</script>
+
+<script>
+
+  function atualizarStatus(params) {
+    var avisoUmidade = document.getElementById("p_umidade");
+  var avisoTemperatura = document.getElementById("p_temperatura");
+
+  if(tempAtual <= 10){
+    avisoTemperatura.innerHTML = "Temperatura: <span class='status1'>Crítico Frio</span>" 
+  }else if(tempAtual <= 11.64){
+    avisoTemperatura.innerHTML = "Temperatura: <span class='status2'>Alerta Frio</span>" 
+  }else if(tempAtual >= 11.65 && tempAtual <= 13.04){
+    avisoTemperatura.innerHTML = "Temperatura: <span class='status3'>Ideal</span>" 
+  }else if(tempAtual <  14){
+    avisoTemperatura.innerHTML = "Temperatura: <span class='status3'>Alerta quente</span>"
+  }else{
+    avisoTemperatura.innerHTML = "Temperatura: <span class='status3'>Crítico quente</span>"
+  }
+
+  if(umidadeAtual <= 90){
+    avisoUmidade.innerHTML ="Umidade: <span class='status1'>Crítica</span>" 
+  }else if(umidadeAtual <= 90.45){
+    avisoUmidade.innerHTML ="Umidade: <span class='status2'>Alerta</span>" 
+  }else if(umidadeAtual >= 90.46 && umidadeAtual <= 91.33){
+    avisoUmidade.innerHTML ="Umidade: <span class='status3'>Ideal</span>" 
+  }else if(umidadeAtual <  95){
+    avisoUmidade.innerHTML ="Umidade: <span class='status4'>Alerta</span>" 
+  }else{
+    avisoUmidade.innerHTML ="Umidade: <span class='status5'>Crítica</span>" 
+  }
+  }
+
+ 
+
+
+
+
 </script>

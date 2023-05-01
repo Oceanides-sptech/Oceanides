@@ -11,7 +11,7 @@ const express = require('express');
 const DELAY = 10000; //ms
 const SERVIDOR_PORTA = 3300; //127.0.0.1:3000/sensores/
 
-const faixa_temp = "intermediaria"; // alterar para que o sensor aplique a fórmula que simule a temperatura nas condições da faixa
+const faixa_temp = "alta"; // alterar para que o sensor aplique a fórmula que simule a temperatura nas condições da faixa
 //  intermediária: 3°C a 8°C
 //  baixa: 0°C a 1°C
 // alta: 10°C a 14°C

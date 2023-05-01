@@ -61,7 +61,7 @@ div.icone-botao.fechado {
   height: 180px;
   
   background-image: url('../icons/user-solid.svg');
-  border: 1px solid white;
+  border: 3px solid white;
   background-size: cover;
   background-repeat: no-repeat;
 

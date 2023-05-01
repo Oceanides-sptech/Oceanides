@@ -182,19 +182,26 @@
             <div class="box">
                 <h1 class="titulo">Cadastrar container</h1>
                 <div class="inputs">
-                  
-                    <select id="slContainer" class="select">
-                        <option value="0">Container</option>
-                        <option id="option" value="9837453">Container A</option>
-                        <option id="option" value="9345617">Container B</option>
-                        <option id="option" value="9345032">Container C</option>
-                        <option id="option" value="4212095">Container D</option>
-                        <option id="option" value="5342091">Container E</option>
-                        <option id="option" value="0374236">Container F</option>
-                        <option id="option" value="8934259">Container G</option>
-                        <option id="option" value="6354923">Container H</option>
-                        <option id="option" value="8235419">Container I</option>
-                    </select>
+
+                  <div class="input">
+                    <img src="../assets/icons/icon_imo.svg" alt="">
+                    <input id="input" placeholder="Nome" type="text">
+                  </div>
+
+                  <select class="select" name="" id="select_destino">
+                    <option id="option" value="0">Porto destino</option>
+    
+                    <option id="option" value="1">Noruega</option>
+                    <option id="option" value="1">Africa</option>
+                    <option id="option" value="1">Portugal</option>
+                    <option id="option" value="1">Nigéria</option>
+                    <option id="option" value="1">Argentina</option>
+                    <option id="option" value="1">Austrália</option>
+                    <option id="option" value="1">França</option>
+                    <option id="option" value="1">Estados Unidos</option>
+                    <option id="option" value="1">China</option>
+                </select>
+    
                     <select id="slFaixaTemperatura" class="select">
                         <option value="0">Faixa de temperatura</option>
                         <option value="1">Baixa</option>
@@ -220,9 +227,10 @@
     function simularCadastro(){
         var container = Number(slContainer.value);
         var faixa = Number(slFaixaTemperatura.value);
+        var destino  =  Number(select_destino.value)
         var codigo = input_codigo.value;
 
-        var camposVazio = (container == 0) || (faixa == 0) || codigo == "";
+        var camposVazio = (container == 0) || (faixa == 0) || codigo == "" || (destino == 0);
         if(camposVazio){
           div_mensagem_confirmacao.innerHTML = `<span style= "color: #DC3545">Preencha todos os campos para realizar o cadastro!</span>`;
         }else{
