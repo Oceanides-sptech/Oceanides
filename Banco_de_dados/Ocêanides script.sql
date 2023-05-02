@@ -22,7 +22,7 @@ FKtransportadora_U int,
 CONSTRAINT FKtransportadora_u FOREIGN KEY (FKtransportadora_u) REFERENCES Transportadora (idtransportadora),
 Fk_ADM INT,
 CONSTRAINT FK_ADM FOREIGN KEY (FK_ADM) REFERENCES Usuario (idUsuario),
-CONSTRAINT PKUsuario PRIMARY KEY (IdUsuario, FKtransportadora_U, FK_ADM)
+CONSTRAINT PKUsuario PRIMARY KEY (IdUsuario, FKtransportadora_U)
 );
 
 CREATE TABLE Container(
@@ -120,5 +120,3 @@ INSERT INTO Registro (idRegistro, Dt_Registro, Temperatura, Umidade, FkSensor_R)
 (3, '2023-04-18 12:45:00', 12, 90, 3),
 (4, '2023-04-18 14:15:00',  13, 90.9, 4),
 (5, '2023-04-18 15:30:00', 11, 90.4, 5);
-
-
