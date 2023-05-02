@@ -127,10 +127,14 @@
     var ganho_atual = 0;
     // E uma segunda variavel para salvar qual seria o valor com o serviço Oceanides.
     var ganhos_oceanides = 0;
-if(num_conteiners != "" && dias != "" && valorPorContainer != "" && validade != "") {
+    if(num_conteiners != "" && dias != "" && valorPorContainer != "" && validade != "") {
+  
+    if(valorPorContainer >=0 && dias >= 0 && validade >= 0 && num_conteiners >=0) {
 
   // Em sequencia é iniciado uma validação e a execução dos calculos.
   if (dias < validade ) {   
+
+    
       // Em media são 15 dias para uma carga em transporte maritimo ser entregue.
       // os ganhos almentam quanto mais rapido for a entrega,
       if (validade - dias <= 15) {
@@ -140,7 +144,7 @@ if(num_conteiners != "" && dias != "" && valorPorContainer != "" && validade != 
       // caso ultrapasse de 15 dias, o ganho por container cai para 45%
       ganho_atual = valorPorContainer - (valorPorContainer * 0.55)
     } 
-
+   
     // Para os serviços Oceanides, as regras aplicadas são as mesmas.
      // Em media são 15 dias para uma carga em transporte maritimo ser entregue,
      // os ganhos almentam quanto mais rapido for a entrega.
@@ -168,6 +172,11 @@ if(num_conteiners != "" && dias != "" && valorPorContainer != "" && validade != 
     <p>Validade dos produtos inferior aos dias de viagens!</p>
     `
     }
+
+  } else{
+    div_Validade_Inferior.innerHTML = `<p>Os valores inseridos não podem ser negativos</p>`
+  }
+
   } else {
     div_Validade_Inferior.innerHTML = `<p>Preencha todos os campos para calcular</p>`
   }
@@ -175,5 +184,5 @@ if(num_conteiners != "" && dias != "" && valorPorContainer != "" && validade != 
   }
 
   
-
+  
 </script>
