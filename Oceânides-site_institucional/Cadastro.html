@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/style-cadastro.css" />
     <link rel="shortcut icon" href="./assets/img/oceanides-logo.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <title>Oceânides - Página de Cadastro</title>
   </head>
   <body>
@@ -50,7 +52,7 @@
             
             <div id="div_input_cnpj" class="input">
               <img src="assets/icons/icon_imo.svg" alt="">
-              <input type="password" id="input_cnpj" placeholder="CNPJ" />
+              <input type="text" id="input_cnpj" placeholder="CNPJ" />
             </div>
             
             
@@ -70,6 +72,13 @@
         <p>© Ocêanides 2023</p>
       </div>
     </div>
+
+    <script>
+      jQuery(function($){
+          $("#input_cnpj").mask("99.999.999/9999-99");
+      });
+    </script>
+
   </body>
 </html>
 <script>
