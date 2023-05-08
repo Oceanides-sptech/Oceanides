@@ -35,7 +35,7 @@
       </div>
       <div class="formulario">
         <div id="box" class="box">
-          <div id="texto_conta">Criar a conta da sua Empresa</div>
+          <div id="texto_conta">Fale conosco!</div>
           <div class="inputs">
             
             <div class="input">
@@ -48,15 +48,12 @@
               <input type="email" id="input_email" placeholder="E-mail.com" value="Oceanides@email.com" />
             </div>
             
-            <div id="div_input_senha" class="input">
-              <img src="assets/icons/login-senha.svg" alt="">
-              <input type="password" id="input_senha" placeholder="Senha" value="oceanides123" />
+            <div id="div_input_cnpj" class="input">
+              <img src="assets/icons/icon_imo.svg" alt="">
+              <input type="password" id="input_cnpj" placeholder="CNPJ" />
             </div>
             
-            <div id="div_input_confirmar_senha" class="input">
-              <img src="assets/icons/login-senha.svg" alt="">
-              <input type="password" id="input_confirmar_senha" placeholder="Confirmar senha" value="oceanides123"/>
-            </div>
+            
           </div>
 
           <button id="botao-cadastro" class="nav-item" onclick="cadastrar()">Cadastrar</button>
@@ -81,25 +78,13 @@
     
     var nome = input_nome.value;
     var email = input_email.value;
-    var senha =  input_senha.value;
-    var confirmar_senha = input_confirmar_senha.value;
+    var cnpj =  input_cnpj.value;
     
 
-    if(nome != '' && email != '' && senha != '' && confirmar_senha != '') {
+    if(nome != '' && email != '' && cnpj != '' ) {
       
       if(email.indexOf("@") >= 0 && email.indexOf(".") >= 0 )  {
         
-      if (senha == confirmar_senha) {
-        window.location.href = "login.html";
-        alert('Usuário cadastrado com sucesso!')
-
-
-      } else  {
-        mensagem_de_confirmacao.innerHTML =`<p style= "color: #DC3545">Senha e confirmação de senha diferentes! <br>Por favor tente outra vez.</p>`
-        div_input_senha.style.borderColor = "#DC3545"
-        div_input_confirmar_senha.style.borderColor = "#DC3545"
-        
-      }
       } else {
         mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545">Insirsa um e-mail válido!</p>'
         div_input_email.style.borderColor = "#DC3545"
