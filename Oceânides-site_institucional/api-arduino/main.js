@@ -60,7 +60,9 @@ const serial = async (
         //console.log(data);
         const valores = data.split(';');
         const dht11Umidade = parseFloat(valores[0]);
-        const dht11Temperatura = parseFloat(valores[1]);
+        const dht11TemperaturaBaixa = parseFloat(valores[1]);
+        const dht11TemperaturaIntermediaria = parseFloat(valores[2]);
+        const dht11TemperaturaAlta = parseFloat(valores[3]);
     
        
 
@@ -85,7 +87,7 @@ const serial = async (
 
                 function inserirComando(conn, sqlquery) {
                     conn.query(sqlquery);
-                    console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
+                    console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11TemperaturaIntermediaria)
                 }
 
                 sql.connect(connStr)
@@ -101,7 +103,7 @@ const serial = async (
                 // >> você deve ter o aquario de id 1 cadastrado.
                 await poolBancoDados.execute(
                    'INSERT INTO registro (Temperatura, Umidade, FkSensor_R) VALUES(?,?,?);',
-                   [dht11Temperatura, dht11Umidade, 1]
+                   [dht11TemperaturaIntermediaria, dht11Umidade, 2]
                 );
                 console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
 
