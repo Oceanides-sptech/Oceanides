@@ -1,5 +1,11 @@
 var database = require("../database/config");
 
+
+function buscarTemperaturaUmidade() {
+    var instrucao = `SELECT temperatura, umidade FROM registro WHERE fkSensor = 1;`
+    return database.executar(instrucao)
+}
+
 function buscarUltimasMedidas(idAquario, limite_linhas) {
 
     instrucaoSql = ''
@@ -64,5 +70,6 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    buscarTemperaturaUmidade
 }

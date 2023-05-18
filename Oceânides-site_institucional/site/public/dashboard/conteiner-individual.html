@@ -316,7 +316,7 @@
     
     function obterDados(grafico, endpoint) {
         var http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:3300/sensores/' + endpoint, false);
+        http.open('GET', 'http://10.18.33.17:3333/medidas/temperatura-umidade', false);
         http.send(null);
         var valores = JSON.parse(http.responseText);
         if (paginacao[endpoint] == null) {
@@ -329,6 +329,7 @@
         var ultimaPaginacao = paginacao[endpoint];
         paginacao[endpoint] = valores.length;
         var valores = valores.slice(ultimaPaginacao);
+        console.log(valores)
         valores.forEach((valor) => {
             //Máximo de 60 itens exibidos no gráfico
             if ( grafico.data.datasets[0].data.length == 10) {
@@ -336,12 +337,26 @@
                 grafico.data.datasets[0].data.shift();
             }
             if(grafico == dht11Umidade){
-              umidadeAtual = valor;
+              try {
+                umidadeAtual = valor.umidade;
+              } catch (error) {
+                console.log(error)
+              }
             }else{
-              tempAtual = valor;
+              try {
+                tempAtual = valor.temperatura  
+              } catch (error) {
+                console.log("Não pegou")
+              }
+              
             }
+            console.log(valor)
             grafico.data.labels.push(tempo());
-            grafico.data.datasets[0].data.push(parseFloat(valor));
+            if(grafico == dht11Temperatura){
+              grafico.data.datasets[0].data.push(parseFloat(valor.temperatura));
+            }else{
+              grafico.data.datasets[0].data.push(parseFloat(valor.umidade));
+            }
             
             grafico.update();
             
@@ -353,8 +368,8 @@
     
 
     setInterval(() => {
-       obterDados(dht11Umidade, 'dht11/umidade');
-       obterDados(dht11Temperatura, 'dht11/temperatura');
+       obterDados(dht11Umidade, 'medidas/umidade');
+       obterDados(dht11Temperatura, 'medidas/temperatura');
        atualizarStatus();
     }, 1000);
 
@@ -395,9 +410,9 @@ function adicionarZero(valor) {
   }else if(tempAtual >= 11.65 && tempAtual <= 13.04){
     avisoTemperatura.innerHTML = "Temperatura: <span class='status3'>Ideal</span>" 
   }else if(tempAtual <  14){
-    avisoTemperatura.innerHTML = "Temperatura: <span class='status3'>Alerta quente</span>"
+    avisoTemperatura.innerHTML = "Temperatura: <span class='status4'>Alerta quente</span>"
   }else{
-    avisoTemperatura.innerHTML = "Temperatura: <span class='status3'>Crítico quente</span>"
+    avisoTemperatura.innerHTML = "Temperatura: <span class='status5'>Crítico quente</span>"
   }
 
   if(umidadeAtual <= 90){

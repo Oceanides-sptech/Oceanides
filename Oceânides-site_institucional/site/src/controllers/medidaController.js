@@ -21,7 +21,11 @@ function buscarUltimasMedidas(req, res) {
     });
 }
 
-
+function buscarTemperaturaUmidade(req, res) {
+    medidaModel.buscarTemperaturaUmidade().then(function(resposta) {
+        res.status(200).json(resposta)
+    })
+}
 function buscarMedidasEmTempoReal(req, res) {
 
     var idAquario = req.params.idAquario;
@@ -43,6 +47,6 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
-
+    buscarMedidasEmTempoReal,
+    buscarTemperaturaUmidade
 }
