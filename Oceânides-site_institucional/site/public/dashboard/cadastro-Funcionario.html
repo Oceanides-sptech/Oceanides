@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar Funcionário</title>
+
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/style-dashboard.css" />
-    <link rel="stylesheet" href="../assets/css/style-menu-dashboard.css" />
-    <link rel="shortcut icon" href="../assets/img/oceanides-logo.png"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Dashboard - Home</title>
+    <link rel="shortcut icon" href="../assets/img/oceanides-logo.png" />
+    <link
+      rel="stylesheet"
+      href="../assets/css/style-cadastrar-funcionario.css"
+    />
   </head>
-  <body>
+  <body onload="validarSessao()">
     <div id="dashboard">
-      <div id="menu-aberto" class="menu animate__animated">
+      <div id="menu-aberto" class="menu">
         <div id="menu-botao-foto">
           <div onclick="abrirFecharMenu()" class="icone-botao">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -30,7 +33,7 @@
         <div id="tabs">
           <div id="itens">
             <a href="home.html">
-              <div class="item ativo">
+              <div class="item">
                 <div class="icone-botao">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -42,8 +45,6 @@
                 <p class="texto-item">home</p>
               </div>
             </a>
-
-  
 
             <a href="containers.html">
               <div class="item">
@@ -66,8 +67,8 @@
               </div>
             </a>
 
-            <a href="cadastro-Funcionario.html">
-              <div class="item">
+            <a href="cadastro-Usuario.html">
+              <div class="item ativo">
                 <div class="icone-botao">
                   <svg
                     style="width: 22px"
@@ -79,12 +80,12 @@
                     />
                   </svg>
                 </div>
-                <p class="texto-item">Cadastrar Funcionário</p>
+                <p class="texto-item texto-usuario">Cadastrar Funcionário</p>
               </div>
             </a>
           </div>
 
-          <div onclick="sair()" class="botao-sair">
+          <div onclick="limparSessao()" class="botao-sair">
             <div class="icone-botao">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -98,7 +99,7 @@
         </div>
       </div>
 
-      <div id="menu-fechado" class="menu animate__animated">
+      <div id="menu-fechado" class="menu">
         <div id="menu-botao-foto">
           <div onclick="abrirFecharMenu()" class="icone-botao fechado">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -111,9 +112,9 @@
         </div>
 
         <div id="tabs">
-          <div id="itens">
+          <div id="itens_fechados">
             <a href="home.html">
-              <div class="item ativo">
+              <div class="item">
                 <div class="icone-botao">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -124,7 +125,6 @@
                 </div>
               </div>
             </a>
-
 
             <a href="containers.html">
               <div class="item">
@@ -147,7 +147,7 @@
             </a>
 
             <a href="cadastro-Usuario.html">
-              <div class="item">
+              <div class="item ativo">
                 <div class="icone-botao">
                   <svg
                     style="width: 22px"
@@ -161,12 +161,16 @@
                 </div>
               </div>
             </a>
-
           </div>
 
-          <div class="botao-sair">
-            <div onclick="sair()" class="icone-botao">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <div onclick="limparSessao()" class="botao-sair">
+            <div class="icone-botao">
+              <svg
+                width="24"
+                height="18"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
                 <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <path
                   d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
@@ -178,51 +182,70 @@
       </div>
 
       <div id="conteudo" class="conteudo">
-        <div class="kpis">
-          <div onclick="window.location.href='containers.html'" class="kpi containers">
-            <div class="texto-kpi">
-              <p> Total de containers: </p>
+        <div class="usuario">
+          <p class="titulo">Cadastrar Funcionário</p>
+          <div class="inputs">
+            <div class="input">
+              <img src="../assets/icons/login-usuario.svg" alt="" />
+              <input id="input_nome" placeholder="Nome" />
             </div>
-            <div class="info-kpi">
-              <span> 9 </span>
+            <div class="input">
+              <img src="../assets/icons/email.svg" alt="" />
+              <input type="email" id="input_email" placeholder="E-mail" />
+            </div>
+            <div class="input">
+              <img src="../assets/icons/login-senha.svg" alt="" />
+              <input type="password" id="input_senha" placeholder="Senha" />
+            </div>
+            <div class="input">
+              <img src="../assets/icons/login-senha.svg" alt="" />
+              <input
+                type="password"
+                id="input_confirmar_senha"
+                placeholder="Confirmar Senha"
+              />
             </div>
           </div>
 
-          <div onclick="window.location.href='containers.html'" class="kpi alerta">
-            <div class="texto-kpi">
-              <p>Containers em alerta:</p>
-            </div>
+          <button class="botao-cadastro" onclick="cadastrar()">
+            Cadastrar Funcionário
+          </button>
 
-            <div  class="info-kpi">
-              <span> 0 </span>
-            </div>
-          </div>
-          <div  onclick="window.location.href='containers.html'" class="kpi risco">
-            <div class="texto-kpi">
-              <p>Containers em risco:</p>
-            </div>
-
-            <div class="info-kpi">
-              <span> 2 </span>
-            </div>
-          </div>
-        </div>
-        <div class="graficos">
-          <div class="grafico">
-            <canvas id="graficoBarras"></canvas>
-          </div>
-          <div class="grafico">
-            <div
-              style="position: relative; height: 40vh; width: 60vw"
-              class="graficoPizza"
-            >
-              <canvas id="graficoPizza"></canvas>
-            </div>
-          </div>
+          <div id="mensagem"></div>
         </div>
       </div>
     </div>
   </body>
 </html>
 <script src="../assets/js/dashboard-menu.js"></script>
-<script src="../assets/js/dashboard-home.js"></script>
+<script src="../assets/js/funções.js"></script>
+<script>
+  function cadastrar() {
+    var nome = input_nome.value;
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var confirmacao_senha = input_confirmar_senha.value;
+
+    var campoVazio =
+      nome == "" || email == "" || senha == "" || confirmacao_senha == "";
+
+    var validacao = senha == confirmacao_senha;
+
+    var email_valido = email.indexOf("@") >= 0 && email.indexOf(".") >= 0;
+
+    if (!campoVazio) {
+      if (email_valido) {
+        mensagem.innerHTML =
+          "<p class='ok'>Funcionário cadastrado com sucesso!</p>";
+      } else {
+        mensagem.innerHTML = `<p class='erro '>Insirsa um e-mail válido!</p>`;
+      }
+
+      if (!validacao) {
+        mensagem.innerHTML = `<p class='erro'>Senha e confirmação de senha diferentes</p>`;
+      }
+    } else {
+      mensagem.innerHTML = `<p class='erro'>Preencha todos os campos!</p>`;
+    }
+  }
+</script>

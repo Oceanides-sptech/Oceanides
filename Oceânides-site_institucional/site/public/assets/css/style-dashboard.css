@@ -79,6 +79,12 @@ div.icone-botao.fechado {
   flex-direction: column;
   gap: 40px;
 }
+#itens_fechados {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .item {
   display: flex;
   flex-direction: row;
@@ -104,6 +110,14 @@ div.icone-botao.fechado {
 }
 
 #itens > a > div.item.ativo > p {
+  color: #00afef;
+}
+
+#itens_fechados > a > div.item.ativo > div {
+  fill: #00afef;
+}
+
+#itens_fechados > a > div.item.ativo > p {
   color: #00afef;
 }
 .botao-sair {

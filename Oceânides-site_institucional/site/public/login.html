@@ -42,18 +42,18 @@
 
           <div id="div_input_email" class="input">
             <img src="assets/icons/login-usuario.svg" alt="">
-            <input id="input_email" type="email" placeholder="Login" value="Oceanides@email.com">
+            <input id="input_email" type="email" placeholder="Oceanides@email.com" value="">
           </div>
           
           <div id="div_input_senha" class="input">
             <img src="assets/icons/login-senha.svg" alt="">
-            <input id="input_senha" type="password" placeholder="Senha" value="oceanides123">
+            <input id="input_senha" type="password" placeholder="*********" value="">
           </div>
           
         </div>
         
 
-        <button class="nav-item" id="botao" onclick="entrar()">Entrar</a></button>
+        <button class="nav-item" id="botao" onclick="validar()">Entrar</a></button>
 
         <ul class="opcoes">
           <li><a class="opcao" href=""> Recuperar senha </a></li> 
@@ -75,7 +75,7 @@
 </html>
 <script>
 
-  function entrar() {
+  function validar() {
     
 
     var senha = input_senha.value;
@@ -84,14 +84,7 @@
     if(senha != "" && email != "") {
 
       if(email.indexOf("@") >= 0 && email.indexOf(".") >= 0 )  {
-        if (senha == 'oceanides123') {
-          window.location.href = "dashboard/home.html";
-        } else {
-          senha_invalida.innerHTML =`<p>Senha inválida! Por favor tente outra vez.</p>`
-          div_input_senha.style.borderColor = "#DC3545"
-          
-        }
-        
+         entrar(email, senha)
       } else{
         senha_invalida.innerHTML = `Insira um e-mail válido!`
         div_input_email.style.borderColor = "#DC3545"
@@ -103,4 +96,54 @@
     }
   }
 
+
+  function entrar(email, senha) {     
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.emailUsuario;
+                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.FK_ADM = json.fk_ADM 
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/home.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
 </script>
