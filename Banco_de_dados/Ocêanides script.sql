@@ -4,79 +4,88 @@ use oceanides;
 
 -- Criando a tabela transportadora
 create table Empresa (
-IdEmpresa INT PRIMARY KEY AUTO_INCREMENT,
-NomeEmpresa VARCHAR (45),
+idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
+nomeEmpresa VARCHAR (45),
 CNPJEmpresa CHAR (18),
-EmailEmpresa VARCHAR (45)
+emailEmpresa VARCHAR (45)
 );
 
 
-Create table Funcionario (
-IdFuncionario INT,
-NomeFuncionario VARCHAR (50),
-EmailFuncionario VARCHAR (50),
-SenhaFuncionario CHAR (8),
-FkEmpresaFuncionario INT,
-CONSTRAINT FkEmpresa FOREIGN KEY (FkEmpresaFuncionario) REFERENCES Empresa(idEmpresa),
-Fk_ADM INT,
-CONSTRAINT FK_ADM FOREIGN KEY (FK_ADM) REFERENCES Funcionario (idFuncionario),
-CONSTRAINT PkFuncionario PRIMARY KEY (IdFuncionario, FkEmpresaFuncionario)
+Create table Usuario (
+idUsuario INT auto_increment,
+nomeUsuario VARCHAR (50),
+emailUsuario VARCHAR (50),
+senhaUsuario CHAR (8),
+fkEmpresaUsuario INT,
+CONSTRAINT FkEmpresa FOREIGN KEY (FkEmpresaUsuario) REFERENCES Empresa(idEmpresa),
+fk_ADM INT,
+CONSTRAINT FK_ADM FOREIGN KEY (FK_ADM) REFERENCES Usuario (idUsuario),
+CONSTRAINT PkUsuario PRIMARY KEY (IdUsuario, FkEmpresaUsuario)
+);
+
+CREATE TABLE FaixaTemperatura(
+idFaixaTemperatura INT PRIMARY KEY AUTO_INCREMENT,
+nivelFaixa varchar(30),
+
+temperaturaAltaCritica DECIMAL(5, 2),
+temperaturaAltaAlerta DECIMAL(5, 2),
+temperaturaIdeal DECIMAL(5, 2),
+temperaturaBaixaAlerta DECIMAL(5, 2),
+temperaturaBaixaCritica DECIMAL(5, 2)
+);
+
+CREATE TABLE FaixaUmidade(
+	idFaixaUmidade int primary key,
+    umidadeAltaCritica DECIMAL(5, 2),
+	umidadeAltaAlerta DECIMAL(5, 2),
+	umidadeIdeal DECIMAL(5, 2),
+	umidadeBaixaAlerta DECIMAL(5, 2),
+	umidadeBaixaCritica DECIMAL(5, 2)
 );
 
 CREATE TABLE Container(
-IdContainer INT PRIMARY KEY auto_increment,
-Codigo_C CHAR (11),
-Nome_Container VARCHAR(50),
-
-AltaTemp_Risco DECIMAL(5, 2),
-AltaTemp_Alerta DECIMAL(5, 2),
-Temp_Ideal DECIMAL(5, 2),
-BaixaTemp_Alerta DECIMAL(5, 2),
-BaixaTemp_Risco DECIMAL(5, 2),
-
-AltaUmd_Risco DECIMAL(5, 2),
-AltaUmd_Alerta DECIMAL(5, 2),
-Umd_Ideal DECIMAL(5, 2),
-BaixaUmd_Alerta DECIMAL(5, 2),
-BaixaUmd_Risco DECIMAL(5, 2),
-
-FkEmpresaContainer INT,
-CONSTRAINT FkEmpresaContainer FOREIGN KEY (FkEmpresaContainer) REFERENCES Empresa(idEmpresa)
+idContainer INT PRIMARY KEY auto_increment,
+codigo CHAR (11),
+nomeContainer VARCHAR(50),
+fkEmpresaContainer INT,
+fkFaixaTemperatura  INT,
+fkFaixaUmidade INT DEFAULT 1,
+CONSTRAINT FkEmpresaContainer FOREIGN KEY (fkEmpresaContainer) REFERENCES Empresa(idEmpresa),
+CONSTRAINT fkFaixaTemperatura FOREIGN KEY (fkFaixaTemperatura) REFERENCES FaixaTemperatura(idFaixaTemperatura),
+CONSTRAINT fkFaixaUmidade FOREIGN KEY (fkFaixaUmidade) REFERENCES FaixaUmidade(idFaixaUmidade)
 );
 
 CREATE TABLE Porto (
-IDPorto INT PRIMARY KEY AUTO_INCREMENT,
-Sigla_P VARCHAR (5),
-Pais_P VARCHAR (10)
+IdPorto INT PRIMARY KEY AUTO_INCREMENT,
+siglaPorto VARCHAR (5),
+paisPorto VARCHAR (10)
 );
 
 CREATE TABLE Rota (
-IdRota INT,
-FkContainer INT,
-CONSTRAINT FkContainer FOREIGN KEY (FkContainer) REFERENCES Container(idContainer),
-Fkporto INT,
-CONSTRAINT Fkporto FOREIGN KEY (Fkporto) REFERENCES Porto(idPorto),
-CONSTRAINT PkRota PRIMARY KEY (IdRota , FkContainer, FkPorto)
+idRota INT,
+fkContainer INT,
+CONSTRAINT FkContainer FOREIGN KEY (fkContainer) REFERENCES Container(idContainer),
+fkPorto INT,
+CONSTRAINT Fkporto FOREIGN KEY (fkPorto) REFERENCES Porto(idPorto),
+CONSTRAINT PkRota PRIMARY KEY (idRota , fkContainer, fkPorto)
 );
 
 CREATE TABLE Sensor (
-IdSensor INT PRIMARY KEY AUTO_INCREMENT,
-Dt_Sensor_Instalação DATETIME,
-Status_S INT, CONSTRAINT CHKSta CHECK(Status_S in('1','0')),
-FkContainer_S INT,
-CONSTRAINT FkContainer_S FOREIGN KEY (FkContainer_S) REFERENCES Container(IdContainer)
+idSensor INT PRIMARY KEY AUTO_INCREMENT,
+dtInstalacao DATETIME,
+statusSensor INT DEFAULT 1, CONSTRAINT CHKSta CHECK(statusSensor in('1','0')),
+fkContainer INT,
+CONSTRAINT FkContainer_S FOREIGN KEY (fkContainer) REFERENCES Container(idContainer)
 );
 
 CREATE TABLE Registro (
 idRegistro INT auto_increment,
-Dt_Registro DATETIME default current_timestamp,
-TemperaturaAlta DECIMAL(5, 2),
-TemperaturaIntermediaria DECIMAL(5, 2),
-TemperaturaBaixa DECIMAL(5, 2),
-Umidade DECIMAL(5, 2),
-FkSensor_R INT,
-CONSTRAINT FkSensor_R FOREIGN KEY (FkSensor_R) REFERENCES Sensor(idSensor),
-CONSTRAINT PkCompSen_R PRIMARY KEY (IdRegistro,FkSensor_R)
+dtRegistro DATETIME default current_timestamp,
+temperatura DECIMAL(5, 2),
+umidade DECIMAL(5, 2),
+fkSensor INT,
+CONSTRAINT FkSensor_R FOREIGN KEY (fkSensor) REFERENCES Sensor(idSensor),
+CONSTRAINT PkCompSen_R PRIMARY KEY (idRegistro,fkSensor)
 );
 
 /* Inserir dados na tabela Empresa */ 
@@ -87,12 +96,21 @@ INSERT INTO Empresa VALUES
 	(null, 'Kiwi Transportes', '34.567.890/0001-04', 'contato@empresaD.com'),
 	(null, 'Uva Express', '21.654.987/0001-05', 'contato@empresaE.com');
 
+
+INSERT INTO FaixaTemperatura VALUES
+(null, 'Baixa', 1, 0.76, 0.42, 0.41, 0),
+(null, 'Intermediária', 8, 6.82, 5.1, 5.09, 3),
+(null, 'Alta', 14, 13.05, 11.65, 11.64, 10);
+
+INSERT INTO FaixaUmidade VALUES 
+(1, 95, 91.34, 90.46, 90.45, 90);
+
 INSERT INTO Container VALUES
-(1,'ABCD1234567', 'Container Uvas', 1, 0.76, 0.42, 0.41, 0, 95, 91.34, 90.46, 90.45, 90, 1),
-(2,'EFGH7654321', 'Container Laranjas', 8, 6.82, 5.1, 5.09, 3, 95, 91.34, 90.46, 90.45, 90, 1),
-(3,'WXYZ0987654', 'Container Mangas', 14, 13.05, 11.65, 11.64, 10, 95, 91.34, 90.46, 90.45, 90,2),
-(4,'KLMN2468013', 'Container Mangas', 14, 13.05, 11.65, 11.64, 10, 95, 91.34, 90.46, 90.45, 90,2),
-(5,'QRST5432109', 'Container Bananas', 14, 13.05, 11.65, 11.64, 10, 95, 91.34, 90.46, 90.45, 90,3);
+(1,'ABCD1234567', 'Container Uvas', 5, 1, default),
+(2,'EFGH7654321', 'Container Laranjas', 1, 2, default),
+(3,'WXYZ0987654', 'Container Mangas', 2, 3, default),
+(4,'KLMN2468013', 'Container Mangas', 2, 3, default),
+(5,'QRST5432109', 'Container Bananas', 3, 3, default);
 
 INSERT INTO Porto VALUES
 (null, 'BR', 'Brasil'),
@@ -111,13 +129,18 @@ INSERT INTO Rota VALUES
 INSERT INTO Sensor VALUES
 (null, '2023-04-18 10:00:00', 1, 1),
 (null, '2023-04-18 11:30:00', 1, 2),
-(null, '2023-04-18 12:45:00', 0, 3),
+(null, '2023-04-18 12:45:00', 1, 3),
 (null, '2023-04-18 14:15:00', 1, 4),
-(null, '2023-04-18 15:30:00', 0, 5);
+(null, '2023-04-18 15:30:00', 1, 5);
 
 INSERT INTO Registro VALUES
-(1, '2023-04-18 10:00:00', 30.0,0.50, 0.4,91, 1),
-(2, '2023-04-18 11:30:00', 32,6.00, 05,90.80, 2),
-(3, '2023-04-18 12:45:00', 41,12, 0.9,90, 3),
-(4, '2023-04-18 14:15:00', 41,13, 0.3,90.9, 4),
-(5, '2023-04-18 15:30:00', 24,11, 0.1,90.4, 5);
+(1, default, 0.44, 93, 1);
+
+INSERT INTO Usuario VALUES
+(null, 'Brandão', 'brandão@frutas.com', '123456', 1, null);
+
+ SELECT temperatura as temperaturaCaptada, FaixaTemperatura.* 
+	FROM registro JOIN sensor ON fkSensor = idSensor 
+		JOIN container ON fkContainer = idContainer 
+			JOIN FaixaTemperatura on fkFaixaTemperatura = idFaixaTemperatura 
+				WHERE idFaixaTemperatura = 1
