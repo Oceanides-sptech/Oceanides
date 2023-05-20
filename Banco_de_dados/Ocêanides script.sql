@@ -15,10 +15,10 @@ Create table Usuario (
 idUsuario INT auto_increment,
 nomeUsuario VARCHAR (50),
 emailUsuario VARCHAR (50),
-senhaUsuario CHAR (8),
+senhaUsuario CHAR (30),
 fkEmpresaUsuario INT,
 CONSTRAINT FkEmpresa FOREIGN KEY (FkEmpresaUsuario) REFERENCES Empresa(idEmpresa),
-fk_ADM INT,
+fk_ADM INT default null,
 CONSTRAINT FK_ADM FOREIGN KEY (FK_ADM) REFERENCES Usuario (idUsuario),
 CONSTRAINT PkUsuario PRIMARY KEY (IdUsuario, FkEmpresaUsuario)
 );

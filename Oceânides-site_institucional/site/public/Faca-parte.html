@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/style-faca-parte.css" />
     <link rel="shortcut icon" href="./assets/img/oceanides-logo.png" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> -->
     <title>Oceânides - Faça parte</title>
   </head>
   <body>
@@ -42,7 +42,7 @@
             
             <div class="input">
               <img src="assets/icons/login-usuario.svg" alt="">
-              <input type="" id="input_nome" placeholder="Nome" value="OceanFruit" />
+              <input type="text" id="input_nome" placeholder="Nome" value="OceanFruit" />
             </div>
 
             <div id="div_input_email" class="input">  
@@ -52,13 +52,15 @@
             
             <div id="div_input_cnpj" class="input">
               <img src="assets/icons/icon_imo.svg" alt="">
-              <input type="text" id="input_cnpj" placeholder="CNPJ" />
+              <input type="text" onkeyup="mascara(this.value)"  id="input_cnpj" placeholder="CNPJ" />
             </div>
             
             
           </div>
-
-          <button id="botao-cadastro" class="nav-item" onclick="cadastrar()">Cadastrar</button>
+          <div id="div_botao_spinner">
+            <button id="botao-cadastro" class="nav-item" onclick="validar()">Cadastrar</button>
+            
+          </div>
 
           <ul class="opcoes">
             <li class="opcao"> Já tem Conta? <a class="login" href="login.html"> Login </a></li>
@@ -73,17 +75,43 @@
       </div>
     </div>
 
-    <script>
-      jQuery(function($){
-          $("#input_cnpj").mask("99.999.999/9999-99");
-      });
-    </script>
+
 
   </body>
 </html>
-<script>
 
-    function cadastrar() {
+<script>
+  
+  // jQuery(function($){
+  //     $("#input_cnpj").mask("99.999.999/9999-99");
+  // });
+
+  function mascara(cnpj) {
+    var qtdDigitos = 0
+    qtdDigitos = Number(cnpj.length)
+    console.log(qtdDigitos)
+   
+    if(qtdDigitos == 2 || qtdDigitos == 6){
+      input_cnpj.value += "."
+    }
+    if(qtdDigitos == 10){
+      input_cnpj.value += "/"
+    }
+    if(qtdDigitos == 15){
+      input_cnpj.value += "-"
+    }
+  }
+</script>
+<script>
+function aguardar() {
+    div_botao_spinner.innerHTML = '<div id="spinner"></div>'
+}
+function finalizarAguardar() {
+  div_botao_spinner.innerHTML = `<button id="botao-cadastro" class="nav-item" onclick="validar()">Cadastrar</button>
+`
+
+}
+    function validar() {
     
     var nome = input_nome.value;
     var email = input_email.value;
@@ -92,19 +120,48 @@
 
     if(nome != '' && email != '' && cnpj != '' ) {
       
-      if(email.indexOf("@") >= 0 && email.indexOf(".") >= 0 )  {
-        
+      if(email.indexOf("@") != -1 && email.indexOf(".") != -1)  {
+        if(cnpj.length == 18){
+          cadastrar(nome, email, cnpj)
+        }else {
+          mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545"> CNPJ deve ser igual a 18 digitos!</p>'
+        div_input_email.style.borderColor = "#DC3545"
+        }
       } else {
-        mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545">Insirsa um e-mail válido!</p>'
+        mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545">Insira um e-mail válido!</p>'
         div_input_email.style.borderColor = "#DC3545"
       }
     } else {
       mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545">Preencha todos os campos para realizar o cadastro!</p>'
       div_input_email.style.borderColor = "#DC3545"
-      div_input_senha.style.borderColor = "#DC3545"
+      div_input_cnpj.style.borderColor = "#DC3545"
       div_input_confirmar_senha.borderColor = "#DC3545"
     }
     }
 
-
+    function cadastrar(nome, email, cnpj) {
+      aguardar()
+        fetch("/empresas/cadastrar",{
+            method:"POST",
+            headers:{
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                nomeServer: nome,
+                cnpjServer: cnpj
+            })
+        }).then(function(resposta) {
+            resposta.json().then(function(json) {
+                if(resposta.ok){
+                  console.log(json)
+                  var link = json.link
+                  window.open(link)
+                  finalizarAguardar()
+                }else{
+                  console.log(json)
+                }
+            })
+        })
+    }
 </script>
