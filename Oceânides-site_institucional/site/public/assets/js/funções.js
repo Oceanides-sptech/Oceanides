@@ -1,9 +1,9 @@
 function validarSessao() {
     // aguardar();
-
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-
+    span_nome.innerHTML = 'Usuário: '+nome
+    span_empresa.innerHTML = 'Empresa: '+ sessionStorage.EMPRESA
     if (email != null && nome != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
     
@@ -13,9 +13,14 @@ function validarSessao() {
         window.location = "../login.html";
     }
 }
+
+var idEmpresa = sessionStorage.ID_EMPRESA;
+
+
+
 function verificarAdm() {
     if(sessionStorage.FK_ADM == 'null'){
-
+        span_nivel.innerHTML = "<span class='info'>Nível:</span> ADM"
         itens.innerHTML += `
         <a href="cadastro-Funcionario.html">
         <div class="item">
@@ -53,6 +58,8 @@ function verificarAdm() {
                     </a>
         `
         
+    }else{
+      span_nivel.innerHTML = "Nível: Comum" 
     }
 }
 

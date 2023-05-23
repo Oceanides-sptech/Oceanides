@@ -6,6 +6,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 50px;
 }
 
 .container {

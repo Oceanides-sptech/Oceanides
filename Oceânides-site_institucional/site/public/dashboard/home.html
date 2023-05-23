@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/reset.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="stylesheet" href="../assets/css/style-dashboard.css" />
-    <link rel="stylesheet" href="../assets/css/style-menu-dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/style-home-dashboard.css" />
     <link rel="shortcut icon" href="../assets/img/oceanides-logo.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard - Home</title>
@@ -15,7 +15,7 @@
   <body onload="validarSessao(), verificarAdm()">
     <div id="dashboard">
       <div id="menu-aberto" class="menu animate__animated">
-        <div id="menu-botao-foto">
+        <div id="menu-botao-infos">
           <div onclick="abrirFecharMenu()" class="icone-botao">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -25,9 +25,9 @@
             </svg>
           </div>
           <div class="infos-usuario">
-            <p>Bem vindo, Brandão</p>
-            <p>Empresa:</p>
-            <p>Função: ADM</p>
+            <span id="span_nome"></span>
+            <span id="span_empresa"></span>
+            <span id="span_nivel"></span>
           </div>
         </div>
 
@@ -84,7 +84,7 @@
       </div>
 
       <div id="menu-fechado" class="menu animate__animated">
-        <div id="menu-botao-foto">
+        <div id="menu-botao-infos">
           <div onclick="abrirFecharMenu()" class="icone-botao fechado">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
