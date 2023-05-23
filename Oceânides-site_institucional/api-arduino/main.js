@@ -99,9 +99,11 @@ const serial = async (
                 // -> altere nome da tabela e colunas se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 (fixo no comando do insert abaixo)
                 // >> você deve ter o aquario de id 1 cadastrado.
+
                 await poolBancoDados.execute(
-                   'INSERT INTO registro (Temperatura, Umidade, FkSensor_R) VALUES(?,?,?);',
-                   [dht11Temperatura, dht11Umidade, 2]
+                    
+                   'INSERT INTO registro (Temperatura, Umidade, FkSensor) VALUES(?,?,?);',
+                   [dht11Temperatura, dht11Umidade, parseInt(1+Math.random()*5)]
                 );
                 console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
 
