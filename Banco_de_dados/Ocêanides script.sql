@@ -26,7 +26,6 @@ CONSTRAINT PkUsuario PRIMARY KEY (IdUsuario, FkEmpresaUsuario)
 CREATE TABLE FaixaTemperatura(
 idFaixaTemperatura INT PRIMARY KEY AUTO_INCREMENT,
 nivelFaixa varchar(30),
-
 temperaturaAltaCritica DECIMAL(5, 2),
 temperaturaAltaAlerta DECIMAL(5, 2),
 temperaturaIdeal DECIMAL(5, 2),
@@ -54,6 +53,7 @@ CONSTRAINT FkEmpresaContainer FOREIGN KEY (fkEmpresaContainer) REFERENCES Empres
 CONSTRAINT fkFaixaTemperatura FOREIGN KEY (fkFaixaTemperatura) REFERENCES FaixaTemperatura(idFaixaTemperatura),
 CONSTRAINT fkFaixaUmidade FOREIGN KEY (fkFaixaUmidade) REFERENCES FaixaUmidade(idFaixaUmidade)
 );
+
 
 CREATE TABLE Porto (
 IdPorto INT PRIMARY KEY AUTO_INCREMENT,
@@ -90,12 +90,10 @@ CONSTRAINT PkCompSen_R PRIMARY KEY (idRegistro,fkSensor)
 
 /* Inserir dados na tabela Empresa */ 
 INSERT INTO Empresa VALUES 
-	(null, 'Frutas Delícia', '12.345.678/0001-01', 'contato@empresaA.com'),
-	(null, 'Mango Express', '98.765.432/0001-02', 'contato@empresaB.com'),
-	(null, 'Bananas Ricas', '87.654.321/0001-03', 'contato@empresaC.com'),
-	(null, 'Kiwi Transportes', '34.567.890/0001-04', 'contato@empresaD.com'),
-	(null, 'Uva Express', '21.654.987/0001-05', 'contato@empresaE.com');
+	(null, 'Frutas Delícia', '12.345.678/0001-01', 'frutas-delicias@frutas.com');
 
+INSERT INTO Usuario VALUES
+(null, 'Brandão', 'brandao@frutas.com', '123456', 1, null);
 
 INSERT INTO FaixaTemperatura VALUES
 (null, 'Baixa', 1, 0.76, 0.42, 0.41, 0),
@@ -106,11 +104,13 @@ INSERT INTO FaixaUmidade VALUES
 (1, 95, 91.34, 90.46, 90.45, 90);
 
 INSERT INTO Container VALUES
-(1,'ABCD1234567', 'Container Uvas', 5, 1, default),
-(2,'EFGH7654321', 'Container Laranjas', 1, 2, default),
-(3,'WXYZ0987654', 'Container Mangas', 2, 3, default),
-(4,'KLMN2468013', 'Container Mangas', 2, 3, default),
-(5,'QRST5432109', 'Container Bananas', 3, 3, default);
+(null,'ABCD1111111', 'Container Uvas', 1, 1, default),
+(null,'ABCD2222222', 'Container Laranjas', 1, 2, default),
+(null,'ABCD3333333', 'Container Mamões', 1, 3, default),
+(null,'ABCD4444444', 'Container Bananas', 1, 3, default),
+(null,'ABCD5555555', 'Container Mangas', 1, 3, default);
+
+SELECT * FROM container;
 
 INSERT INTO Porto VALUES
 (null, 'BR', 'Brasil'),
@@ -134,13 +134,21 @@ INSERT INTO Sensor VALUES
 (null, '2023-04-18 15:30:00', 1, 5);
 
 INSERT INTO Registro VALUES
-(1, default, 0.44, 93, 1);
+(null, default, 24, 93, 1);
 
-INSERT INTO Usuario VALUES
-(null, 'Brandão', 'brandão@frutas.com', '123456', 1, null);
 
- SELECT temperatura as temperaturaCaptada, FaixaTemperatura.* 
-	FROM registro JOIN sensor ON fkSensor = idSensor 
-		JOIN container ON fkContainer = idContainer 
-			JOIN FaixaTemperatura on fkFaixaTemperatura = idFaixaTemperatura 
-				WHERE idFaixaTemperatura = 1
+ -- SELECTS DA DASHBOARD
+ -- SELECT DA TELA DE CONTAINER:
+SELECT container.*, 
+	CASE 
+    WHEN fkFaixaTemperatura = 1 THEN (SELECT temperatura * 0.09345 - 1.90654) 
+	WHEN fkFaixaTemperatura = 2 THEN (SELECT  temperatura * 0.467228972 - 6.53) 
+	WHEN fkFaixaTemperatura = 3 THEN (SELECT temperatura * 0.373832 + 2.373832) 
+    end as temperatura, 
+    umidade FROM registro JOIN sensor ON fkSensor = idSensor 
+    JOIN container ON fkContainer = idContainer 
+    where idRegistro IN (
+    SELECT MAX(idRegistro)  FROM registro 
+    JOIN sensor on fkSensor = idSensor 
+    JOIN container ON fkContainer = idContainer
+    GROUP BY idContainer)

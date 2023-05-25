@@ -1,0 +1,35 @@
+# include "DHT.h"
+
+# define dht_type DHT11
+
+int dht_pin = A1;
+DHT dht_11 = DHT(dht_pin, dht_type);
+
+void setup()
+{
+Serial.begin(9600);
+dht_11.begin();
+
+}
+void loop()
+{
+
+float umidade = dht_11.readHumidity();
+float temperatura = dht_11.readTemperature();
+
+float faixa_intermediaria = temperatura * 0.467228972 - 6.53;
+float faixa_baixa = temperatura * 0.09345 - 1.90654;
+float faixa_alta = temperatura * 0.373832 + 2.373832;
+if (isnan(temperatura) or isnan(umidade))
+{
+Serial.println("0.00;0.00");
+}
+else
+{
+Serial.print(umidade * 0.08929 + 86.5179);
+Serial.print(";");
+Serial.println(temperatura);
+}
+
+delay(2000);
+}
