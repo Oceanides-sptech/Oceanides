@@ -94,6 +94,13 @@
 .container-critico-quente:hover{
   background: linear-gradient(288.3deg, #dc3545 -10.29%, rgba(0, 175, 239, 0) 62.1%), #00AFEF !important;
 }
+.container-emergencia-quente:hover{
+  background: linear-gradient(288.3deg, #fd7e14 -10.29%, rgba(0, 175, 239, 0) 62.1%), #00AFEF !important;
+}
+.container-emergencia-frio:hover{
+  background: linear-gradient(288.3deg, #0082b1 -10.29%, rgba(0, 175, 239, 0) 62.1%), #00AFEF !important;
+}
+
 
 .legendas {
   display: flex;

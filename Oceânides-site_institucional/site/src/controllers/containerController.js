@@ -1,7 +1,7 @@
 var containerModel = require('../models/containerModel')
 
 function listarEmpresa(req,res) {
-    var idEmpresa = req.body.idEmpresaServer
+    var idEmpresa = req.params.idEmpresa
     containerModel.listarEmpresa(idEmpresa).then(function(resposta) {
         if(resposta.length > 0){
            res.status(200).json(resposta)

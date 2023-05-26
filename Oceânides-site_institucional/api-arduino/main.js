@@ -102,8 +102,12 @@ const serial = async (
 
                 await poolBancoDados.execute(
                     
-                   'INSERT INTO registro (Temperatura, Umidade, FkSensor) VALUES(?,?,?);',
-                   [dht11Temperatura, dht11Umidade, parseInt(1+Math.random()*5)]
+                   `INSERT INTO registro (Temperatura, Umidade) VALUES(?,?,
+                    (SELECT 
+                    FLOOR((1+RAND()*(((max(idSensor)) - (min(idSensor)))+1)))
+                    from sensor
+                    ));`,
+                   [dht11Temperatura, dht11Umidade]
                 );
                 console.log("valores inseridos no banco: ", dht11Umidade + ", " + dht11Temperatura)
 

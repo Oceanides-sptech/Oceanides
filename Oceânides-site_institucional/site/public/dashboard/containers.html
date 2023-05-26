@@ -13,8 +13,9 @@
       href="../assets/css/style-containers-dashboard.css"
     />
     <title>Dashboard - Containers</title>
+    <script src="../assets/js/dashboard-containers.js"></script>
   </head>
-  <body onload="validarSessao(), verificarAdm(), listar()">
+  <body onload="validarSessao(), verificarAdm(), obterContainers()">
     <div id="dashboard">
       <div id="menu-aberto" class="menu animate__animated">
         <div id="menu-botao-infos">
@@ -152,7 +153,7 @@
             ><img src="../assets/icons/icon_add.svg" alt=""
           /></a>
         </div>
-        <div id="containers" class="containers">
+        <div id="div_containers" class="containers">
 
         </div>
       </div>
@@ -162,41 +163,9 @@
 <script src="../assets/js/dashboard-menu.js"></script>
 <script src="../assets/js/funções.js"></script>
 <script>
-  function listar() {
-    fetch("/containers/containersEmpresa", {
-      method: 'post',
-      headers:{
-        "Content-Type": "application/json"
-      }, 
-      body: JSON.stringify({
-        idEmpresaServer: sessionStorage.ID_EMPRESA
-      })
-    }).then(function(resposta) {
-      if(resposta.ok){
-        resposta.json().then((json)=>{
-         
-          for (var i = 1; i <= json.length; i++) {
-            var containerAtual = json[i-1]
-            containers.innerHTML += `
-            <div onclick="abrirContainer(id)" class="container container-ideal">
-            <div class="info-container">
-              <p>${containerAtual.nomeContainer}</p>
-              <p>${containerAtual.codigo}</p>
-              <p>Último registro: ${containerAtual.temperatura}°C/${containerAtual.umidade}%</p>
-            </div>
-            <div class="nivel-alerta">
-              <div class="alerta">
-                <div class="bola ideal"></div>
-              </div>
-            </div>
-          </div>
-          `         
-          }
 
-        })
-      }
-    })
-  }
+
+  
   function abrirContainer(id) {
     window.location.href = "conteiner-individual.html";
   }
