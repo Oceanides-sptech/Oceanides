@@ -54,8 +54,8 @@ function listarEmpresa(idEmpresa) {
     FROM registro  
     JOIN sensor ON fkSensor = idSensor 
     JOIN container ON fkContainer = idContainer 
-    JOIN FaixaUmidade ON fkFaixaUmidade = idFaixaUmidade
-    JOIN FaixaTemperatura ON fkFaixaTemperatura = idFaixaTemperatura
+    JOIN faixaUmidade ON fkFaixaUmidade = idFaixaUmidade
+    JOIN faixaTemperatura ON fkFaixaTemperatura = idFaixaTemperatura
     where idRegistro IN (
 
     SELECT MAX(idRegistro) FROM registro 
@@ -69,7 +69,7 @@ function listarEmpresa(idEmpresa) {
 
 
 function listarContainer(idContainer) {
-    var instrucao = ` SELECT *  FROM container JOIN faixaTemperatura on fkFaixaTemperatura = idFaixaTemperatura where idContainer = ${id};`
+    var instrucao = `SELECT *  FROM container JOIN faixaTemperatura on fkFaixaTemperatura = idFaixaTemperatura where idContainer = ${idContainer};`
     return database.executar(instrucao)
 } 
 module.exports = {

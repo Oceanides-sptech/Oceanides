@@ -30,7 +30,7 @@ function listar() {
         var classe = verificarTemperaturaContainer(temperaturaContainerAtual, alertasTemperaturas)
 
         div_containers.innerHTML += `
-        <div onclick="abrirContainer(id)" class="container container-${classe}">
+        <div onclick="abrirContainer(${containerAtual.idContainer})" class="container container-${classe}">
         <div class="info-container">
           <p>${nomeContainer}</p>
           <p>${codigoContainerAtual}</p>
@@ -72,3 +72,4 @@ var recarregar = setInterval(()=>{
     obterContainers()
     listar()
 },10000)
+

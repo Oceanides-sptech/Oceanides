@@ -167,6 +167,9 @@
 
   
   function abrirContainer(id) {
-    window.location.href = "conteiner-individual.html";
+    var containerEscolhido = id
+    console.log(id)
+    sessionStorage.ID_CONTAINER_INDIVIDUAL = id
+    window.location.href = 'container-individual.html'
   }
 </script>

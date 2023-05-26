@@ -101,8 +101,7 @@ const serial = async (
                 // >> você deve ter o aquario de id 1 cadastrado.
 
                 await poolBancoDados.execute(
-                    
-                   `INSERT INTO registro (Temperatura, Umidade) VALUES(?,?,
+                   `INSERT INTO registro (temperatura, umidade, fkSensor) VALUES(?,?,
                     (SELECT 
                     FLOOR((1+RAND()*(((max(idSensor)) - (min(idSensor)))+1)))
                     from sensor

@@ -12,12 +12,10 @@
     <link rel="shortcut icon" href="../assets/img/oceanides-logo.png"/>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-      
-    </style>
+
     <title>Dashboard - Containers</title>
   </head>
-  <body onload="validarSessao(), verificarAdm()">
+  <body onload="validarSessao(), verificarAdm(), obterDadosContainer()">
     <div id="dashboard">
       <div id="menu-aberto" class="menu animate__animated">
         <div id="menu-botao-infos">
@@ -225,6 +223,7 @@
 </html>
 <script src="../assets/js/dashboard-menu.js"></script>
 <script src="../assets/js/funções.js"></script>
+<script src="../assets/js/dashboard-container-individual.js"></script>
 <script>
   var tempAtual;
   var umidadeAtual;
@@ -316,7 +315,7 @@
     
     function obterDados(grafico, endpoint) {
         var http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:3333/medidas/temperatura-umidade', false);
+        http.open('GET', `http://localhost:3333/medidas/temperatura-umidade/${idContainer}`, false);
         http.send(null);
         var valores = JSON.parse(http.responseText);
         if (paginacao[endpoint] == null) {
@@ -351,7 +350,7 @@
               
             }
             console.log(valor)
-            grafico.data.labels.push(tempo());
+            grafico.data.labels.push(valor.momento_grafico);
             if(grafico == dht11Temperatura){
               grafico.data.datasets[0].data.push(parseFloat(valor.temperatura));
             }else{

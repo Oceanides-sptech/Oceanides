@@ -6,7 +6,7 @@ var medidaController = require("../controllers/medidaController");
 router.get("/ultimas/:idAquario", function (req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
-router.get("/temperatura-umidade", function(req,res) {
+router.get("/temperatura-umidade/:idContainer", function(req,res) {
     medidaController.buscarTemperaturaUmidade(req,res)
 })
 router.get("/tempo-real/:idAquario", function (req, res) {

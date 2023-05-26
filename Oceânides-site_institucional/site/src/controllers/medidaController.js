@@ -22,7 +22,8 @@ function buscarUltimasMedidas(req, res) {
 }
 
 function buscarTemperaturaUmidade(req, res) {
-    medidaModel.buscarTemperaturaUmidade().then(function(resposta) {
+    var idContainer = req.params.idContainer
+    medidaModel.buscarTemperaturaUmidade(idContainer).then(function(resposta) {
         res.status(200).json(resposta)
     })
 }
