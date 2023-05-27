@@ -14,6 +14,9 @@
       rel="stylesheet"
       href="../assets/css/style-cadastrar-funcionario.css"
     />
+
+    
+    
   </head>
   <body onload="validarSessao(), verificarAdm()">
     <div id="dashboard">
@@ -179,7 +182,9 @@
             </div>
           </div>
 
-          <button class="botao-cadastro" onclick="cadastrar()">
+          
+
+          <button class="botao-cadastro" onclick="validar()">
             Cadastrar Funcionário
           </button>
 
@@ -192,7 +197,10 @@
 <script src="../assets/js/dashboard-menu.js"></script>
 <script src="../assets/js/funções.js"></script>
 <script>
-  function cadastrar() {
+
+
+function validar() {
+
     var nome = input_nome.value;
     var email = input_email.value;
     var senha = input_senha.value;
@@ -209,6 +217,7 @@
       if (email_valido) {
         mensagem.innerHTML =
           "<p class='ok'>Funcionário cadastrado com sucesso!</p>";
+          cadastrarFuncionario(nome,email,senha);
       } else {
         mensagem.innerHTML = `<p class='erro '>Insirsa um e-mail válido!</p>`;
       }
@@ -219,5 +228,29 @@
     } else {
       mensagem.innerHTML = `<p class='erro'>Preencha todos os campos!</p>`;
     }
+
+}
+
+  function cadastrarFuncionario(nome,email,senha) {
+   fetch("/usuarios/cadastrarFuncionario",{
+    method:"POST",
+    headers:{
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      emailServer: email,
+      nomeServer: nome,
+      senhaServer: senha,
+      fkADMServer: sessionStorage.ID_USUARIO,
+      idEmpresaServer: sessionStorage.ID_EMPRESA,
+    })
+  }).then(function (resposta) {
+        resposta.json().then(function (json) {
+          if (resposta.ok) {
+            console.log(json)
+          } else
+          console.log(json)
+        })
+    })
   }
 </script>

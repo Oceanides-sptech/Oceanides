@@ -31,7 +31,7 @@ function cadastrar(req, res) {
                     var credencial = gerarCredencial(nome)
                     usuarioModel.cadastrar(`admin-${nome}`, email, credencial, idEmpresaCadastrada, null).then(function() {
                         
-                        enviarEmail(nome, email, credencial).then(function(resposta) {
+                        enviarEresmail(nome, email, credencial).then(function(resposta) {
                             res.status(200).json(resposta)
                         })  
                      })

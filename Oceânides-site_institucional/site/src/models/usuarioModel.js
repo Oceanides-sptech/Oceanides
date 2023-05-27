@@ -32,8 +32,17 @@ function cadastrar(nome, email, senha, fkEmpresa, fkAdm) {
     return database.executar(instrucao);
 }
 
+function cadastrarFuncionario(nomeUsuario,emailUsuario,senhaUsuario,fkEmpresaUsuario,fk_ADM) {
+    var instrucao = `
+    INSERT INTO usuario VALUES
+    (null, '${nomeUsuario}', '${emailUsuario}','${senhaUsuario}', ${fkEmpresaUsuario}, ${fk_ADM});
+    `
+    return database.executar(instrucao)
+}
+
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarFuncionario,
     listar,
 };
