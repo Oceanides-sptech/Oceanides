@@ -7,7 +7,7 @@ function obterDadosContainer() {
         resposta.json().then((json)=>{
             console.log(json)
             span_nome_container.innerHTML = json[0].nomeContainer
-            span_codigo_container = json[0].codigo
+            span_codigo_container.innerHTML = json[0].codigo
         })
     })
 }

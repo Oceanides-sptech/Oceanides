@@ -174,8 +174,3 @@ function abrirContainer(id) {
   window.location.href = 'container-individual.html'
 }
 
-obterContainersAlertas()
-var atualizarAlertas = setInterval(()=> {
-  obterContainersAlertas()
-  
-}, 5000)
