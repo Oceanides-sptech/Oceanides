@@ -164,13 +164,9 @@
 <script src="../assets/js/dashboard-menu.js"></script>
 <script src="../assets/js/funções.js"></script>
 <script>
-
-
+obterContainersAlertas()
+var atualizarAlertas = setInterval(()=> {
+  obterContainersAlertas()
   
-  function abrirContainer(id) {
-    var containerEscolhido = id
-    console.log(id)
-    sessionStorage.ID_CONTAINER_INDIVIDUAL = id
-    window.location.href = 'container-individual.html'
-  }
+}, 5000)
 </script>

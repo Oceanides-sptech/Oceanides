@@ -154,7 +154,7 @@ function exibirAlertas() {
 
 function transformarEmDiv(info) {
   return `
-  <div class="alerta-global">
+  <div class="alerta-global" onclick="abrirContainer(${info.idContainer})">
   <div class="mensagem-alerta">
       <div class="bola-alerta ${info.classe}"></div>
       <p class="texto-alerta">${info.nome} está em estado de ${info.textoAviso}</p>
@@ -167,8 +167,10 @@ function transformarEmDiv(info) {
   
 }
 
-obterContainersAlertas()
-var atualizarAlertas = setInterval(()=> {
-  obterContainersAlertas()
-  
-}, 5000)
+function abrirContainer(id) {
+  var containerEscolhido = id
+  console.log(id)
+  sessionStorage.ID_CONTAINER_INDIVIDUAL = id
+  window.location.href = 'container-individual.html'
+}
+

@@ -254,3 +254,10 @@ function validar() {
     })
   }
 </script>
+<script>
+  obterContainersAlertas()
+  var atualizarAlertas = setInterval(()=> {
+    obterContainersAlertas()
+    
+  }, 5000)
+  </script>

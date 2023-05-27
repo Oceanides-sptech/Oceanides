@@ -6,9 +6,12 @@ function obterDadosContainer() {
     .then(function name(resposta) {
         resposta.json().then((json)=>{
             console.log(json)
+            span_nome_container.innerHTML = json[0].nomeContainer
+            span_codigo_container.innerHTML = json[0].codigo
         })
     })
 }
+
 
 
   var tempAtual;
