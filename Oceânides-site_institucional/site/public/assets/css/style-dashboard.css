@@ -164,3 +164,64 @@ div.icone-botao.fechado {
   background-color: #00afef;
   color: white;
 }
+
+.mensagem-alerta{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.bola-alerta{
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+
+.alerta-global{
+
+  height: 70px;
+  width: 300px;
+  border: 3px solid #00afef;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  margin-right: 20px;
+
+  background-color: white;
+
+  
+}
+
+.texto-alerta{
+  margin: 0;
+}
+
+.linha-umidade-temperatura{
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.critico-frio {
+  background-color: #6f42c1;
+}
+.emergencia-frio {
+  background-color: #00afef;
+}
+
+.emergencia-quente {
+  background-color: #fd7e14;
+}
+.critico-quente {
+  background-color: #dc3545;
+}
+
+#div_alertas{
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  right: 0px;
+}
