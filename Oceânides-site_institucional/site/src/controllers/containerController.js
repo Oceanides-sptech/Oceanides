@@ -20,7 +20,19 @@ function listarContainer(req,res) {
         }
     })
 }
+
+function contarContainer(req,res) {
+    var idEmpresa = req.params.idEmpresa
+    containerModel.contarContainer(idEmpresa).then(function(resposta) {
+        if(resposta.length > 0){
+            res.status(200).json(resposta)
+        }else{
+            res.status(500).send("Container não encontrado")
+        }
+    })
+}
 module.exports = {
     listarEmpresa,
-    listarContainer
+    listarContainer,
+    contarContainer
 }

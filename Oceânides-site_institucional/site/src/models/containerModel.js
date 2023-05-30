@@ -72,7 +72,15 @@ function listarContainer(idContainer) {
     var instrucao = `SELECT *  FROM container JOIN faixaTemperatura on fkFaixaTemperatura = idFaixaTemperatura where idContainer = ${idContainer};`
     return database.executar(instrucao)
 } 
+
+function contarContainer(idEmpresa){
+    var instrucao = `
+        select count(idContainer) as Contagem_Container, from container where fkEmpresaContainer = ${idEmpresa};
+    `;
+    return database.executar(instrucao)
+}
 module.exports = {
     listarEmpresa,
     listarContainer,
+    contarContainer
 }
