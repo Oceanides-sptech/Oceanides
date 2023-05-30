@@ -84,7 +84,12 @@ function obterContainersAlertas() {
   });
 }
 
+var qtdContainerCritico = 0;
+var qtdContainerEmergencia = 0;
+
 function verificarAlerta(resposta) {
+  qtdContainerEmergencia = 0;
+  qtdContainerCritico = 0;
   var temperatura = resposta.temperatura
   var idContainer = resposta.idContainer
   var nome = resposta.nomeContainer
@@ -102,6 +107,7 @@ function verificarAlerta(resposta) {
     classe = "critico-quente";
     textoAviso = "Crítico quente"
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
+    qtdContainerCritico++
   } else if (
     temperatura < alertasTemperaturas.temperaturaMuitoQuente &&
     temperatura >= alertasTemperaturas.temperaturaQuente
@@ -111,6 +117,7 @@ function verificarAlerta(resposta) {
 
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
     
+    qtdContainerEmergencia++
   } else if (temperatura < alertasTemperaturas.temperaturaQuente && temperatura > alertasTemperaturas.temperaturaFria) {
     classe = "ideal";
     removerAlerta(idContainer)
@@ -121,10 +128,12 @@ function verificarAlerta(resposta) {
     classe = "emergencia-frio";
     textoAviso = "Emergência fria"
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
+    qtdContainerEmergencia++
   } else if (temperatura <= alertasTemperaturas.temperaturaMuitoFria) {
     classe = "critico-frio";
     textoAviso = "Crítico frio"
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
+    qtdContainerCritico++
   }
 }
 
@@ -150,6 +159,7 @@ function exibirAlertas() {
     var infoAlerta = alertas[i]
     div_alertas.innerHTML += transformarEmDiv(infoAlerta)
   }
+
 }
 
 function transformarEmDiv(info) {
