@@ -111,6 +111,11 @@ function cadastrarFuncionario(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
+        if (fk_ADM == undefined) {
+            fk_ADM = null
+        }else{
+            fk_ADM = Number(fk_ADM)
+        }
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrarFuncionario(nome, email, senha,idEmpresa,fk_ADM)
             .then(

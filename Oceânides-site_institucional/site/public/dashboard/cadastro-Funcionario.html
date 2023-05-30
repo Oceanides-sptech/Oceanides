@@ -15,7 +15,26 @@
       href="../assets/css/style-cadastrar-funcionario.css"
     />
 
+
+    <style>
+
+.select{
+    padding: 10px;
+    width: 212px;
+    height: 47px;
+    border: 0.5px solid #000000;
+    padding: 10px;
+    font-size: 16px;
     
+    font-family: var(--fonteTextos2);
+    border-radius: 9px;
+}
+.select:focus-visible{
+    border: 0.5px solid #000000;
+}
+
+
+    </style>
     
   </head>
   <body onload="validarSessao(), verificarAdm()">
@@ -180,6 +199,12 @@
                 placeholder="Confirmar Senha"
               />
             </div>
+            <div>
+              <select class="select" id="select_funcionario">
+                <option value="0">Selecionar</option>
+                <option value="null">ADM</option>
+              </select>
+            </div>
           </div>
 
           
@@ -198,6 +223,7 @@
 <script src="../assets/js/funções.js"></script>
 <script>
 
+  select_funcionario.innerHTML += `<option value=${sessionStorage.ID_USUARIO}>Funcionario</option>`
 
 function validar() {
 
@@ -205,9 +231,10 @@ function validar() {
     var email = input_email.value;
     var senha = input_senha.value;
     var confirmacao_senha = input_confirmar_senha.value;
+    var funcao = select_funcionario.value;
 
     var campoVazio =
-      nome == "" || email == "" || senha == "" || confirmacao_senha == "";
+      nome == "" || email == "" || senha == "" || confirmacao_senha == "" || funcao == '0';
 
     var validacao = senha == confirmacao_senha;
 
@@ -217,7 +244,7 @@ function validar() {
       if (email_valido) {
         mensagem.innerHTML =
           "<p class='ok'>Funcionário cadastrado com sucesso!</p>";
-          cadastrarFuncionario(nome,email,senha);
+          cadastrarFuncionario(nome,email,senha, funcao);
       } else {
         mensagem.innerHTML = `<p class='erro '>Insirsa um e-mail válido!</p>`;
       }
@@ -231,7 +258,7 @@ function validar() {
 
 }
 
-  function cadastrarFuncionario(nome,email,senha) {
+  function cadastrarFuncionario(nome,email,senha,funcao) {
    fetch("/usuarios/cadastrarFuncionario",{
     method:"POST",
     headers:{
@@ -241,7 +268,7 @@ function validar() {
       emailServer: email,
       nomeServer: nome,
       senhaServer: senha,
-      fkADMServer: sessionStorage.ID_USUARIO,
+      fkADMServer: funcao,
       idEmpresaServer: sessionStorage.ID_EMPRESA,
     })
   }).then(function (resposta) {
