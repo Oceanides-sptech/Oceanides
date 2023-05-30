@@ -68,8 +68,8 @@ function limparSessao() {
 
 var alertas = [];
 
-function obterContainersAlertas() {
-  fetch(`/containers/containersEmpresa/${sessionStorage.ID_EMPRESA}`, {
+async function obterContainersAlertas() {
+  await fetch(`/containers/containersEmpresa/${sessionStorage.ID_EMPRESA}`, {
     cache: "no-store",
   }).then(function (resposta) {
     if (resposta.ok) {
@@ -84,14 +84,15 @@ function obterContainersAlertas() {
     }
   });
 }
-
-function obterContainersContagem(){ 
-  fetch(`/containers/contagemContainer/${sessionStorage.ID_EMPRESA}`,{
+var containersTotal = 0;
+async function obterContainersContagem(){ 
+  await fetch(`/containers/contagemContainer/${sessionStorage.ID_EMPRESA}`,{
     cache: "no-cache"
   }).then(function (resposta){
     if (resposta.ok) {
         resposta.json().then((json)=>{
           console.log(json);
+          containersTotal = json[0].Contagem_Container;
           Total_containers.innerHTML = json[0].Contagem_Container;
         })
       }
@@ -150,9 +151,20 @@ function verificarAlerta(resposta) {
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
     qtdContainerCritico++
   }
-
-  Containers_alerta.innerHTML = qtdContainerEmergencia;
-  Containers_risco.innerHTML = qtdContainerCritico;
+  var porcentagemAlerta = (qtdContainerEmergencia * 100)/containersTotal + " %";
+  var porcentagemCritico = (qtdContainerCritico * 100)/containersTotal + " %";
+  console.log(porcentagemAlerta, porcentagemCritico)
+  if(porcentagemAlerta == Infinity){
+    Containers_alerta.innerHTML = "..."
+  }else{
+    Containers_alerta.innerHTML = porcentagemAlerta
+  }
+  if(porcentagemCritico == NaN){
+    Containers_risco.innerHTML = "..."
+  }else{
+    Containers_risco.innerHTML = porcentagemCritico
+  }
+   
 }
 
 function adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso) {

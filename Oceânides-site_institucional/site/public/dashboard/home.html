@@ -178,14 +178,15 @@
 <script src="../assets/js/dashboard-home.js"></script>
 <script src="../assets/js/funções.js"></script>
 <script>
-  obterContainersAlertas()
   obterContainersContagem()
+  obterContainersAlertas()
 
   var atualizarAlertas = setInterval(() => {
     qtdContainerEmergencia = 0;
     qtdContainerCritico = 0;
-    obterContainersAlertas()
     obterContainersContagem()
+    obterContainersAlertas()
+    
 
-  }, 5000)
+  }, 2000)
 </script>
