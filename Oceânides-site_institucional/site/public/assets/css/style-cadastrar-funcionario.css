@@ -81,25 +81,61 @@
 .tabela{
   height: 100%;
   width: 50%;
-  border: solid red 3px;
   display: flex;
   align-items: center;
+  
 }
 
 
 .lista{
   height:70%;
   width: 100%;
-  border: solid blue 2px;
   display: flex;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    #00afef 25.29%,
+    rgba(2, 1, 39, 0.823326) 100%
+    );
+    overflow-y: scroll ;
 }
 
+#listaPessoal{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: white;
+  align-self: center;
+  text-align: justify;
+  padding-left: 10%;
+  padding-top: 300px;
+  font-family: var(--fonteSubTitulos);
+
+}
 
 .titulo{
     font-weight: bold;
     font-size: 30px;
     color: #00AFEF;
     font-family: var(--fonteTitulos);
+}
+
+table{
+
+  width:400px;
+  border-collapse: collapse;
+}
+
+tr{
+  display: flex;
+  justify-content: space-between;
+}
+
+th,td{
+
+
+  border: solid 1px black;
+
 }
 
 .texto-usuario{
@@ -116,4 +152,26 @@
 }
 .ok{
  color: rgba(0, 169, 27)
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0098ce;
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0098ce;
+  width: 105%;
 }

@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sobre {
+  display: flex;
+  justify-content: space-around;
+  height: 700px;
+}
+.texto h1 {
+  height: 200px;
+  justify-content: center;
+  font-family: var(--fonteSubTitulos);
+  color: #00afef;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+}
+
+.texto h4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  font-family: var(--fonteTextos2);
+  color: #505050;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  align-items: center;
+  float: left;
+  width: 500px;
+}
+
+.banner {
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container2 {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 56px;
+  align-items: center;
+  letter-spacing: -0.02em;
+  font-family: var(--fonteTextos2);
+}
+
+.fotos {
+  background-repeat: no-repeat;
+  background-image: url(../img/fundo-integrantes.png);
+  height: 400px;
+  width: 250px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.icones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.icone {
+  width: 25px;
+}
+
+.icon-integrante {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.icon-integrante.bruno {
+  background-image: url("../img/Icon\ Buno.png");
+}
+.icon-integrante.kevin {
+  background-image: url("../img/Icon\ Kevin.png");
+}
+.icon-integrante.leandro {
+  background-image: url(../img/Icon\ Leandro.png);
+}
+.icon-integrante.murilo {
+  background-image: url(../img/Icon\ Murilo);
+}
+.icon-integrante.roberto {
+  background-image: url(../img/Icon\ Roberto.png);
+}
+.icon-integrante.theo {
+  background-image: url(../img/Icon\ Theo.png);
+}

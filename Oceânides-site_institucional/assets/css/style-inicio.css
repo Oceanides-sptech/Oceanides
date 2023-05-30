@@ -1,0 +1,228 @@
+html {
+  scroll-behavior: smooth;
+}
+/*Slider v2*/
+.slider {
+  margin: 0 auto;
+  width: 100%;
+  height: 81vh;
+  overflow: hidden;
+}
+
+.slides {
+  width: 400%;
+  height: 350px;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 25%;
+  position: relative;
+}
+
+.slide img {
+  width: 100vw;
+  height: 81vh;
+}
+
+.manual-navigation {
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manual-btn {
+  border: 2px solid #fff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+
+.manual-btn:hover {
+  background-color: #fff;
+}
+
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+  margin-left: -25%;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -50%;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -75%;
+}
+
+.navigation-auto div {
+  border: 2px solid #20acff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.navigation-auto {
+  position: fixed;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background-color: #fff;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background-color: #fff;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background-color: #fff;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background-color: #fff;
+}
+
+/*Qualidade Inovação e Sutentabiliade*/
+
+.boxes {
+  display: flex;
+}
+
+.boxes:hover {
+  display: flex;
+}
+
+.box img {
+  width: 230px;
+  transition: 1s;
+}
+
+.box {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.95s;
+}
+
+.box p {
+  font-family: var(--fonteTextos);
+}
+
+.box h4 {
+  font-family: var(--fonteSubTitulos);
+  color: #0098ce;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.box:hover {
+  color: black;
+  transition: 0.95s;
+}
+
+.box img:hover {
+  width: 350px;
+  transition: 1s;
+}
+
+.valores {
+  height: 200px;
+  justify-content: center;
+  font-family: var(--fonteSubTitulos);
+  color: #00afef;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+}
+
+.botao-slider {
+  padding: 9px 16px;
+  background: #0098ce;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+  border: 0;
+  font-family: var(--fonteTitulos);
+  font-weight: bolder;
+  font-size: 15px;
+  line-height: 15px;
+  color: #ffffff;
+  cursor: pointer;
+  position: absolute;
+  margin-left: 7%;
+  width: 250px;
+
+  position: absolute;
+  margin-left: 7%;
+  width: 250px;
+  margin-top: 69px;
+}
+
+.botao-slider {
+  color: white;
+  text-decoration: none;
+}
+
+.texto-slider {
+  position: absolute;
+  margin-left: 7%;
+  width: 250px;
+  margin-bottom: 300px;
+  color: white;
+  width: 900px;
+
+  font-family: var(--fonteTitulos);
+  font-size: 30px;
+}
+
+.img-propaganda {
+  margin: 35px;
+  margin-bottom: 25px;
+  height: 250px;
+  transition: 1s;
+}
+
+.propaganda .img-propaganda:hover {
+  height: 295px;
+  transition: 1s;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.saiba-mais {
+  color: #0098ce;
+}
+
+.sobre_oceanides_style {
+  color: #0098ce;
+  margin-top: 35px;
+}

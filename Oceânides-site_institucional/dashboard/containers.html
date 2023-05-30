@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style-dashboard.css" />
+    <link rel="shortcut icon" href="../assets/img/oceanides-logo.png"/>
+    <link
+      rel="stylesheet"
+      href="../assets/css/style-containers-dashboard.css"
+    />
+    <title>Dashboard - Containers</title>
+  </head>
+  <body>
+    <div id="dashboard">
+      <div id="menu-aberto" class="menu animate__animated">
+        <div id="menu-botao-foto">
+          <div onclick="abrirFecharMenu()" class="icone-botao">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+          </div>
+          <div id="foto"></div>
+        </div>
+
+        <div id="tabs">
+          <div id="itens">
+            <a href="home.html">
+              <div class="item">
+                <div class="icone-botao">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+                    />
+                  </svg>
+                </div>
+                <p class="texto-item">home</p>
+              </div>
+            </a>
+
+  
+
+            <a href="containers.html">
+              <div class="item ativo">
+                <div class="icone-botao">
+                  <svg
+                    width="24"
+                    height="18"
+                    viewBox="0 0 24 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="width: 25px; display: block; height: 25px"
+                  >
+                    <path
+                      d="M1.2 0.899902C0.53625 0.899902 0 1.43615 0 2.0999C0 2.76365 0.53625 3.2999 1.2 3.2999V15.2999C0.53625 15.2999 0 15.8362 0 16.4999C0 17.1637 0.53625 17.6999 1.2 17.6999H22.8C23.4638 17.6999 24 17.1637 24 16.4999C24 15.8362 23.4638 15.2999 22.8 15.2999V3.2999C23.4638 3.2999 24 2.76365 24 2.0999C24 1.43615 23.4638 0.899902 22.8 0.899902H1.2ZM6.6 5.3999V13.1999C6.6 13.6987 6.19875 14.0999 5.7 14.0999C5.20125 14.0999 4.8 13.6987 4.8 13.1999V5.3999C4.8 4.90115 5.20125 4.4999 5.7 4.4999C6.19875 4.4999 6.6 4.90115 6.6 5.3999ZM10.8 5.3999V13.1999C10.8 13.6987 10.3988 14.0999 9.9 14.0999C9.40125 14.0999 9 13.6987 9 13.1999V5.3999C9 4.90115 9.40125 4.4999 9.9 4.4999C10.3988 4.4999 10.8 4.90115 10.8 5.3999ZM15 5.3999V13.1999C15 13.6987 14.5988 14.0999 14.1 14.0999C13.6013 14.0999 13.2 13.6987 13.2 13.1999V5.3999C13.2 4.90115 13.6013 4.4999 14.1 4.4999C14.5988 4.4999 15 4.90115 15 5.3999ZM19.2 5.3999V13.1999C19.2 13.6987 18.7987 14.0999 18.3 14.0999C17.8013 14.0999 17.4 13.6987 17.4 13.1999V5.3999C17.4 4.90115 17.8013 4.4999 18.3 4.4999C18.7987 4.4999 19.2 4.90115 19.2 5.3999Z"
+                      fill="#00afef"
+                    />
+                  </svg>
+                </div>
+                <p class="texto-item">containers</p>
+              </div>
+            </a>
+            <a href="cadastro-Funcionario.html">
+              <div class="item">
+                <div class="icone-botao">
+                  <svg
+                    style="width: 22px"
+                    viewBox="0 0 12 14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 7C6.90931 7 7.78138 6.63125 8.42437 5.97487C9.06735 5.3185 9.42857 4.42826 9.42857 3.5C9.42857 2.57174 9.06735 1.6815 8.42437 1.02513C7.78138 0.368749 6.90931 0 6 0C5.09069 0 4.21862 0.368749 3.57563 1.02513C2.93265 1.6815 2.57143 2.57174 2.57143 3.5C2.57143 4.42826 2.93265 5.3185 3.57563 5.97487C4.21862 6.63125 5.09069 7 6 7ZM4.77589 8.3125C2.1375 8.3125 0 10.4945 0 13.1879C0 13.6363 0.35625 14 0.795536 14H11.2045C11.6438 14 12 13.6363 12 13.1879C12 10.4945 9.8625 8.3125 7.22411 8.3125H4.77589Z"
+                    />
+                  </svg>
+                </div>
+                <p class="texto-item texto-usuario">Cadastrar Funcionário</p>
+              </div>
+            </a>
+          </div>
+
+          <div onclick="sair()" class="botao-sair">
+            <div class="icone-botao">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+                />
+              </svg>
+            </div>
+            <p class="texto-item">sair</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="menu-fechado" class="menu animate__animated">
+        <div id="menu-botao-foto">
+          <div onclick="abrirFecharMenu()" class="icone-botao fechado">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+              <path
+                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div id="tabs">
+          <div id="itens">
+            <a href="home.html">
+              <div class="item">
+                <div class="icone-botao">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <path
+                      d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+
+            
+
+            <a href="containers.html">
+              <div class="item ativo">
+                <div class="icone-botao">
+                  <svg
+                    width="24"
+                    height="18"
+                    viewBox="0 0 24 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="width: 25px; display: block; height: 25px"
+                  >
+                    <path
+                      d="M1.2 0.899902C0.53625 0.899902 0 1.43615 0 2.0999C0 2.76365 0.53625 3.2999 1.2 3.2999V15.2999C0.53625 15.2999 0 15.8362 0 16.4999C0 17.1637 0.53625 17.6999 1.2 17.6999H22.8C23.4638 17.6999 24 17.1637 24 16.4999C24 15.8362 23.4638 15.2999 22.8 15.2999V3.2999C23.4638 3.2999 24 2.76365 24 2.0999C24 1.43615 23.4638 0.899902 22.8 0.899902H1.2ZM6.6 5.3999V13.1999C6.6 13.6987 6.19875 14.0999 5.7 14.0999C5.20125 14.0999 4.8 13.6987 4.8 13.1999V5.3999C4.8 4.90115 5.20125 4.4999 5.7 4.4999C6.19875 4.4999 6.6 4.90115 6.6 5.3999ZM10.8 5.3999V13.1999C10.8 13.6987 10.3988 14.0999 9.9 14.0999C9.40125 14.0999 9 13.6987 9 13.1999V5.3999C9 4.90115 9.40125 4.4999 9.9 4.4999C10.3988 4.4999 10.8 4.90115 10.8 5.3999ZM15 5.3999V13.1999C15 13.6987 14.5988 14.0999 14.1 14.0999C13.6013 14.0999 13.2 13.6987 13.2 13.1999V5.3999C13.2 4.90115 13.6013 4.4999 14.1 4.4999C14.5988 4.4999 15 4.90115 15 5.3999ZM19.2 5.3999V13.1999C19.2 13.6987 18.7987 14.0999 18.3 14.0999C17.8013 14.0999 17.4 13.6987 17.4 13.1999V5.3999C17.4 4.90115 17.8013 4.4999 18.3 4.4999C18.7987 4.4999 19.2 4.90115 19.2 5.3999Z"
+                      fill="#00afef"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <a href="cadastro-Usuario.html">
+              <div class="item">
+                <div class="icone-botao">
+                  <svg
+                    style="width: 22px"
+                    viewBox="0 0 12 14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 7C6.90931 7 7.78138 6.63125 8.42437 5.97487C9.06735 5.3185 9.42857 4.42826 9.42857 3.5C9.42857 2.57174 9.06735 1.6815 8.42437 1.02513C7.78138 0.368749 6.90931 0 6 0C5.09069 0 4.21862 0.368749 3.57563 1.02513C2.93265 1.6815 2.57143 2.57174 2.57143 3.5C2.57143 4.42826 2.93265 5.3185 3.57563 5.97487C4.21862 6.63125 5.09069 7 6 7ZM4.77589 8.3125C2.1375 8.3125 0 10.4945 0 13.1879C0 13.6363 0.35625 14 0.795536 14H11.2045C11.6438 14 12 13.6363 12 13.1879C12 10.4945 9.8625 8.3125 7.22411 8.3125H4.77589Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="botao-sair">
+            <div onclick="sair()" class="icone-botao">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <path
+                  d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="conteudo" class="conteudo">
+        <div class="botao-add"><a href="cadastro-container.html"><img src="../assets/icons/icon_add.svg" alt=""></a></div>
+        <div class="containers">
+          <div onclick="simularContainer()" class="container container-ideal">
+            <div class="info-container">
+              <p>Container Banana</p>
+              <p>CON-9837453</p>
+              <p>Último registro: 12°C/92%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola ideal"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-ideal">
+            <div class="info-container">
+              <p>Container Maçã</p>
+              <p>CON-9345617</p>
+              <p>Último registro: 7°C/97%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola ideal"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-ideal">
+            <div class="info-container">
+              <p>Container Manga</p>
+              <p>CON-9345032</p>
+              <p>Último registro: 10°C/95%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola ideal"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-critico-frio">
+            <div class="info-container">
+              <p>Container Pera</p>
+              <p>CON-4212095</p>
+              <p>Último registro: -5°C/95.5%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola critico-frio"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-critico-quente">
+            <div class="info-container">
+              <p>Container Uva</p>
+              <p>CON-5342091</p>
+              <p>Último registro: 5°C/98%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola critico-quente"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-ideal">
+            <div class="info-container">
+              <p>Container Ameixa</p>
+              <p>CON-0374236</p>
+              <p>Último registro: 0.7°C/93.5%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola ideal"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-ideal">
+            <div class="info-container">
+              <p>Container Carambola</p>
+              <p>CON-8934259</p>
+              <p>Último registro: 8°C/88%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola ideal"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-ideal">
+            <div class="info-container">
+              <p>Container Pessêgo</p>
+              <p>CON-6354923</p>
+              <p>Último registro: 1.5°C/90%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola ideal"></div>
+              </div>
+            </div>
+          </div>
+          <div onclick="simularContainer()" class="container container-ideal">
+            <div class="info-container">
+              <p>Container Laranja</p>
+              <p>CON-8235419</p>
+              <p>Último registro: -2°C/98.9%</p>
+            </div>
+            <div class="nivel-alerta">
+              <div class="alerta">
+                <div class="bola ideal"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="legendas">
+          <div class="legenda">
+            <div class="bola critico-frio"></div>
+            <p>Alerta crítico de baixa temperatura/umidade</p>
+          </div>
+          <div class="legenda">
+            <div class="bola emergencia-frio"></div>
+            <p>Alerta de emergência de baixa temperatura/umidade</p>
+          </div>
+          <div class="legenda">
+            <div class="bola ideal"></div>
+            <p>Temperatura/umidade ideal</p>
+          </div>
+          <div class="legenda">
+            <div class="bola emergencia-quente"></div>
+            <p>Alerta de emergência de alta temperatura/umidade</p>
+          </div>
+          <div class="legenda">
+            <div class="bola critico-quente"></div>
+            <p>Alerta crítico de alta temperatura/umidade</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="../assets/js/dashboard-menu.js"></script>
+<script>
+  function simularContainer() {
+    window.location.href = 'container-individual/conteiner-individual.html';
+  }
+</script>

@@ -1,0 +1,82 @@
+.forms {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+    justify-content: center;
+    align-items: center;
+    gap: 27px;
+}
+.titulo{
+  font-size: 36px;
+  color: #00AFEF;
+  font-family: var(--fonteSubTitulos);
+  font-weight: bold;
+}
+.inputs {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.input {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  border: 0.7px solid #000000;
+  border-radius: 9px;
+  width: 190px;
+  height: 25px;
+}
+input {
+  all: unset;
+  font-family: var(--fonteTextos2);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.select{
+    padding: 10px;
+    width: 212px;
+    height: 47px;
+    border: 0.5px solid #000000;
+    padding: 10px;
+    font-size: 16px;
+    color: #adadad;
+    font-family: var(--fonteTextos2);
+    font-weight: 600;
+    border-radius: 9px;
+}
+.select:focus-visible{
+    border: 0.5px solid #000000;
+}
+
+.botao-cadastro{
+  padding: 10px 16px;
+  background: #0098ce;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+  border: 0;
+  width: 45%;
+  font-family: var(--fonteTitulos);
+  font-weight: bolder;
+  font-size: 15px;
+  line-height: 15px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#div_mensagem_confirmacao{
+  font-family: var(--fonteTextos);
+  font-size: 15px;
+  font-weight: bold;
+}
