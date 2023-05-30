@@ -1,3 +1,4 @@
+
 function validarSessao() {
   // aguardar();
   var email = sessionStorage.EMAIL_USUARIO;
@@ -84,12 +85,26 @@ function obterContainersAlertas() {
   });
 }
 
+function obterContainersContagem(){ 
+  fetch(`/containers/contagemContainer/${sessionStorage.ID_EMPRESA}`,{
+    cache: "no-cache"
+  }).then(function (resposta){
+    if (resposta.ok) {
+        resposta.json().then((json)=>{
+          console.log(json);
+          Total_containers.innerHTML = json[0].Contagem_Container;
+        })
+      }
+    }
+  )
+}
+
+var qtdContainer = 0;
 var qtdContainerCritico = 0;
 var qtdContainerEmergencia = 0;
 
 function verificarAlerta(resposta) {
-  qtdContainerEmergencia = 0;
-  qtdContainerCritico = 0;
+
   var temperatura = resposta.temperatura
   var idContainer = resposta.idContainer
   var nome = resposta.nomeContainer
@@ -135,6 +150,9 @@ function verificarAlerta(resposta) {
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
     qtdContainerCritico++
   }
+
+  Containers_alerta.innerHTML = qtdContainerEmergencia;
+  Containers_risco.innerHTML = qtdContainerCritico;
 }
 
 function adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso) {

@@ -18,7 +18,7 @@
 
 
   </head>
-  <body onload="validarSessao(), verificarAdm()">
+  <body onload="validarSessao(), verificarAdm(), listarFuncionario()">
     <div id="dashboard">
       <div id="div_alertas"></div>
       <div id="menu-aberto" class="menu">
@@ -157,6 +157,7 @@
       </div>
 
       <div id="conteudo" class="conteudo">
+
         <div class="usuario">
           <p class="titulo">Cadastrar Funcionário</p>
           <div class="inputs">
@@ -196,15 +197,26 @@
 
           <div id="mensagem"></div>
         </div>
+        <div class="tabela">
+          <div class="lista">
+              <div id="listaPessoal">
+                  
+              </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </body>
 </html>
 <script src="../assets/js/dashboard-menu.js"></script>
+<script src="../assets/js/dashboardCadastroFuncionario.js"></script>
+
 <script src="../assets/js/funções.js"></script>
 <script>
 
   select_funcionario.innerHTML += `<option value=${sessionStorage.ID_USUARIO}>Funcionario</option>`
+
 
 function validar() {
 

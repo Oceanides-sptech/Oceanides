@@ -8,4 +8,8 @@ router.get("/containersEmpresa/:idEmpresa", function(req,res) {
 router.get("/dadosContainer/:idContainer",function(req,res) {
     containerController.listarContainer(req,res)
 })
+
+router.get("/contagemContainer/:idEmpresa",function(req,res) {
+    containerController.contarContainer(req,res)
+})
 module.exports = router

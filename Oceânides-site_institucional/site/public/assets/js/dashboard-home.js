@@ -2,18 +2,18 @@ const graficoBarras = document.getElementById("graficoBarras");
 new Chart(graficoBarras, {
   type: "bar",
   data: {
-    labels: ["BRA/CHI", "BRA/POR", "BRA/FRA", "BRA/EUA", "BRA/AUS", "BRA/AFR"],
+    labels: ["Média Baixa", "Média Intermediária", "Média Alta"],
     datasets: [
       {
         label: "Temperatura",
-        data: [10, 8, 4, 9, 13, 14],
+        data: [1, 6, 12],
         backgroundColor: "#FFD90F",
         borderColor: "#FFD90F",
         borderWidth: 1,
       },
       {
         label: "Umidade",
-        data: [92, 91, 95, 94, 93, 90],
+        data: [92, 91, 95],
         backgroundColor: "#00AFEF",
         borderColor: "#00AFEF",
         borderWidth: 1,
@@ -29,7 +29,7 @@ new Chart(graficoBarras, {
     plugins: {
       title: {
         display: true,
-        text: "Média temperatura por rota",
+        text: "Médias de temperatura e Umidade",
       },
     },
   },

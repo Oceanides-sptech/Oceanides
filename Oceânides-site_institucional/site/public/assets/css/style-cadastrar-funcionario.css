@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     
-    width: 500px;
+    width: 70%;
     height: 100%;
     gap: 20px;
     
@@ -12,6 +12,15 @@
     align-items: center;
     flex-direction: column;
 
+}
+
+
+.conteudo{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .inputs {
@@ -67,6 +76,22 @@
 }
 .select:focus-visible{
     border: 0.5px solid #000000;
+}
+
+.tabela{
+  height: 100%;
+  width: 50%;
+  border: solid red 3px;
+  display: flex;
+  align-items: center;
+}
+
+
+.lista{
+  height:70%;
+  width: 100%;
+  border: solid blue 2px;
+  display: flex;
 }
 
 

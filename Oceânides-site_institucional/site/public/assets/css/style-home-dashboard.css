@@ -1,10 +1,14 @@
 /* KPIS */
+
+
+
 .kpis {
   display: flex;
   height: 40%;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  margin-top: 30px;
 }
 .kpi {
   width: 306px;
@@ -76,20 +80,19 @@
 /* GRAFICOS */
 .graficos {
   display: flex;
-  height: 60%;
+  flex-direction: column;
+  overflow-y: scroll;
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  padding-top: 200px;
 }
 .grafico {
   display: flex;
   align-items: center;
-  width: 49%;
-  height: 80%;
+  width: 80%;
+  height: 90%;
   justify-content: center;
   border-radius: 30px;
 }
-.graficoPizza {
-  display: flex;
-  justify-content: center;
-}
+
