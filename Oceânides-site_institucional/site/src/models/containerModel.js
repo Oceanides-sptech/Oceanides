@@ -75,7 +75,7 @@ function listarContainer(idContainer) {
 
 function contarContainer(idEmpresa){
     var instrucao = `
-        select count(idContainer) as Contagem_Container, from container where fkEmpresaContainer = ${idEmpresa};
+        select count(idContainer) as Contagem_Container from container where fkEmpresaContainer = ${idEmpresa};
     `;
     return database.executar(instrucao)
 }
