@@ -12,4 +12,8 @@ router.get("/dadosContainer/:idContainer",function(req,res) {
 router.get("/contagemContainer/:idEmpresa",function(req,res) {
     containerController.contarContainer(req,res)
 })
+
+router.post("/cadastrarContainer", function(req,res){
+    containerController.cadastrarContainer(req,res)
+})
 module.exports = router

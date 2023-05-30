@@ -20,7 +20,7 @@
   font-weight: bold;
 }
 .inputs {
-  width: 75%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@ input {
 
 .select{
     padding: 10px;
-    width: 212px;
+    width: 75%;
     height: 47px;
     border: 0.5px solid #000000;
     padding: 10px;

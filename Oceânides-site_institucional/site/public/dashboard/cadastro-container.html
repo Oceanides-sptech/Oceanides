@@ -150,42 +150,29 @@
       <div id="conteudo" class="conteudo">
         <div class="forms">
           <div class="box">
-            <h1 class="titulo">Cadastrar container</h1>
+            <h1 class="titulo">Ativar container</h1>
             <div class="inputs">
               <div class="input">
                 <img src="../assets/icons/icon_imo.svg" alt="" />
-                <input id="input" placeholder="Nome" type="text" />
+                <input id="input_nome" placeholder="Nome" type="text" />
               </div>
 
-              <select class="select" name="" id="select_destino">
-                <option style="color: #adadad" value="0">Porto destino</option>
-
-                <option value="1">Noruega</option>
-                <option value="1">Africa</option>
-                <option value="1">Portugal</option>
-                <option value="1">Nigéria</option>
-                <option value="1">Argentina</option>
-                <option value="1">Austrália</option>
-                <option value="1">França</option>
-                <option value="1">Estados Unidos</option>
-                <option value="1">China</option>
-              </select>
-
+        
               <select id="slFaixaTemperatura" class="select">
                 <option style="color: #adadad" value="0">
                   Faixa de temperatura
                 </option>
-                <option value="1">Baixa</option>
-                <option value="2">Intermediária</option>
-                <option value="3">Alta</option>
+                <option value="1">Baixa - 0°C a 1°C</option>
+                <option value="2">Intermediária - 3°C a 8°C</option>
+                <option value="3">Alta - 10°C - 14°C</option>
               </select>
               <div class="input">
                 <img src="../assets/icons/icon_imo.svg" alt="" />
                 <input id="input_codigo" placeholder="Código" type="text" />
               </div>
             </div>
-            <button onclick="simularCadastro()" class="botao-cadastro">
-              Cadastrar
+            <button onclick="validar()" class="botao-cadastro">
+              Ativar
             </button>
             <div id="div_mensagem_confirmacao"></div>
           </div>
@@ -195,25 +182,9 @@
   </body>
 </html>
 <script src="../assets/js/dashboard-menu.js"></script>
-
+<script src="../assets/js/dashboard-cadastro-container.js"> </script>
 <script src="../assets/js/funções.js"></script>
-<script>
-  function simularCadastro() {
-    var container = Number(slContainer.value);
-    var faixa = Number(slFaixaTemperatura.value);
-    var destino = Number(select_destino.value);
-    var codigo = input_codigo.value;
 
-    var camposVazio =
-      container == 0 || faixa == 0 || codigo == "" || destino == 0;
-    if (camposVazio) {
-      div_mensagem_confirmacao.innerHTML = `<span style= "color: #DC3545">Preencha todos os campos para realizar o cadastro!</span>`;
-    } else {
-      window.location.href = "containers.html";
-    }
-  }
-  
-</script>
 <script>
   obterContainersAlertas()
   var atualizarAlertas = setInterval(()=> {

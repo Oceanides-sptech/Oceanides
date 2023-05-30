@@ -79,8 +79,21 @@ function contarContainer(idEmpresa){
     `;
     return database.executar(instrucao)
 }
+function cadastrarContainer(codigo, nome, fkEmpresa, fkFaixaTemperatura) {
+    var instrucao = `INSERT INTO Container values 
+                        (null, '${codigo}','${nome}',${fkEmpresa},${fkFaixaTemperatura}, 1);` 
+    database.executar(instrucao)
+
+    instrucao = `INSERT INTO sensor VALUES
+                 (null, now(), 1, 
+                 (select max(idContainer) from container)
+                 );`;
+    return database.executar(instrucao)
+}
+
 module.exports = {
     listarEmpresa,
     listarContainer,
-    contarContainer
+    contarContainer,
+    cadastrarContainer
 }
