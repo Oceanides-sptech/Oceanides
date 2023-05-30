@@ -181,7 +181,7 @@
             </div>
 
             <div class="info-kpi">
-              <span> 2 </span>
+              <span id="Containers_risco"> 0 </span>
             </div>
           </div>
         </div>
@@ -210,6 +210,7 @@
   var atualizarAlertas = setInterval(()=> {
     obterContainersAlertas()
     Containers_alerta.innerHTML = qtdContainerEmergencia;
+    Containers_risco.innerHTML = qtdContainerCritico;
     
   }, 5000)
   </script>
