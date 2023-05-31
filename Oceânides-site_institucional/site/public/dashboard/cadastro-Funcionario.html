@@ -14,13 +14,9 @@
       rel="stylesheet"
       href="../assets/css/style-cadastrar-funcionario.css"
     />
-
-
-
   </head>
   <body onload="validarSessao(), verificarAdm(), listarFuncionario()">
     <div id="dashboard">
-      <div id="div_alertas"></div>
       <div id="menu-aberto" class="menu">
         <div id="menu-botao-infos">
           <div onclick="abrirFecharMenu()" class="icone-botao">
@@ -157,7 +153,6 @@
       </div>
 
       <div id="conteudo" class="conteudo">
-
         <div class="usuario">
           <p class="titulo">Cadastrar Funcionário</p>
           <div class="inputs">
@@ -189,29 +184,26 @@
             </div>
           </div>
 
-          
-
           <button class="botao-cadastro" onclick="validar()">
             Cadastrar Funcionário
           </button>
 
           <div id="mensagem"></div>
         </div>
-        <div class="tabela">
+       
           <div class="lista">
-                  <table id="listaPessoal">
-                    <tr>
-                      <th>Nome</th>
-                      <th>Email</th>
-                      <th>Função</th>
-                    </tr>
+            <div class="cabecalho">
+                <div class="itemCabecalho"><span>Nome</span></div>
+                <div class="itemCabecalho"><span>Email</span></div>
+                <div class="itemCabecalho"><span>Função</span></div>  
+            </div>
+            <div id="listaFuncionarios">
 
-                 
 
-                  </table>
+
+            </div>
           </div>
-        </div>
-
+        
       </div>
     </div>
   </body>
@@ -220,14 +212,10 @@
 <script src="../assets/js/dashboardCadastroFuncionario.js"></script>
 
 <script src="../assets/js/funções.js"></script>
+<script></script>
 <script>
-
+  obterContainersAlertas();
+  var atualizarAlertas = setInterval(() => {
+    obterContainersAlertas();
+  }, 5000);
 </script>
-<script>
-  obterContainersAlertas()
-  var atualizarAlertas = setInterval(()=> {
-    obterContainersAlertas()
-    
-  }, 5000)
-  </script>
-  

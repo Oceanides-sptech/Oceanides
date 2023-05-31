@@ -227,4 +227,12 @@ div.icone-botao.fechado {
   z-index: 1;
   bottom: 0px;
   right: 0px;
+  overflow-y: scroll;
+  height: 580px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  
+}
+
+#div_alertas::-webkit-scrollbar {
+  display: none;
 }
