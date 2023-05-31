@@ -20,6 +20,7 @@ function obterDadosContainer() {
     var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
     contextoDht11Umidade.canvas.width = 1000;
     contextoDht11Umidade.canvas.height = 300;
+
     var dht11Umidade = new Chart(
         contextoDht11Umidade,
         {
@@ -34,13 +35,13 @@ function obterDadosContainer() {
             },
             options: {
                 scales: {
-                    xAxes: [{
+                    x: {
                         distribution: 'series',
                         ticks: {
                             beginAtZero: true
                         }
-                    }],
-                    yAxes: [{
+                    },
+                    y: {
                         scaleLabel: {
                             display: true,
                             labelString: 'Umidade'
@@ -48,7 +49,7 @@ function obterDadosContainer() {
                         ticks: {
                             beginAtZero: true
                         }
-                    }]
+                    }
                 },
                 animation: {
                     duration: 0
@@ -75,13 +76,13 @@ function obterDadosContainer() {
             },
             options: {
                 scales: {
-                    xAxes: [{
+                    x: {
                         distribution: 'series',
                         ticks: {
                             beginAtZero: true
                         }
-                    }],
-                    yAxes: [{
+                    },
+                    y: {
                         scaleLabel: {
                             display: true,
                             labelString: 'Temperatura'
@@ -89,7 +90,7 @@ function obterDadosContainer() {
                         ticks: {
                             beginAtZero: true
                         }
-                    }]
+                    }
                 },
                 animation: {
                     duration: 0
@@ -137,13 +138,13 @@ function obterDadosContainer() {
             }
             if(grafico == dht11Umidade){
               try {
-                umidadeAtual = dados.umidade;
+                umidadeAtual = Number(dados.umidade);
               } catch (error) {
                 console.log(error)
               }
             }else{
               try {
-                tempAtual = dados.temperatura  
+                tempAtual = Number(dados.temperatura)  
               } catch (error) {
                 console.log("Não pegou")
               }

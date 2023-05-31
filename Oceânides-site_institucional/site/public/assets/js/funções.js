@@ -151,20 +151,25 @@ function verificarAlerta(resposta) {
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
     qtdContainerCritico++
   }
-  var porcentagemAlerta = (qtdContainerEmergencia * 100)/containersTotal + " %";
-  var porcentagemCritico = (qtdContainerCritico * 100)/containersTotal + " %";
-  console.log(porcentagemAlerta, porcentagemCritico)
-  if(porcentagemAlerta == Infinity){
-    Containers_alerta.innerHTML = "..."
-  }else{
-    Containers_alerta.innerHTML = porcentagemAlerta
+  try {
+    var porcentagemAlerta = (qtdContainerEmergencia * 100)/containersTotal;
+    var porcentagemCritico = (qtdContainerCritico * 100)/containersTotal;
+    console.log(porcentagemAlerta, porcentagemCritico)
+    if(porcentagemAlerta == Infinity){
+      Containers_alerta.innerHTML = "..."
+    }else{
+      Containers_alerta.innerHTML = porcentagemAlerta.toFixed(2) + "%"
+    }
+    if(porcentagemCritico == NaN){
+      Containers_risco.innerHTML = "..."
+    }else{
+      Containers_risco.innerHTML = porcentagemCritico.toFixed(2) + "%"
+    }
+     
+  } catch (error) {
+    
   }
-  if(porcentagemCritico == NaN){
-    Containers_risco.innerHTML = "..."
-  }else{
-    Containers_risco.innerHTML = porcentagemCritico
-  }
-   
+ 
 }
 
 function adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso) {
@@ -184,12 +189,14 @@ function removerAlerta(idContainer) {
 }
 
 function exibirAlertas() {
-  div_alertas.innerHTML = ""
-  for(var i = 0; i < alertas.length; i++) {
-    var infoAlerta = alertas[i]
-    div_alertas.innerHTML += transformarEmDiv(infoAlerta)
+  try {
+    div_alertas.innerHTML = ""
+    for(var i = 0; i < alertas.length; i++) {
+      var infoAlerta = alertas[i]
+      div_alertas.innerHTML += transformarEmDiv(infoAlerta)
+    }
+  } catch (error) {
   }
-
 }
 
 function transformarEmDiv(info) {
