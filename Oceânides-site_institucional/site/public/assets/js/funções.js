@@ -16,11 +16,11 @@ function validarSessao() {
 var idEmpresa = sessionStorage.ID_EMPRESA;
 
 function verificarAdm() {
-  if (sessionStorage.FK_ADM == "null") {
+   if (sessionStorage.FK_ADM == "null") {
     span_nivel.innerHTML = "<span class='info'>Nível:</span> ADM";
-    itens.innerHTML += `
+     itens.innerHTML += `
         <a href="cadastro-Funcionario.html">
-        <div class="item">
+        <div id="div_cadastro_funcionario" class="item">
           <div class="icone-botao">
             <svg
               style="width: 22px"
@@ -39,7 +39,7 @@ function verificarAdm() {
 
     itens_fechados.innerHTML += `
         <a href="cadastro-Funcionario.html">
-                      <div class="item">
+                      <div id="div_cadastro_funcionario_fechado" class="item">
                         <div class="icone-botao">
                           <svg
                             style="width: 22px"
@@ -54,9 +54,21 @@ function verificarAdm() {
                       </div>
                     </a>
         `;
-  } else {
+  try {
+    botao_ativar.innerHTML = `
+    <a href="cadastro-container.html"
+              ><img src="../assets/icons/icon_add.svg" alt=""
+            /></a>
+    `
+  } catch (error) {
+    console.log(error)
+  }
     span_nivel.innerHTML = "Nível: Comum";
   }
+}
+
+function ativarTab() {
+
 }
 
 function limparSessao() {

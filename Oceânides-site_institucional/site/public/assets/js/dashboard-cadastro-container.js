@@ -26,6 +26,6 @@ function cadastrar(nome, faixa, codigo) {
             codigoServer: codigo
         })
     }).then(function(resposta){
-        console.log("Container cadastrado com sucesso");
+      div_mensagem_confirmacao.innerHTML = "Container cadastrado com sucesso"
     })
 }

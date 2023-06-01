@@ -1,7 +1,7 @@
 .usuario {
   display: flex;
   justify-content: center;
-  width: 70%;
+  width: 60%;
   height: 100%;
   gap: 20px;
 
@@ -14,7 +14,7 @@
 .conteudo {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 94.5%;
   display: flex;
   padding: 0px;
   justify-content: space-evenly;

@@ -56,6 +56,7 @@ function cadastrarFuncionario(nome, email, senha, funcao) {
     resposta.json().then(function (json) {
       if (resposta.ok) {
         console.log(json);
+        
         setTimeout(() => {
           window.location.reload();
         }, 1000);
