@@ -63,13 +63,12 @@ function verificarAdm() {
   } catch (error) {
     console.log(error)
   }
+  }else{
     span_nivel.innerHTML = "Nível: Comum";
   }
 }
 
-function ativarTab() {
 
-}
 
 function limparSessao() {
   // aguardar();
