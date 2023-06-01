@@ -86,7 +86,7 @@ async function obterContainersAlertas() {
     if (resposta.ok) {
       resposta.json().then((json) => {
         for (var i = 0; i < json.length; i++) {
-          console.log(json[i])
+        
           var containerAlertaAtual = json[i] 
 
           verificarAlerta(containerAlertaAtual)
@@ -102,7 +102,7 @@ async function obterContainersContagem(){
   }).then(function (resposta){
     if (resposta.ok) {
         resposta.json().then((json)=>{
-          console.log(json);
+        
           containersTotal = json[0].Contagem_Container;
           Total_containers.innerHTML = json[0].Contagem_Container;
         })
@@ -122,7 +122,7 @@ function verificarAlerta(resposta) {
   var nome = resposta.nomeContainer
   var classe = ""
   var textoAviso = ""
-  console.log(temperatura, idContainer, nome)
+
   var alertasTemperaturas = {
     temperaturaMuitoQuente: Number(resposta.temperaturaAltaCritica),
     temperaturaQuente: Number(resposta.temperaturaAltaAlerta),
@@ -165,7 +165,7 @@ function verificarAlerta(resposta) {
   try {
     var porcentagemAlerta = (qtdContainerEmergencia * 100)/containersTotal;
     var porcentagemCritico = (qtdContainerCritico * 100)/containersTotal;
-    console.log(porcentagemAlerta, porcentagemCritico)
+   
     if(porcentagemAlerta == Infinity){
       Containers_alerta.innerHTML = "..."
     }else{
@@ -227,7 +227,7 @@ function transformarEmDiv(info) {
 
 function abrirContainer(id) {
   var containerEscolhido = id
-  console.log(id)
+ 
   sessionStorage.ID_CONTAINER_INDIVIDUAL = id
   window.location.href = 'container-individual.html'
 }

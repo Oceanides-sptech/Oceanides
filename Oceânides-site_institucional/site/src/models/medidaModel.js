@@ -29,11 +29,23 @@ function buscarTemperaturaUmidade(idContainer) {
     return database.executar(instrucao)
 }
 
-
+function buscarMediaTemperaturaUmidade(idEmpresa){
+    var instrucao = `SELECT  
+	CASE 
+    WHEN fkFaixaTemperatura = 1 THEN (SELECT truncate(avg(temperatura * 0.09345 - 1.90654),2)) 
+	WHEN fkFaixaTemperatura = 2 THEN (SELECT  truncate(avg(temperatura * 0.467228972 - 6.53),2)) 
+	WHEN fkFaixaTemperatura = 3 THEN (SELECT truncate(avg(temperatura * 0.373832 + 2.373832),2)) 
+    end as temperatura, truncate(avg(umidade),2) as umidade,fkFaixaTemperatura
+ from registro JOIN sensor ON fkSensor = idSensor 
+    JOIN container ON fkContainer = idContainer
+    where fkEmpresaContainer = ${idEmpresa}
+		GROUP BY fkFaixaTemperatura;`;
+        return database.executar(instrucao)
+}
 
 
 
 module.exports = {
-
-    buscarTemperaturaUmidade
+    buscarTemperaturaUmidade,
+    buscarMediaTemperaturaUmidade
 }

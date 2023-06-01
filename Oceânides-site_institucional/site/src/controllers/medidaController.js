@@ -10,7 +10,15 @@ function buscarTemperaturaUmidade(req, res) {
 }
 
 
-module.exports = {
+function buscarMediaTemperaturaUmidade(req, res) {
+    var idEmpresa = req.params.idEmpresa
+    medidaModel.buscarMediaTemperaturaUmidade(idEmpresa).then(function(resposta) {
+        res.status(200).json(resposta)
+    })
+}
 
-    buscarTemperaturaUmidade
+
+module.exports = {
+    buscarTemperaturaUmidade,
+    buscarMediaTemperaturaUmidade
 }

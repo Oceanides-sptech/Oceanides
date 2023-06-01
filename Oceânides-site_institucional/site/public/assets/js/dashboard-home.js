@@ -1,19 +1,32 @@
-const graficoBarras = document.getElementById("graficoBarras");
-new Chart(graficoBarras, {
+var medias = [];
+
+async function obterMedias(){
+  await fetch(`/medidas/obterMediaTemperaturaUmidade/${sessionStorage.ID_EMPRESA}`, {
+    method: "get",
+  }).then(function(resposta){
+    resposta.json().then((json)=>{
+      console.log(json);
+      medias = json
+    }).then(function() {
+      plotarGraficosBarras()
+    })
+  })
+}
+var dadosGraficosBarras = {
   type: "bar",
   data: {
     labels: ["Média Baixa", "Média Intermediária", "Média Alta"],
     datasets: [
       {
         label: "Temperatura",
-        data: [1, 6, 12],
+        data: [0, 0, 0],
         backgroundColor: "#FFD90F",
         borderColor: "#FFD90F",
         borderWidth: 1,
       },
       {
         label: "Umidade",
-        data: [92, 91, 95],
+        data: [0, 0, 0],
         backgroundColor: "#00AFEF",
         borderColor: "#00AFEF",
         borderWidth: 1,
@@ -33,7 +46,22 @@ new Chart(graficoBarras, {
       },
     },
   },
-});
+}
+
+const graficoBarras = document.getElementById("graficoBarras");
+
+var geracaoGraficoBarras = new Chart(graficoBarras, dadosGraficosBarras);
+
+function plotarGraficosBarras(){
+  for (var i = 0; i < medias.length; i++){
+    var mediaAtual = medias[i];
+
+    dadosGraficosBarras.data.datasets[0].data[i] = mediaAtual.temperatura
+    dadosGraficosBarras.data.datasets[1].data[i] = mediaAtual.umidade
+  }
+
+  geracaoGraficoBarras.update()
+}
 
 const graficoPizza = document.getElementById("graficoPizza");
 new Chart(graficoPizza, {
