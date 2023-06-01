@@ -39,7 +39,7 @@ function cadastrar(req, res) {
         })
             }else{
                 var erro = "CNPJ já cadastrado!"
-                res.status(403).send(erro)
+                res.status(403).json(erro)
             }
         })
     }

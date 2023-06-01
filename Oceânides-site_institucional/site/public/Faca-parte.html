@@ -159,6 +159,9 @@ function finalizarAguardar() {
                   window.open(link)
                   finalizarAguardar()
                 }else{
+                  mensagem_de_confirmacao.innerHTML = '<p style= "color: #DC3545"> CNPJ já existente</p>'
+                  div_input_cnpj.style.borderColor = "#DC3545"
+                  finalizarAguardar()
                   console.log(json)
                 }
             })

@@ -25,7 +25,7 @@ function buscarTemperaturaUmidade(idContainer) {
     JOIN container ON fkContainer = idContainer 
     JOIN faixaUmidade ON fkFaixaUmidade = idFaixaUmidade
     JOIN faixaTemperatura ON fkFaixaTemperatura = idFaixaTemperatura
-    WHERE idContainer = ${idContainer} ORDER BY momento_grafico LIMIT 11;`
+    WHERE idContainer = ${idContainer} ORDER BY momento_grafico DESC LIMIT 11;`
     return database.executar(instrucao)
 }
 

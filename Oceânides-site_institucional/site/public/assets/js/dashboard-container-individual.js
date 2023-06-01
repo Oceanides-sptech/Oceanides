@@ -111,6 +111,7 @@ function obterDadosContainer() {
         http.open('GET', `http://localhost:3333/medidas/temperatura-umidade/${idContainer}`, false);
         http.send(null);
         var valores = JSON.parse(http.responseText);
+        valores = valores.reverse()
         console.log(valores)
         if (linhas[endpoint] == null) {
             linhas[endpoint] = 0;
@@ -130,6 +131,7 @@ function obterDadosContainer() {
       
         p_critico_baixo.innerHTML = `${container.temperaturaBaixaCritica} °C | ${container.umidadeBaixaCritica} %`
         console.log(valores)
+       
         valores.forEach((dados) => {
             //Máximo de 60 itens exibidos no gráfico
             if ( grafico.data.datasets[0].data.length == 10) {
