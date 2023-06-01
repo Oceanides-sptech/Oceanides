@@ -10,7 +10,6 @@ CNPJEmpresa CHAR (18),
 emailEmpresa VARCHAR (45)
 );
 
-
 Create table usuario (
 idUsuario INT auto_increment,
 nomeUsuario VARCHAR (50),
@@ -54,22 +53,6 @@ CONSTRAINT fkFaixaTemperatura FOREIGN KEY (fkFaixaTemperatura) REFERENCES faixaT
 CONSTRAINT fkFaixaUmidade FOREIGN KEY (fkFaixaUmidade) REFERENCES faixaUmidade(idFaixaUmidade)
 );
 
-
-CREATE TABLE porto (
-IdPorto INT PRIMARY KEY AUTO_INCREMENT,
-siglaPorto VARCHAR (5),
-paisPorto VARCHAR (10)
-);
-
-CREATE TABLE rota (
-idRota INT,
-fkContainer INT,
-CONSTRAINT FkContainer FOREIGN KEY (fkContainer) REFERENCES container(idContainer),
-fkPorto INT,
-CONSTRAINT Fkporto FOREIGN KEY (fkPorto) REFERENCES Porto(idPorto),
-CONSTRAINT PkRota PRIMARY KEY (idRota , fkContainer, fkPorto)
-);
-
 CREATE TABLE sensor (
 idSensor INT PRIMARY KEY AUTO_INCREMENT,
 dtInstalacao DATETIME,
@@ -103,39 +86,7 @@ INSERT INTO faixaTemperatura VALUES
 INSERT INTO faixaUmidade VALUES 
 (1, 95, 91.34, 90.46, 90.45, 90);
 
-INSERT INTO container VALUES
-(null,'ABCD1111111', 'Container Uvas', 1, 1, default),
-(null,'ABCD2222222', 'Container Laranjas', 1, 2, default),
-(null,'ABCD3333333', 'Container Mamões', 1, 3, default),
-(null,'ABCD4444444', 'Container Bananas', 1, 3, default),
-(null,'ABCD5555555', 'Container Mangas', 1, 3, default);
-
 SELECT * FROM container;
-
-INSERT INTO porto VALUES
-(null, 'BR', 'Brasil'),
-(null, 'US', 'EUA'),
-(null, 'FR', 'França'),
-(null, 'JP', 'Japão'),
-(null, 'CN', 'China');
-
-INSERT INTO rota VALUES
-(1, 5, 2),
-(2, 3, 1),
-(3, 4, 4),
-(4, 2, 5),
-(5, 1, 3);
-
-INSERT INTO sensor VALUES
-(null, '2023-04-18 10:00:00', 1, 1),
-(null, '2023-04-18 11:30:00', 1, 2),
-(null, '2023-04-18 12:45:00', 1, 3),
-(null, '2023-04-18 14:15:00', 1, 4),
-(null, '2023-04-18 15:30:00', 1, 5);
-
-INSERT INTO registro VALUES
-(null, default, 24, 93, 1);
-
 
  -- SELECTS DA DASHBOARD
  -- SELECT DA TELA DE CONTAINER:
