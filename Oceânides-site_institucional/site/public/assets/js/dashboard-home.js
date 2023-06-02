@@ -63,38 +63,7 @@ function plotarGraficosBarras(){
   geracaoGraficoBarras.update()
 }
 
-const graficoPizza = document.getElementById("graficoPizza");
-new Chart(graficoPizza, {
-  type: "pie",
-  data: {
-    labels: [
-      "Crítico Frio", 
-      "Emergência Frio",
-      "Ideal",
-      "Emergência Quente",
-      "Crítico Quente"
-    ],
-    datasets: [
-      {
-        label: "Containers",
-        data: [1, 0, 7, 0, 1],
-        backgroundColor: [
-          "#6f42c1", 
-          "#00afef",
-          "#00a91b",
-          "#fd7e14",
-          "#dc3545"
-        ],
-        hoverOffset: 4,
-      },
-    ],
-  },
-  options: {
-    plugins: {
-      title: {
-        display: true,
-        text: "Quantidade de containers por alerta",
-      },  
-    },
-  },
-});
+obterMedias()
+function plotarGraficoPizza() {
+  geracaoGraficoPizza.update()
+}

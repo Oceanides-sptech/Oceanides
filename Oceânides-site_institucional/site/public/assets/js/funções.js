@@ -115,6 +115,48 @@ var qtdContainer = 0;
 var qtdContainerCritico = 0;
 var qtdContainerEmergencia = 0;
 
+var qtdCriticoFrio = 0
+var qtdEmergenciaFrio = 0
+var qtdIdeal = 0
+var qtdEmergenciaQuente = 0
+var qtdCriticoQuente = 0
+
+
+var jsonGraficoPizza = {
+  type: "pie",
+  data: {
+    labels: [
+      "Crítico Frio", 
+      "Emergência Frio",
+      "Ideal",
+      "Emergência Quente",
+      "Crítico Quente"
+    ],
+    datasets: [
+      {
+        label: "Containers",
+        data: [0, 0, 0, 0, 0],
+        backgroundColor: [
+          "#6f42c1", 
+          "#00afef",
+          "#00a91b",
+          "#fd7e14",
+          "#dc3545"
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: "Quantidade de containers por alerta",
+      },  
+    },
+  },
+}
+
 function verificarAlerta(resposta) {
 
   var temperatura = resposta.temperatura
@@ -135,6 +177,7 @@ function verificarAlerta(resposta) {
     textoAviso = "Crítico quente"
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
     qtdContainerCritico++
+    qtdCriticoQuente++
   } else if (
     temperatura < alertasTemperaturas.temperaturaMuitoQuente &&
     temperatura >= alertasTemperaturas.temperaturaQuente
@@ -143,10 +186,11 @@ function verificarAlerta(resposta) {
     textoAviso = "Emergência quente"
 
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
-    
     qtdContainerEmergencia++
+    qtdEmergenciaQuente++
   } else if (temperatura < alertasTemperaturas.temperaturaQuente && temperatura > alertasTemperaturas.temperaturaFria) {
     classe = "ideal";
+    qtdIdeal++
     removerAlerta(idContainer)
   } else if (
     temperatura <= alertasTemperaturas.temperaturaFria &&
@@ -156,12 +200,17 @@ function verificarAlerta(resposta) {
     textoAviso = "Emergência fria"
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
     qtdContainerEmergencia++
+    qtdEmergenciaFrio++
   } else if (temperatura <= alertasTemperaturas.temperaturaMuitoFria) {
     classe = "critico-frio";
     textoAviso = "Crítico frio"
     adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso)
     qtdContainerCritico++
+    qtdCriticoFrio++
   }
+
+jsonGraficoPizza.data.datasets[0].data = [qtdCriticoFrio, qtdContainerEmergencia, qtdIdeal, qtdEmergenciaQuente, qtdCriticoQuente]
+ 
   try {
     var porcentagemAlerta = (qtdContainerEmergencia * 100)/containersTotal;
     var porcentagemCritico = (qtdContainerCritico * 100)/containersTotal;
@@ -180,8 +229,9 @@ function verificarAlerta(resposta) {
   } catch (error) {
     
   }
- 
+  
 }
+
 
 function adicionarAlerta(nome, temperatura, idContainer, classe, textoAviso) {
   var indice = alertas.findIndex(item => item.idContainer == idContainer)

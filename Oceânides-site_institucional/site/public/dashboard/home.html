@@ -191,19 +191,32 @@
 </body>
 
 </html>
-<script src="../assets/js/dashboard-menu.js"></script>
-<script src="../assets/js/dashboard-home.js"></script>
 <script src="../assets/js/funções.js"></script>
+<script src="../assets/js/dashboard-home.js"></script>
+<script src="../assets/js/dashboard-menu.js"></script>
+
+
 <script>
   obterContainersContagem()
   obterContainersAlertas()
- 
+  
+  const graficoPizza = document.getElementById("graficoPizza");
+  var geracaoGraficoPizza = new Chart(graficoPizza, jsonGraficoPizza);
+  plotarGraficoPizza()
+
   var atualizarAlertas = setInterval(() => {
     qtdContainerEmergencia = 0;
     qtdContainerCritico = 0;
+    qtdCriticoFrio = 0
+    qtdEmergenciaFrio = 0
+    qtdIdeal = 0
+    qtdEmergenciaQuente = 0
+    qtdCriticoQuente = 0
     obterContainersContagem()
     obterContainersAlertas()
-    
+
+    plotarGraficoPizza()
 
   }, 2000)
+
 </script>
