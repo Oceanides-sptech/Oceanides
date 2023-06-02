@@ -167,6 +167,8 @@
           } else if (validade - dias > 15 && validade - dias <= 25) {
             // caso ultrapasse de 15 dias, o ganho por container cai para 45%
             ganho_atual = valorPorContainer - valorPorContainer * 0.55;
+          } else {
+            ganho_atual = valorPorContainer - valorPorContainer * 0.40;
           }
 
           // Para os serviços Oceanides, as regras aplicadas são as mesmas.
@@ -179,6 +181,9 @@
             // caso se passe mais de 15 dias, nossos serviços conseguem manter um bom controle,
             // tendo cerca de 43,5% de eficiencia a mais que um serviço convencional.
             ganhos_oceanides = valorPorContainer - valorPorContainer * 0.115;
+          } else {
+                ganhos_oceanides = valorPorContainer - valorPorContainer * 0.175;
+
           }
 
           grafico.data.labels[0] = "Lucro atual";
