@@ -73,7 +73,7 @@ input {
   background: #0098ce;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.25);
   border-radius: 60px;
-  border: 0;
+  border: 1px transparent;
   width: 100%;
   font-family: var(--fonteTitulos);
   font-weight: bolder;
@@ -81,8 +81,14 @@ input {
   line-height: 15px;
   color: #ffffff;
   cursor: pointer;
+  transition: 0.6s;
 }
-
+#botao-cadastro:hover{
+  background: #ffffff;
+  color: #0098ce;
+  border: 1px solid #0098ce;
+  transition: 0.6s;
+}
 .opcoes {
   display: flex;
   font-size: 15px;

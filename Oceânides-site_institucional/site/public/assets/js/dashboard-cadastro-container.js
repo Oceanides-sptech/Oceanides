@@ -26,6 +26,19 @@ function cadastrar(nome, faixa, codigo) {
             codigoServer: codigo
         })
     }).then(function(resposta){
-      div_mensagem_confirmacao.innerHTML = "Container cadastrado com sucesso"
+      div_mensagem_confirmacao.innerHTML = "<span  style= 'color: #00a91b' >Container ativado com sucesso</span>"
+      setTimeout(function() {
+        div_mensagem_confirmacao.innerHTML = "<span  style= 'color: #00a91b' >Container ativado com sucesso.</span>"
+      },1000)
+      setTimeout(function() {
+        div_mensagem_confirmacao.innerHTML = "<span  style= 'color: #00a91b' >Container ativado com sucesso..</span>"
+      },2000)
+      setTimeout(function() {
+        div_mensagem_confirmacao.innerHTML = "<span  style= 'color: #00a91b' >Container ativado com sucesso...</span>"
+
+      },3000)
+      setTimeout(function() {
+        window.location.href = "containers.html"
+      },4000)
     })
 }
