@@ -79,10 +79,10 @@ function contarContainer(idEmpresa){
     `;
     return database.executar(instrucao)
 }
-function cadastrarContainer(codigo, nome, fkEmpresa, fkFaixaTemperatura) {
+async function cadastrarContainer(codigo, nome, fkEmpresa, fkFaixaTemperatura) {
     var instrucao = `INSERT INTO Container values 
                         (null, '${codigo}','${nome}',${fkEmpresa},${fkFaixaTemperatura}, 1);` 
-    database.executar(instrucao)
+    await database.executar(instrucao)
 
     instrucao = `INSERT INTO sensor VALUES
                  (null, now(), 1, 
