@@ -35,6 +35,7 @@ async function buscarTemp () {
       .then((data) => {
         temperatura = data.main.temp;
         umidade = data.main.humidity
+        umidade = umidade * 0.08929 + 86.5179;
        console.log(`UMIDADE: ${umidade}, \n TEMPERATURA: ${temperatura}`);
       });
 
